@@ -38,7 +38,7 @@ export default function HeroSection() {
   const [q, setQ] = useState("");
 
   return (
-    <section className="relative overflow-hidden section-py section-px scanlines">
+    <section className="relative overflow-hidden py-16 lg:py-24 px-4 sm:px-6 scanlines">
       {/* Background */}
       <div className="absolute inset-0 grid-bg opacity-50" />
       <div className="absolute top-0 left-1/4 w-[800px] h-[600px] rounded-full opacity-30 float"

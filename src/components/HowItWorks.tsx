@@ -11,7 +11,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="section-py section-px relative overflow-hidden" style={{ background: "var(--bg2)" }}>
+    <section id="how-it-works" className="py-16 lg:py-24 px-4 sm:px-6 relative overflow-hidden" style={{ background: "var(--bg2)" }}>
       <div className="absolute inset-0 dot-bg opacity-30" />
 
       <div className="relative max-w-6xl mx-auto">

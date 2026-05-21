@@ -15,7 +15,7 @@ const laws = ["Luật TM 2005 (sửa 2019)","NĐ 52/2013/NĐ-CP","NĐ 13/2023/N�
 
 export default function LegalSection() {
   return (
-    <section id="legal" className="section-py section-px" style={{ background: "var(--bg2)" }}>
+    <section id="legal" className="py-16 lg:py-24 px-4 sm:px-6" style={{ background: "var(--bg2)" }}>
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-3"

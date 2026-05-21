@@ -164,11 +164,6 @@ h1,h2,h3,h4,h5,h6 { font-family: 'Russo One', sans-serif; line-height: 1.15; }
   z-index: 1;
 }
 
-/* Section spacing tokens */
-.section-py { padding-top: clamp(3rem, 6vw, 5rem); padding-bottom: clamp(3rem, 6vw, 5rem); }
-.section-px { padding-left: 1rem; padding-right: 1rem; }
-@media (min-width: 640px) { .section-px { padding-left: 1.5rem; padding-right: 1.5rem; } }
-
 /* Section divider hairline */
 .divider-gradient {
   height: 1px; width: 100%;

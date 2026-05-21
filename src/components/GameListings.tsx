@@ -61,7 +61,7 @@ export default function GameListings() {
   const filtered = tab === "all" ? all : all.filter(a => a.gameKey === tab);
 
   return (
-    <section id="listings" className="section-py section-px" style={{ background: "var(--bg2)" }}>
+    <section id="listings" className="py-16 lg:py-24 px-4 sm:px-6" style={{ background: "var(--bg2)" }}>
       <div className="max-w-7xl mx-auto">
 
         {/* Section header */}

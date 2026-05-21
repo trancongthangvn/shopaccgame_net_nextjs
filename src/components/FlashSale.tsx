@@ -25,7 +25,7 @@ export default function FlashSale() {
   const pad = (n: number) => n.toString().padStart(2, "0");
 
   return (
-    <section id="flash" className="section-py section-px relative overflow-hidden">
+    <section id="flash" className="py-16 lg:py-24 px-4 sm:px-6 relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[400px] opacity-20"
         style={{ background:"radial-gradient(ellipse,#f43f5e 0%,transparent 60%)", filter:"blur(80px)" }} />
 

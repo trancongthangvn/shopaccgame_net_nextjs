@@ -13,7 +13,7 @@ const cats = [
 
 export default function CategoriesGrid() {
   return (
-    <section id="categories" className="section-py section-px">
+    <section id="categories" className="py-16 lg:py-24 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}

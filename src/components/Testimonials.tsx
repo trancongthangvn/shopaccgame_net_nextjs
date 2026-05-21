@@ -26,7 +26,7 @@ const reviews = [
 
 export default function Testimonials() {
   return (
-    <section className="section-py section-px">
+    <section className="py-16 lg:py-24 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-3">
