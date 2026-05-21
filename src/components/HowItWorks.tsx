@@ -1,68 +1,64 @@
-import { UserPlus, PenLine, MessageSquare, Handshake, ArrowRight } from "lucide-react";
+import { Search, MessageSquare, Handshake, ArrowRight } from "lucide-react";
 
 const steps = [
-  { n:"01", icon:UserPlus,      title:"Đăng Ký",         color:"#7c3aed",
-    desc:"Tạo tài khoản miễn phí với email hoặc số điện thoại. Xác minh danh tính để tăng uy tín." },
-  { n:"02", icon:PenLine,       title:"Đăng Tin",         color:"#f43f5e",
-    desc:"Mô tả chi tiết tài khoản game: rank, số tướng, skin, server và thông tin liên lạc." },
-  { n:"03", icon:MessageSquare, title:"Người Mua Liên Hệ",color:"#a78bfa",
-    desc:"Người quan tâm liên hệ trực tiếp qua hệ thống tin nhắn nội bộ hoặc thông tin để lại." },
-  { n:"04", icon:Handshake,     title:"Tự Giao Dịch",    color:"#10b981",
-    desc:"Hai bên tự thỏa thuận giá cả, thanh toán và bàn giao tài khoản. Nền tảng không can thiệp." },
+  { n:"01", icon:Search,         title:"Tìm Kiếm",    color:"#7c3aed", c2:"#a855f7",
+    desc:"Lọc tin đăng theo game, rank, giá. So sánh và chọn acc phù hợp với nhu cầu của bạn." },
+  { n:"02", icon:MessageSquare,  title:"Liên Hệ",     color:"#f43f5e", c2:"#fb7185",
+    desc:"Chat trực tiếp với người bán qua hệ thống nội bộ. Xác minh thông tin trước khi giao dịch." },
+  { n:"03", icon:Handshake,      title:"Giao Dịch",   color:"#10b981", c2:"#34d399",
+    desc:"Hai bên tự thỏa thuận thanh toán và bàn giao acc. Nền tảng không can thiệp hay giữ tiền." },
 ];
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 px-4 sm:px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#9f67ff" }}>Quy Trình</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl" style={{ fontFamily: "var(--font-russo),sans-serif" }}>
-            <span style={{ color: "var(--fg)" }}>Hoạt Động </span>
-            <span className="grad-purple">Như Thế Nào?</span>
+    <section id="how-it-works" className="py-20 px-4 sm:px-6 relative overflow-hidden" style={{ background: "var(--bg2)" }}>
+      <div className="absolute inset-0 dot-bg opacity-30" />
+
+      <div className="relative max-w-6xl mx-auto">
+        <div className="text-center mb-14">
+          <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#10b981" }}>Quy Trình</span>
+          <h2 className="text-3xl sm:text-4xl mt-2 mb-3" style={{ fontFamily: "var(--font-russo),sans-serif" }}>
+            <span style={{ color: "var(--fg)" }}>Mua Bán </span>
+            <span className="grad-green">Chỉ 3 Bước</span>
           </h2>
-          <p className="mt-3 text-sm max-w-md mx-auto" style={{ color: "var(--fg3)" }}>
-            4 bước đơn giản — minh bạch, không trung gian giữ tiền
+          <p className="text-sm max-w-md mx-auto" style={{ color: "var(--fg2)" }}>
+            Quy trình đơn giản — không trung gian giữ tiền, không phí ẩn
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {steps.map((s, i) => {
             const Icon = s.icon;
             return (
               <div key={s.n} className="relative group">
-                {/* Arrow connector */}
-                {i < 3 && (
-                  <div className="hidden lg:flex absolute top-10 -right-3 z-10 items-center justify-center w-6 h-6">
-                    <ArrowRight className="w-4 h-4" style={{ color: s.color + "66" }} />
+                {/* Connector */}
+                {i < 2 && (
+                  <div className="hidden md:flex absolute top-12 -right-4 lg:-right-5 z-10 w-8 h-8 rounded-full items-center justify-center"
+                    style={{ background: "var(--bg2)" }}>
+                    <ArrowRight className="w-4 h-4" style={{ color: s.color + "88" }} />
                   </div>
                 )}
 
-                <div className="relative rounded-2xl p-6 h-full transition-all duration-300 border-glow-hover" style={{ background: "var(--surface)" }}>
-                  {/* Glow on hover */}
-                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{ background: `radial-gradient(circle at top left,${s.color}10,transparent 60%)` }} />
-
-                  {/* Step number */}
-                  <div className="absolute top-4 right-4 text-4xl font-bold leading-none select-none"
-                    style={{ fontFamily: "var(--font-russo),sans-serif", color: s.color + "18" }}>
+                <div className="card card-hover p-6 lg:p-8 h-full relative">
+                  {/* Big number */}
+                  <div className="absolute top-4 right-4 text-5xl font-bold leading-none select-none opacity-10"
+                    style={{ fontFamily: "var(--font-russo),sans-serif", color: s.color }}>
                     {s.n}
                   </div>
 
                   {/* Icon */}
-                  <div className="relative w-12 h-12 rounded-2xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
-                    style={{ background: `linear-gradient(135deg,${s.color}28,${s.color}12)`, border: `1px solid ${s.color}33` }}>
-                    <Icon className="w-5 h-5" style={{ color: s.color }} />
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 relative"
+                    style={{
+                      background: `linear-gradient(135deg,${s.color},${s.c2})`,
+                      boxShadow: `0 8px 24px ${s.color}44`,
+                    }}>
+                    <Icon className="w-6 h-6 text-white" />
                   </div>
 
-                  <h3 className="font-bold text-base mb-3 relative" style={{ fontFamily: "var(--font-russo),sans-serif", color: "var(--fg)" }}>
+                  <h3 className="font-bold text-lg mb-3" style={{ fontFamily: "var(--font-russo),sans-serif", color: "var(--fg)" }}>
                     {s.title}
                   </h3>
-                  <p className="text-sm leading-relaxed relative" style={{ color: "var(--fg2)" }}>
-                    {s.desc}
-                  </p>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--fg2)" }}>{s.desc}</p>
                 </div>
               </div>
             );
@@ -70,9 +66,10 @@ export default function HowItWorks() {
         </div>
 
         {/* Note */}
-        <div className="mt-8 p-5 rounded-2xl text-sm leading-relaxed text-center"
-          style={{ background: "rgba(124,58,237,0.06)", border: "1px solid rgba(124,58,237,0.18)", color: "var(--fg2)" }}>
-          <strong style={{ color: "var(--purple3)" }}>Quan trọng:</strong> ShopAccGame.net là sàn đăng tin quảng cáo (classified ads). Chúng tôi không tham gia, không giữ tiền, và không chịu trách nhiệm về tranh chấp giữa các bên.
+        <div className="mt-10 max-w-3xl mx-auto p-5 rounded-2xl text-sm text-center"
+          style={{ background: "rgba(124,58,237,0.06)", border: "1px solid rgba(124,58,237,0.18)" }}>
+          <strong style={{ color: "var(--purple3)" }}>Quan trọng:</strong>
+          <span style={{ color: "var(--fg2)" }}> ShopAccGame.net là sàn đăng tin quảng cáo (classified ads). Chúng tôi không tham gia mua bán, không giữ tiền, và không chịu trách nhiệm về tranh chấp giữa các bên.</span>
         </div>
       </div>
     </section>
