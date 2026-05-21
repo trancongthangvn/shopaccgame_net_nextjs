@@ -1,158 +1,137 @@
 "use client";
 import { useState } from "react";
-import { Search, TrendingUp, Shield, Users, Zap } from "lucide-react";
+import { Search, Flame, TrendingUp, Users, Zap, ArrowRight, Shield } from "lucide-react";
 
-const trending = ["LMHT", "Free Fire", "PUBG", "Genshin", "Valorant"];
+const hot = ["LMHT Kim Cương","Free Fire Thách Đấu","PUBG Conqueror","Genshin AR55","Valorant Radiant"];
 
 const stats = [
-  { label: "Tin đăng", value: "12,500+", icon: TrendingUp },
-  { label: "Thành viên", value: "48,000+", icon: Users },
-  { label: "Giao dịch/ngày", value: "320+", icon: Zap },
+  { val: "12,500+", label: "Tin đăng", icon: TrendingUp, color: "#9f67ff" },
+  { val: "48K+",    label: "Thành viên", icon: Users,     color: "#f43f5e" },
+  { val: "99.2%",   label: "Phản hồi",  icon: Zap,        color: "#f59e0b" },
 ];
 
 export default function HeroSection() {
-  const [query, setQuery] = useState("");
+  const [q, setQ] = useState("");
 
   return (
-    <section className="relative overflow-hidden grid-bg scanlines min-h-[540px] flex items-center">
-      {/* Background gradient */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 50% 0%, #7C3AED22 0%, transparent 70%)",
-        }}
-      />
+    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden scanline-hero noise">
 
-      {/* Decorative orbs */}
-      <div
-        className="absolute top-10 right-10 w-64 h-64 rounded-full opacity-10 float-anim"
-        style={{
-          background:
-            "radial-gradient(circle, #7C3AED 0%, transparent 70%)",
-          filter: "blur(40px)",
-        }}
-      />
-      <div
-        className="absolute bottom-10 left-10 w-48 h-48 rounded-full opacity-10 float-anim"
-        style={{
-          background: "radial-gradient(circle, #F43F5E 0%, transparent 70%)",
-          filter: "blur(40px)",
-          animationDelay: "2s",
-        }}
-      />
+      {/* ── Deep background layers ── */}
+      <div className="absolute inset-0 grid-bg opacity-60" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center w-full">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-6 text-sm"
-          style={{
-            borderColor: "var(--color-border-glow)",
-            background: "#7C3AED18",
-            color: "var(--color-secondary)",
-          }}
-        >
-          <Shield className="w-4 h-4" />
-          Sàn đăng tin uy tín — Minh bạch & An toàn
+      {/* Purple blob top-center */}
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full opacity-25 float"
+        style={{ background: "radial-gradient(ellipse,#7c3aed 0%,transparent 65%)", filter: "blur(80px)" }} />
+      {/* Rose blob bottom-left */}
+      <div className="absolute bottom-0 -left-32 w-[600px] h-[400px] rounded-full opacity-15 float2"
+        style={{ background: "radial-gradient(ellipse,#f43f5e 0%,transparent 65%)", filter: "blur(100px)" }} />
+      {/* Cyan blob right */}
+      <div className="absolute top-1/3 -right-20 w-[400px] h-[400px] rounded-full opacity-10"
+        style={{ background: "radial-gradient(ellipse,#06b6d4 0%,transparent 65%)", filter: "blur(80px)" }} />
+
+      {/* ── Decorative orbs ── */}
+      <div className="absolute top-1/4 left-[8%] w-3 h-3 rounded-full opacity-60 float" style={{ background: "#9f67ff", boxShadow: "0 0 12px #9f67ff" }} />
+      <div className="absolute top-2/3 left-[15%] w-2 h-2 rounded-full opacity-40 float2" style={{ background: "#f43f5e", boxShadow: "0 0 8px #f43f5e" }} />
+      <div className="absolute top-1/3 right-[12%] w-2 h-2 rounded-full opacity-50 float" style={{ background: "#06b6d4", boxShadow: "0 0 8px #06b6d4" }} />
+      <div className="absolute bottom-1/4 right-[20%] w-4 h-4 rounded-full opacity-30 float2" style={{ background: "#f59e0b", boxShadow: "0 0 14px #f59e0b" }} />
+
+      {/* ── Content ── */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 py-24 text-center w-full">
+
+        {/* Pill badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8 text-xs font-semibold uppercase tracking-wider"
+          style={{ background: "rgba(124,58,237,0.15)", border: "1px solid rgba(124,58,237,0.35)", color: "#c4b5fd" }}>
+          <Flame className="w-3.5 h-3.5" style={{ color: "#f43f5e" }} />
+          #1 Sàn Đăng Tin Acc Game Việt Nam
+          <span className="w-1.5 h-1.5 rounded-full" style={{ background: "#10b981", boxShadow: "0 0 6px #10b981" }} />
+          <span style={{ color: "#10b981" }}>ONLINE</span>
         </div>
 
         {/* Headline */}
-        <h1
-          className="text-4xl sm:text-5xl lg:text-6xl mb-4 leading-tight"
-          style={{ fontFamily: "var(--font-russo), sans-serif" }}
-        >
-          <span className="neon-text-purple" style={{ color: "var(--color-secondary)" }}>
-            Tìm Acc Game
-          </span>
-          <br />
-          <span style={{ color: "var(--color-foreground)" }}>Chất Lượng Nhất</span>
-          <br />
-          <span className="neon-text-rose" style={{ color: "var(--color-accent)" }}>
-            Giá Tốt Nhất
-          </span>
+        <h1 className="mb-6 leading-[1.1] tracking-tight"
+          style={{ fontFamily: "var(--font-russo),sans-serif", fontSize: "clamp(2.8rem,7vw,5.5rem)" }}>
+          <span className="block" style={{ color: "var(--fg)" }}>Mua Bán</span>
+          <span className="block grad-purple text-glow-purple">Tài Khoản Game</span>
+          <span className="block" style={{ color: "var(--fg)" }}>Uy Tín Nhất</span>
         </h1>
 
-        <p
-          className="text-lg mb-10 max-w-2xl mx-auto"
-          style={{ color: "var(--color-muted-text)" }}
-        >
-          Nền tảng đăng tin mua bán tài khoản game hàng đầu Việt Nam.
-          Tìm kiếm từ hàng nghìn tin đăng được xác minh, giao dịch trực tiếp giữa người mua và người bán.
+        <p className="text-lg sm:text-xl mb-10 max-w-2xl mx-auto leading-relaxed" style={{ color: "var(--fg2)" }}>
+          Nền tảng đăng tin trung gian — kết nối hàng nghìn người mua &amp; bán<br className="hidden sm:block" />
+          tài khoản game mỗi ngày với mức giá tốt nhất thị trường.
         </p>
 
-        {/* Search Bar */}
-        <div className="max-w-2xl mx-auto mb-6">
-          <div
-            className="flex items-center gap-3 rounded-2xl border p-2 transition-all duration-300"
-            style={{
-              background: "var(--color-surface)",
-              borderColor: "var(--color-border-glow)",
-              boxShadow: "0 0 24px #7C3AED33",
-            }}
-          >
-            <Search
-              className="w-5 h-5 ml-2 flex-shrink-0"
-              style={{ color: "var(--color-muted-text)" }}
-            />
-            <input
-              type="text"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Tìm kiếm: LMHT rank Kim Cương, PUBG nhiều skin..."
-              className="flex-1 bg-transparent outline-none text-sm"
-              style={{ color: "var(--color-foreground)" }}
-              aria-label="Tìm kiếm tài khoản game"
-            />
-            <button
-              className="px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 hover:opacity-90 cursor-pointer flex-shrink-0"
-              style={{ background: "var(--color-primary)", color: "#fff" }}
-              aria-label="Tìm kiếm"
-            >
-              Tìm Kiếm
-            </button>
+        {/* Search */}
+        <div className="max-w-2xl mx-auto mb-8">
+          <div className="relative p-[1px] rounded-2xl" style={{ background: "linear-gradient(135deg,#7c3aed66,#f43f5e33,#7c3aed22)" }}>
+            <div className="flex items-center gap-3 rounded-2xl px-4 py-2" style={{ background: "var(--surface)" }}>
+              <Search className="w-5 h-5 flex-shrink-0" style={{ color: "var(--fg3)" }} />
+              <input
+                type="text"
+                value={q}
+                onChange={e => setQ(e.target.value)}
+                placeholder="Tìm kiếm: LMHT Kim Cương, PUBG Conqueror, Genshin AR55..."
+                className="flex-1 bg-transparent outline-none text-sm py-2"
+                style={{ color: "var(--fg)", caretColor: "#9f67ff" }}
+                aria-label="Tìm kiếm tài khoản game"
+              />
+              <button
+                className="flex-shrink-0 px-5 py-2.5 rounded-xl text-sm font-bold text-white btn-primary cursor-pointer"
+                aria-label="Tìm kiếm"
+              >
+                Tìm Ngay
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Trending tags */}
-        <div className="flex items-center justify-center gap-2 flex-wrap mb-12">
-          <span className="text-xs" style={{ color: "var(--color-muted-text)" }}>
-            Phổ biến:
+        {/* Hot searches */}
+        <div className="flex items-center justify-center flex-wrap gap-2 mb-14">
+          <span className="flex items-center gap-1 text-xs" style={{ color: "var(--fg3)" }}>
+            <Flame className="w-3 h-3" style={{ color: "#f43f5e" }} /> Hot:
           </span>
-          {trending.map((tag) => (
-            <button
-              key={tag}
-              className="px-3 py-1 rounded-full text-xs border transition-all duration-200 hover:border-purple-500 hover:text-purple-300 cursor-pointer"
-              style={{
-                borderColor: "var(--color-border)",
-                color: "var(--color-muted-text)",
-              }}
-            >
-              {tag}
-            </button>
+          {hot.map((tag) => (
+            <button key={tag}
+              className="px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer hover:scale-105"
+              style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", color: "var(--fg2)" }}
+            >{tag}</button>
           ))}
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto">
-          {stats.map(({ label, value, icon: Icon }) => (
-            <div key={label} className="text-center">
-              <div
-                className="text-xl sm:text-2xl font-bold"
-                style={{
-                  fontFamily: "var(--font-russo), sans-serif",
-                  color: "var(--color-secondary)",
-                }}
-              >
-                {value}
+        {/* Stats row */}
+        <div className="flex items-center justify-center gap-6 sm:gap-12 flex-wrap">
+          {stats.map(({ val, label, icon: Icon, color }) => (
+            <div key={label} className="flex flex-col items-center gap-1">
+              <div className="flex items-center gap-2">
+                <Icon className="w-4 h-4" style={{ color }} />
+                <span className="text-2xl sm:text-3xl font-bold" style={{ fontFamily: "var(--font-russo),sans-serif", color }}>
+                  {val}
+                </span>
               </div>
-              <div className="flex items-center justify-center gap-1 text-xs mt-1"
-                style={{ color: "var(--color-muted-text)" }}>
-                <Icon className="w-3 h-3" />
-                {label}
-              </div>
+              <span className="text-xs" style={{ color: "var(--fg3)" }}>{label}</span>
             </div>
           ))}
         </div>
+
+        {/* CTA buttons */}
+        <div className="flex items-center justify-center gap-3 mt-10 flex-wrap">
+          <button className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm text-white btn-rose cursor-pointer">
+            <Zap className="w-4 h-4" /> Đăng Tin Miễn Phí
+          </button>
+          <button className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm btn-ghost cursor-pointer" style={{ color: "var(--fg2)" }}>
+            Xem Tin Đăng <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+
+        {/* Trust line */}
+        <p className="mt-6 text-xs flex items-center justify-center gap-1.5" style={{ color: "var(--fg3)" }}>
+          <Shield className="w-3 h-3" style={{ color: "#10b981" }} />
+          Nền tảng đăng tin trung gian — không mua bán trực tiếp, không giữ tiền
+        </p>
       </div>
+
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+        style={{ background: "linear-gradient(to bottom,transparent,var(--bg))" }} />
     </section>
   );
 }

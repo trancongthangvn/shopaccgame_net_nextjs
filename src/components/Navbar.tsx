@@ -1,193 +1,134 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Shield, Menu, X, ChevronDown, Gamepad2, Zap } from "lucide-react";
+import { Gamepad2, Menu, X, Zap, Bell, Search, ChevronDown } from "lucide-react";
 
-const games = [
-  "Liên Minh Huyền Thoại",
-  "PUBG Mobile",
-  "Free Fire",
-  "Genshin Impact",
-  "Valorant",
-  "Liên Quân Mobile",
+const navLinks = [
+  { label: "Trang Chủ", href: "/" },
+  { label: "Danh Mục", href: "#categories", sub: true },
+  { label: "Hướng Dẫn", href: "#how-it-works" },
+  { label: "Pháp Lý", href: "#legal" },
 ];
 
+const games = ["Liên Minh Huyền Thoại","Free Fire","PUBG Mobile","Genshin Impact","Liên Quân","Valorant","Minecraft"];
+
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [gamesOpen, setGamesOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [subOpen, setSubOpen] = useState(false);
+
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", fn);
+    return () => window.removeEventListener("scroll", fn);
+  }, []);
 
   return (
-    <nav
-      className="sticky top-0 z-50 border-b"
+    <header
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        background: "rgba(15,15,35,0.92)",
-        backdropFilter: "blur(16px)",
-        borderColor: "var(--color-border)",
+        background: scrolled ? "rgba(7,7,20,0.92)" : "transparent",
+        backdropFilter: scrolled ? "blur(20px)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(124,58,237,0.15)" : "1px solid transparent",
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 glitch flex-shrink-0">
-            <div
-              className="w-8 h-8 rounded-lg flex items-center justify-center pulse-glow"
-              style={{ background: "var(--color-primary)" }}
-            >
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2.5 flex-shrink-0 group">
+          <div className="relative w-9 h-9">
+            <div className="absolute inset-0 rounded-xl btn-primary opacity-80 group-hover:opacity-100 transition-opacity" />
+            <div className="relative w-full h-full rounded-xl flex items-center justify-center">
               <Gamepad2 className="w-5 h-5 text-white" />
             </div>
-            <span
-              className="text-lg font-bold neon-text-purple hidden sm:block"
-              style={{ fontFamily: "var(--font-russo), sans-serif" }}
-            >
-              ShopAcc<span style={{ color: "var(--color-accent)" }}>Game</span>
-              <span style={{ color: "var(--color-muted-text)" }}>.net</span>
-            </span>
-          </Link>
+          </div>
+          <span className="text-[15px] font-bold" style={{ fontFamily: "var(--font-russo),sans-serif" }}>
+            <span className="grad-purple">ShopAcc</span>
+            <span className="grad-rose">Game</span>
+            <span style={{ color: "var(--fg3)" }}>.net</span>
+          </span>
+        </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-6">
-            <Link
-              href="/"
-              className="text-sm transition-colors duration-200 hover:text-purple-400"
-              style={{ color: "var(--color-muted-text)" }}
-            >
-              Trang Chủ
-            </Link>
-
-            <div className="relative">
-              <button
-                className="flex items-center gap-1 text-sm transition-colors duration-200 hover:text-purple-400 cursor-pointer"
-                style={{ color: "var(--color-muted-text)" }}
-                onMouseEnter={() => setGamesOpen(true)}
-                onMouseLeave={() => setGamesOpen(false)}
-                aria-haspopup="true"
-                aria-expanded={gamesOpen}
-              >
-                Danh Mục Game
-                <ChevronDown className="w-4 h-4" />
-              </button>
-              {gamesOpen && (
-                <div
-                  className="absolute top-full left-0 mt-2 w-52 rounded-xl border py-2 shadow-2xl"
-                  style={{
-                    background: "var(--color-surface)",
-                    borderColor: "var(--color-border)",
-                  }}
-                  onMouseEnter={() => setGamesOpen(true)}
-                  onMouseLeave={() => setGamesOpen(false)}
+        {/* Desktop links */}
+        <div className="hidden md:flex items-center gap-1">
+          {navLinks.map((l) => (
+            l.sub ? (
+              <div key={l.label} className="relative" onMouseLeave={() => setSubOpen(false)}>
+                <button
+                  onMouseEnter={() => setSubOpen(true)}
+                  className="flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:bg-white/5 cursor-pointer"
+                  style={{ color: "var(--fg2)" }}
                 >
-                  {games.map((g) => (
-                    <Link
-                      key={g}
-                      href={`#listings`}
-                      className="block px-4 py-2 text-sm transition-colors duration-150 hover:bg-purple-900/30"
-                      style={{ color: "var(--color-foreground)" }}
-                    >
-                      {g}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
+                  {l.label} <ChevronDown className="w-3.5 h-3.5 opacity-60" />
+                </button>
+                {subOpen && (
+                  <div
+                    className="absolute top-full left-0 mt-2 w-52 rounded-2xl p-1.5 shadow-2xl border"
+                    style={{ background: "var(--surface2)", borderColor: "var(--border2)" }}
+                  >
+                    {games.map((g) => (
+                      <a key={g} href="#categories"
+                        className="block px-3 py-2 rounded-xl text-sm transition-colors hover:bg-white/5"
+                        style={{ color: "var(--fg2)" }}
+                        onClick={() => setSubOpen(false)}
+                      >{g}</a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link key={l.label} href={l.href}
+                className="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:bg-white/5"
+                style={{ color: "var(--fg2)" }}
+              >{l.label}</Link>
+            )
+          ))}
+        </div>
 
-            <Link
-              href="#how-it-works"
-              className="text-sm transition-colors duration-200 hover:text-purple-400"
-              style={{ color: "var(--color-muted-text)" }}
-            >
-              Hướng Dẫn
-            </Link>
-            <Link
-              href="#legal"
-              className="text-sm transition-colors duration-200 hover:text-purple-400"
-              style={{ color: "var(--color-muted-text)" }}
-            >
-              Điều Khoản
-            </Link>
-          </div>
-
-          {/* CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <button
-              className="text-sm px-4 py-2 rounded-lg border transition-all duration-200 hover:border-purple-500 cursor-pointer"
-              style={{
-                color: "var(--color-foreground)",
-                borderColor: "var(--color-border)",
-              }}
-            >
-              Đăng Nhập
-            </button>
-            <button
-              className="flex items-center gap-2 text-sm px-4 py-2 rounded-lg font-semibold transition-all duration-200 hover:opacity-90 cursor-pointer neon-border-rose"
-              style={{
-                background: "var(--color-accent)",
-                color: "#fff",
-              }}
-            >
-              <Zap className="w-4 h-4" />
-              Đăng Tin Ngay
-            </button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 rounded-lg cursor-pointer transition-colors duration-200"
-            style={{ color: "var(--color-foreground)" }}
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? "Đóng menu" : "Mở menu"}
-          >
-            {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        {/* Right side */}
+        <div className="hidden md:flex items-center gap-2">
+          <button className="p-2.5 rounded-xl transition-colors hover:bg-white/5 cursor-pointer" style={{ color: "var(--fg3)" }} aria-label="Tìm kiếm">
+            <Search className="w-4 h-4" />
+          </button>
+          <button className="p-2.5 rounded-xl transition-colors hover:bg-white/5 cursor-pointer relative" style={{ color: "var(--fg3)" }} aria-label="Thông báo">
+            <Bell className="w-4 h-4" />
+            <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full" style={{ background: "var(--rose)" }} />
+          </button>
+          <div className="w-px h-5 mx-1" style={{ background: "var(--border)" }} />
+          <button className="px-4 py-2 rounded-xl text-sm font-medium transition-colors btn-ghost cursor-pointer" style={{ color: "var(--fg2)" }}>
+            Đăng Nhập
+          </button>
+          <button className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-semibold text-white btn-rose cursor-pointer">
+            <Zap className="w-3.5 h-3.5" /> Đăng Tin
           </button>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div
-          className="md:hidden border-t px-4 py-4 space-y-3"
-          style={{
-            background: "var(--color-background-2)",
-            borderColor: "var(--color-border)",
-          }}
-        >
-          {["Trang Chủ", "Danh Mục Game", "Hướng Dẫn", "Điều Khoản"].map((item) => (
-            <Link
-              key={item}
-              href="#"
-              className="block py-2 text-sm transition-colors duration-200 hover:text-purple-400"
-              style={{ color: "var(--color-muted-text)" }}
-              onClick={() => setMenuOpen(false)}
-            >
-              {item}
-            </Link>
-          ))}
-          <div className="pt-2 flex flex-col gap-2">
-            <button
-              className="w-full text-sm px-4 py-2.5 rounded-lg border transition-all duration-200 cursor-pointer"
-              style={{
-                color: "var(--color-foreground)",
-                borderColor: "var(--color-border)",
-              }}
-            >
-              Đăng Nhập
-            </button>
-            <button
-              className="w-full flex items-center justify-center gap-2 text-sm px-4 py-2.5 rounded-lg font-semibold cursor-pointer"
-              style={{ background: "var(--color-accent)", color: "#fff" }}
-            >
-              <Zap className="w-4 h-4" />
-              Đăng Tin Ngay
-            </button>
-          </div>
-          <div
-            className="flex items-center gap-2 pt-2 text-xs"
-            style={{ color: "var(--color-muted-text)" }}
-          >
-            <Shield className="w-3 h-3 flex-shrink-0" style={{ color: "var(--color-success)" }} />
-            Nền tảng đăng tin trung gian — giao dịch do người dùng tự thỏa thuận
+        {/* Mobile toggle */}
+        <button onClick={() => setOpen(!open)} className="md:hidden p-2 rounded-xl transition-colors hover:bg-white/5 cursor-pointer" style={{ color: "var(--fg)" }} aria-label="Menu">
+          {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
+      </nav>
+
+      {/* Mobile menu */}
+      {open && (
+        <div className="md:hidden border-t" style={{ background: "rgba(7,7,20,0.98)", borderColor: "var(--border)" }}>
+          <div className="max-w-7xl mx-auto px-4 py-4 space-y-1">
+            {navLinks.map((l) => (
+              <a key={l.label} href={l.href}
+                className="block px-4 py-2.5 rounded-xl text-sm font-medium transition-colors hover:bg-white/5"
+                style={{ color: "var(--fg2)" }}
+                onClick={() => setOpen(false)}
+              >{l.label}</a>
+            ))}
+            <div className="pt-3 flex gap-2">
+              <button className="flex-1 py-2.5 rounded-xl text-sm font-medium btn-ghost cursor-pointer" style={{ color: "var(--fg2)" }}>Đăng Nhập</button>
+              <button className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-sm font-semibold text-white btn-rose cursor-pointer">
+                <Zap className="w-3.5 h-3.5" /> Đăng Tin
+              </button>
+            </div>
           </div>
         </div>
       )}
-    </nav>
+    </header>
   );
 }

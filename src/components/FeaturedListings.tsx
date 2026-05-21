@@ -1,291 +1,180 @@
-import { Shield, Star, Clock, Eye, ChevronRight, BadgeCheck } from "lucide-react";
+import { Star, Eye, Clock, BadgeCheck, ChevronRight, Shield, Flame } from "lucide-react";
 
 const listings = [
-  {
-    id: 1,
-    game: "LMHT",
-    gameColor: "#7C3AED",
-    title: "Acc LMHT Kim Cương 1 - 80 tướng - Full skin",
-    rank: "Kim Cương I",
-    price: "850.000đ",
-    seller: "NguyenGamer",
-    verified: true,
-    rating: 4.9,
-    reviews: 127,
-    views: "2.4k",
-    posted: "2 giờ trước",
-    server: "Máy chủ VN",
-    highlights: ["80+ tướng", "15 skin", "Không bị ban"],
-  },
-  {
-    id: 2,
-    game: "Free Fire",
-    gameColor: "#F43F5E",
-    title: "Acc Free Fire Thách Đấu - Nhiều skin súng hiếm",
-    rank: "Thách Đấu",
-    price: "650.000đ",
-    seller: "FFmaster88",
-    verified: true,
-    rating: 4.7,
-    reviews: 89,
-    views: "1.8k",
-    posted: "5 giờ trước",
-    server: "VN Server",
-    highlights: ["30+ skin súng", "Garena VN", "Email gốc"],
-  },
-  {
-    id: 3,
-    game: "PUBG Mobile",
-    gameColor: "#F59E0B",
-    title: "Acc PUBG Conqueror - Nhiều outfit độc lạ",
-    rank: "Conqueror",
-    price: "1.200.000đ",
-    seller: "PUBGking99",
-    verified: false,
-    rating: 4.5,
-    reviews: 43,
-    views: "3.1k",
-    posted: "1 ngày trước",
-    server: "Asia",
-    highlights: ["Conqueror frame", "25 bộ trang phục", "RP Season cao"],
-  },
-  {
-    id: 4,
-    game: "Genshin",
-    gameColor: "#A78BFA",
-    title: "Acc Genshin AR55 - Nhiều nhân vật 5 sao",
-    rank: "AR55",
-    price: "2.500.000đ",
-    seller: "GenshinVN",
-    verified: true,
-    rating: 5.0,
-    reviews: 31,
-    views: "4.2k",
-    posted: "3 giờ trước",
-    server: "Asia",
-    highlights: ["12 nhân vật 5*", "C6 nhiều nhân vật", "AR55"],
-  },
-  {
-    id: 5,
-    game: "Liên Quân",
-    gameColor: "#10B981",
-    title: "Acc Liên Quân Huyền Thoại - Full tướng VN",
-    rank: "Huyền Thoại",
-    price: "480.000đ",
-    seller: "LienQuan2024",
-    verified: true,
-    rating: 4.8,
-    reviews: 67,
-    views: "1.2k",
-    posted: "30 phút trước",
-    server: "VN",
-    highlights: ["Full tướng VN", "15 trang phục", "Huyền Thoại S5"],
-  },
-  {
-    id: 6,
-    game: "Valorant",
-    gameColor: "#06B6D4",
-    title: "Acc Valorant Radiant - Agent đầy đủ",
-    rank: "Radiant",
-    price: "3.200.000đ",
-    seller: "ValoProVN",
-    verified: true,
-    rating: 4.9,
-    reviews: 22,
-    views: "5.6k",
-    posted: "1 giờ trước",
-    server: "SEA",
-    highlights: ["Radiant rank", "20 agent", "Skin Vandal hiếm"],
-  },
+  { id:1, game:"LMHT", color:"#7c3aed", accent:"#4f46e5",
+    title:"Acc LMHT Kim Cương I — 80 tướng + 15 skin legendary",
+    rank:"Kim Cương I", price:"850.000đ", oldPrice:"1.200.000đ",
+    seller:"NguyenGamer", verified:true, rating:4.9, reviews:127,
+    views:"2.4k", posted:"2 giờ trước",
+    tags:["80+ tướng","15 skin","Email gốc"],
+    hot: true },
+  { id:2, game:"Free Fire", color:"#f43f5e", accent:"#dc2626",
+    title:"Acc Free Fire Thách Đấu — Skin súng hiếm, avatar độc",
+    rank:"Thách Đấu", price:"650.000đ", oldPrice:"",
+    seller:"FFmaster88", verified:true, rating:4.7, reviews:89,
+    views:"1.8k", posted:"5 giờ trước",
+    tags:["30+ skin","Email gốc","Garena VN"],
+    hot: true },
+  { id:3, game:"PUBG", color:"#f59e0b", accent:"#d97706",
+    title:"Acc PUBG Conqueror — Bộ trang phục siêu hiếm, RP cao",
+    rank:"Conqueror", price:"1.200.000đ", oldPrice:"1.800.000đ",
+    seller:"PUBGking99", verified:false, rating:4.5, reviews:43,
+    views:"3.1k", posted:"1 ngày trước",
+    tags:["Conqueror","25 outfit","RP Max"],
+    hot: false },
+  { id:4, game:"Genshin", color:"#a78bfa", accent:"#7c3aed",
+    title:"Acc Genshin AR55 — 12 nhân vật 5★, nhiều C6",
+    rank:"AR55", price:"2.500.000đ", oldPrice:"",
+    seller:"GenshinVN", verified:true, rating:5.0, reviews:31,
+    views:"4.2k", posted:"3 giờ trước",
+    tags:["12 nhân vật 5★","C6 nhiều NV","Welkin x12"],
+    hot: true },
+  { id:5, game:"Liên Quân", color:"#10b981", accent:"#059669",
+    title:"Acc Liên Quân Huyền Thoại — Full tướng VN Server",
+    rank:"Huyền Thoại", price:"480.000đ", oldPrice:"700.000đ",
+    seller:"LienQuan2024", verified:true, rating:4.8, reviews:67,
+    views:"1.2k", posted:"30 phút trước",
+    tags:["Full tướng VN","15 trang phục","S5 rank"],
+    hot: false },
+  { id:6, game:"Valorant", color:"#06b6d4", accent:"#0284c7",
+    title:"Acc Valorant Radiant — 20 agent + skin Vandal hiếm",
+    rank:"Radiant", price:"3.200.000đ", oldPrice:"",
+    seller:"ValoProVN", verified:true, rating:4.9, reviews:22,
+    views:"5.6k", posted:"1 giờ trước",
+    tags:["Radiant","20 agent","Vandal hiếm"],
+    hot: true },
 ];
 
 export default function FeaturedListings() {
   return (
-    <section id="listings" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="flex items-center justify-between mb-10">
-        <div>
-          <h2
-            className="text-3xl sm:text-4xl mb-2"
-            style={{
-              fontFamily: "var(--font-russo), sans-serif",
-              color: "var(--color-foreground)",
-            }}
-          >
-            Tin Đăng{" "}
-            <span className="neon-text-rose" style={{ color: "var(--color-accent)" }}>
-              Nổi Bật
-            </span>
-          </h2>
-          <p className="text-sm" style={{ color: "var(--color-muted-text)" }}>
-            Các tin đăng được xem nhiều nhất hôm nay
-          </p>
+    <section id="listings" className="py-24 px-4 sm:px-6" style={{ background: "var(--bg2)" }}>
+      <div className="max-w-7xl mx-auto">
+
+        {/* Header */}
+        <div className="flex items-end justify-between mb-4">
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <Flame className="w-4 h-4" style={{ color: "#f43f5e" }} />
+              <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#f43f5e" }}>Nổi Bật</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl" style={{ fontFamily: "var(--font-russo),sans-serif" }}>
+              <span style={{ color: "var(--fg)" }}>Tin Đăng </span>
+              <span className="grad-rose">Hôm Nay</span>
+            </h2>
+          </div>
+          <button className="hidden sm:flex items-center gap-1 text-sm font-medium pb-1 cursor-pointer transition-colors hover:text-purple-400" style={{ color: "var(--fg3)" }}>
+            Xem tất cả <ChevronRight className="w-4 h-4" />
+          </button>
         </div>
-        <button
-          className="hidden sm:flex items-center gap-1 text-sm transition-colors duration-200 hover:text-purple-300 cursor-pointer"
-          style={{ color: "var(--color-muted-text)" }}
-        >
-          Xem tất cả <ChevronRight className="w-4 h-4" />
-        </button>
-      </div>
 
-      {/* Disclaimer */}
-      <div
-        className="flex items-start gap-3 p-4 rounded-xl border mb-8 text-sm"
-        style={{
-          background: "#F59E0B0D",
-          borderColor: "#F59E0B33",
-          color: "#F59E0B",
-        }}
-        role="note"
-        aria-label="Lưu ý pháp lý"
-      >
-        <Shield className="w-4 h-4 mt-0.5 flex-shrink-0" />
-        <p style={{ color: "#FCD34D", lineHeight: 1.6 }}>
-          <strong>Lưu ý:</strong> Các tin đăng dưới đây là nội dung do người dùng tự đăng.
-          ShopAccGame.net chỉ cung cấp nền tảng quảng cáo — không trực tiếp mua bán, không bảo lãnh giao dịch.
-          Người mua và người bán tự thỏa thuận và chịu trách nhiệm về giao dịch của mình.
-        </p>
-      </div>
+        {/* Disclaimer */}
+        <div className="flex items-start gap-3 p-4 rounded-xl mb-8 text-xs"
+          style={{ background: "rgba(245,158,11,0.06)", border: "1px solid rgba(245,158,11,0.2)", color: "#fcd34d" }}
+          role="note">
+          <Shield className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" />
+          <span style={{ color: "#fbbf24" }}>
+            <strong>Lưu ý:</strong> Đây là nội dung do người dùng tự đăng. ShopAccGame.net chỉ cung cấp nền tảng quảng cáo — không trực tiếp mua bán và không bảo lãnh giao dịch. Người dùng tự thỏa thuận và chịu trách nhiệm.
+          </span>
+        </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {listings.map((item) => (
-          <div
-            key={item.id}
-            className="rounded-2xl border overflow-hidden transition-all duration-300 card-glow cursor-pointer group hover:scale-[1.01]"
-            style={{
-              background: "var(--color-surface)",
-              borderColor: "var(--color-border)",
-            }}
-            role="article"
-            aria-label={item.title}
-          >
-            {/* Card header */}
-            <div
-              className="h-2 w-full"
-              style={{ background: `linear-gradient(90deg, ${item.gameColor}, ${item.gameColor}88)` }}
-            />
+        {/* Cards grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {listings.map((item) => (
+            <article key={item.id}
+              className="relative group rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer border-glow-hover"
+              style={{ background: "var(--surface)" }}
+              aria-label={item.title}
+            >
+              {/* Top color bar */}
+              <div className="h-[3px]" style={{ background: `linear-gradient(90deg,${item.color},${item.accent})` }} />
 
-            <div className="p-5">
-              {/* Game badge + verified */}
-              <div className="flex items-center justify-between mb-3">
-                <span
-                  className="text-xs px-2.5 py-1 rounded-full font-semibold"
-                  style={{
-                    background: item.gameColor + "22",
-                    color: item.gameColor,
-                    border: `1px solid ${item.gameColor}44`,
-                  }}
-                >
-                  {item.game}
-                </span>
-                <div className="flex items-center gap-2">
+              {/* HOT badge */}
+              {item.hot && (
+                <div className="absolute top-4 right-4 z-10">
+                  <span className="tag" style={{ background: "#f43f5e22", color: "#f43f5e", border: "1px solid #f43f5e44" }}>
+                    🔥 Hot
+                  </span>
+                </div>
+              )}
+
+              <div className="p-5">
+                {/* Game + verified */}
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="tag" style={{ background: item.color + "22", color: item.color, border: `1px solid ${item.color}44` }}>
+                    {item.game}
+                  </span>
                   {item.verified && (
-                    <span
-                      className="flex items-center gap-1 text-xs"
-                      style={{ color: "var(--color-success)" }}
-                      title="Người bán đã xác minh"
-                    >
-                      <BadgeCheck className="w-3.5 h-3.5" />
-                      Xác minh
+                    <span className="flex items-center gap-1 text-xs" style={{ color: "#10b981" }}>
+                      <BadgeCheck className="w-3.5 h-3.5" /> Đã xác minh
                     </span>
                   )}
                 </div>
-              </div>
 
-              {/* Title */}
-              <h3
-                className="font-semibold text-sm mb-2 line-clamp-2 leading-snug"
-                style={{ color: "var(--color-foreground)" }}
-              >
-                {item.title}
-              </h3>
+                {/* Title */}
+                <h3 className="font-semibold text-[13px] leading-snug mb-3 line-clamp-2" style={{ color: "var(--fg)" }}>
+                  {item.title}
+                </h3>
 
-              {/* Highlights */}
-              <div className="flex flex-wrap gap-1.5 mb-3">
-                {item.highlights.map((h) => (
-                  <span
-                    key={h}
-                    className="text-xs px-2 py-0.5 rounded-md"
-                    style={{
-                      background: "var(--color-muted)",
-                      color: "var(--color-muted-text)",
-                    }}
+                {/* Tags */}
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {item.tags.map(t => (
+                    <span key={t} className="text-[11px] px-2 py-0.5 rounded-lg font-medium" style={{ background: "rgba(255,255,255,0.05)", color: "var(--fg2)" }}>
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Rank */}
+                <div className="flex items-center gap-1.5 text-xs mb-4" style={{ color: "var(--fg3)" }}>
+                  <span className="w-1.5 h-1.5 rounded-full" style={{ background: item.color }} />
+                  Rank: <span style={{ color: item.color, fontWeight: 600 }}>{item.rank}</span>
+                </div>
+
+                {/* Price + CTA */}
+                <div className="flex items-end justify-between">
+                  <div>
+                    <div className="text-[11px] mb-0.5" style={{ color: "var(--fg3)" }}>Giá đăng</div>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-xl font-bold" style={{ fontFamily: "var(--font-russo),sans-serif", color: item.color }}>
+                        {item.price}
+                      </span>
+                      {item.oldPrice && (
+                        <span className="text-xs line-through" style={{ color: "var(--fg3)" }}>{item.oldPrice}</span>
+                      )}
+                    </div>
+                  </div>
+                  <button
+                    className="px-4 py-2 rounded-xl text-xs font-bold text-white transition-all duration-200 cursor-pointer opacity-90 group-hover:opacity-100"
+                    style={{ background: `linear-gradient(135deg,${item.color},${item.accent})`, boxShadow: `0 4px 16px ${item.color}44` }}
+                    aria-label={`Xem: ${item.title}`}
                   >
-                    {h}
-                  </span>
-                ))}
-              </div>
+                    Xem Chi Tiết
+                  </button>
+                </div>
 
-              {/* Rank + Server */}
-              <div
-                className="flex items-center gap-3 text-xs mb-4"
-                style={{ color: "var(--color-muted-text)" }}
-              >
-                <span>
-                  <span style={{ color: item.gameColor }}>●</span> {item.rank}
-                </span>
-                <span>• {item.server}</span>
-              </div>
-
-              {/* Price + CTA */}
-              <div className="flex items-center justify-between">
-                <div>
-                  <div
-                    className="text-xl font-bold"
-                    style={{
-                      fontFamily: "var(--font-russo), sans-serif",
-                      color: "var(--color-accent)",
-                    }}
-                  >
-                    {item.price}
+                {/* Footer */}
+                <div className="flex items-center justify-between mt-4 pt-4 text-[11px]" style={{ borderTop: "1px solid var(--border)", color: "var(--fg3)" }}>
+                  <div className="flex items-center gap-1">
+                    <Star className="w-3 h-3" style={{ color: "#f59e0b" }} fill="#f59e0b" />
+                    <span style={{ color: "#fbbf24", fontWeight: 600 }}>{item.rating}</span>
+                    <span>({item.reviews})</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="flex items-center gap-1"><Eye className="w-3 h-3" />{item.views}</span>
+                    <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{item.posted}</span>
                   </div>
                 </div>
-                <button
-                  className="px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 hover:opacity-90 cursor-pointer"
-                  style={{ background: "var(--color-primary)", color: "#fff" }}
-                  aria-label={`Xem chi tiết: ${item.title}`}
-                >
-                  Xem Chi Tiết
-                </button>
               </div>
+            </article>
+          ))}
+        </div>
 
-              {/* Footer meta */}
-              <div
-                className="flex items-center justify-between mt-3 pt-3 border-t text-xs"
-                style={{
-                  borderColor: "var(--color-border)",
-                  color: "var(--color-muted-text)",
-                }}
-              >
-                <div className="flex items-center gap-1">
-                  <Star className="w-3 h-3" style={{ color: "var(--color-gold)" }} />
-                  <span style={{ color: "var(--color-gold)" }}>{item.rating}</span>
-                  <span>({item.reviews} đánh giá)</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="flex items-center gap-1">
-                    <Eye className="w-3 h-3" /> {item.views}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Clock className="w-3 h-3" /> {item.posted}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="text-center mt-8">
-        <button
-          className="px-8 py-3 rounded-xl border text-sm font-semibold transition-all duration-200 hover:border-purple-500 hover:text-purple-300 cursor-pointer"
-          style={{
-            borderColor: "var(--color-border)",
-            color: "var(--color-foreground)",
-          }}
-        >
-          Xem Tất Cả Tin Đăng ({">"}12,000 tin)
-        </button>
+        {/* View all button */}
+        <div className="text-center mt-10">
+          <button className="px-8 py-3.5 rounded-2xl font-semibold text-sm btn-ghost cursor-pointer" style={{ color: "var(--fg2)" }}>
+            Xem Tất Cả 12,500+ Tin Đăng →
+          </button>
+        </div>
       </div>
     </section>
   );
