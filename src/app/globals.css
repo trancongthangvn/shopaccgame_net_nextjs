@@ -170,12 +170,115 @@ h1,h2,h3,h4,h5,h6 { font-family: 'Russo One', sans-serif; line-height: 1.15; }
 }
 
 /* ── Account preview gradient backgrounds (simulating game art) ── */
-.preview-lmht    { background: linear-gradient(135deg,#1e293b 0%,#7c3aed 50%,#1e1b4b 100%); }
-.preview-ff      { background: linear-gradient(135deg,#7f1d1d 0%,#f43f5e 50%,#450a0a 100%); }
-.preview-pubg    { background: linear-gradient(135deg,#78350f 0%,#f59e0b 50%,#451a03 100%); }
-.preview-genshin { background: linear-gradient(135deg,#312e81 0%,#a78bfa 50%,#1e1b4b 100%); }
-.preview-lq      { background: linear-gradient(135deg,#064e3b 0%,#10b981 50%,#022c22 100%); }
-.preview-valo    { background: linear-gradient(135deg,#164e63 0%,#06b6d4 50%,#083344 100%); }
+.preview-lmht {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 100%, #a855f7 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 30% 30%, #4f46e5 0%, transparent 60%),
+    linear-gradient(135deg,#1e1b4b 0%,#312e81 50%,#1e1b4b 100%);
+}
+.preview-ff {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 100%, #fb7185 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 70% 30%, #f97316 0%, transparent 60%),
+    linear-gradient(135deg,#450a0a 0%,#7f1d1d 50%,#450a0a 100%);
+}
+.preview-pubg {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 100%, #fbbf24 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 20% 30%, #d97706 0%, transparent 60%),
+    linear-gradient(135deg,#451a03 0%,#78350f 50%,#451a03 100%);
+}
+.preview-genshin {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 100%, #c4b5fd 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 30%, #818cf8 0%, transparent 60%),
+    linear-gradient(135deg,#1e1b4b 0%,#312e81 50%,#1e1b4b 100%);
+}
+.preview-lq {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 100%, #34d399 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 30% 30%, #14b8a6 0%, transparent 60%),
+    linear-gradient(135deg,#022c22 0%,#064e3b 50%,#022c22 100%);
+}
+.preview-valo {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 100%, #22d3ee 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 70% 30%, #6366f1 0%, transparent 60%),
+    linear-gradient(135deg,#083344 0%,#164e63 50%,#083344 100%);
+}
+
+/* Hex pattern overlay for preview */
+.hex-grid {
+  background-image:
+    repeating-linear-gradient(60deg, transparent, transparent 28px, rgba(255,255,255,.04) 28px, rgba(255,255,255,.04) 29px),
+    repeating-linear-gradient(-60deg, transparent, transparent 28px, rgba(255,255,255,.04) 28px, rgba(255,255,255,.04) 29px);
+}
+
+/* Rank shield (hexagonal heraldic) */
+.rank-shield {
+  position: relative;
+  clip-path: polygon(50% 0%, 100% 28%, 100% 72%, 50% 100%, 0% 72%, 0% 28%);
+  display: flex; align-items: center; justify-content: center;
+}
+.rank-shield::before {
+  content:''; position:absolute; inset:2px;
+  clip-path: polygon(50% 0%, 100% 28%, 100% 72%, 50% 100%, 0% 72%, 0% 28%);
+  background: rgba(0,0,0,.4);
+}
+.rank-shield > * { position: relative; z-index: 1; }
+
+/* Corner ribbon */
+.ribbon {
+  position: absolute;
+  top: 12px; left: -8px;
+  padding: 4px 12px 4px 16px;
+  font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .08em;
+  color: white;
+  clip-path: polygon(0 0, 100% 0, 92% 50%, 100% 100%, 0 100%, 8% 50%);
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+}
+.ribbon::after {
+  content:''; position:absolute; bottom:-6px; left:0;
+  border: 4px solid transparent;
+  border-top: 6px solid rgba(0,0,0,.4); border-right: 4px solid rgba(0,0,0,.4);
+}
+
+/* Game icon glyph: stylized champion silhouette */
+.champion-glyph {
+  width: 100%; height: 100%;
+  background-image:
+    radial-gradient(ellipse 30% 18% at 50% 38%, rgba(255,255,255,.3), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 50% 70%, rgba(255,255,255,.12), transparent 70%);
+}
+
+/* Glow border with animated gradient */
+.border-anim {
+  position: relative;
+  background: var(--surface);
+}
+.border-anim::before {
+  content:''; position:absolute; inset:-1px;
+  background: linear-gradient(135deg, #7c3aed, #f43f5e, #f59e0b, #7c3aed);
+  background-size: 300% 300%;
+  border-radius: inherit;
+  z-index: -1;
+  animation: gradient-shift 4s ease infinite;
+}
+@keyframes gradient-shift {
+  0%,100% { background-position: 0% 50%; }
+  50%     { background-position: 100% 50%; }
+}
+
+/* Section heading with line accent */
+.section-heading-line {
+  position: relative; display: inline-block; padding-left: 16px;
+}
+.section-heading-line::before {
+  content:''; position:absolute; left:0; top:50%; transform: translateY(-50%);
+  width: 4px; height: 70%; border-radius: 99px;
+  background: linear-gradient(180deg, #7c3aed, #f43f5e);
+}
 
 /* ── Badges ── */
 .badge {

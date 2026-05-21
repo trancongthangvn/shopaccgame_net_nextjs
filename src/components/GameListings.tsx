@@ -1,6 +1,15 @@
 "use client";
 import { useState } from "react";
-import { Trophy, Eye, Heart, Clock, BadgeCheck, ArrowRight, Star, Sparkles, Shield, Filter } from "lucide-react";
+import { Trophy, Eye, Heart, Clock, BadgeCheck, ArrowRight, Star, Sparkles, Shield, Filter, Crown, Swords, Wand2, Crosshair, Globe } from "lucide-react";
+
+const gameIcons: Record<string, typeof Trophy> = {
+  lmht: Swords,
+  ff: Crosshair,
+  pubg: Crosshair,
+  genshin: Wand2,
+  lq: Crown,
+  valo: Globe,
+};
 
 type Listing = {
   id: string; game: string; gameKey: string; title: string;
@@ -137,8 +146,17 @@ export default function GameListings() {
               )}
 
               {/* Preview */}
-              <div className={`relative h-40 ${item.preview} overflow-hidden`}>
-                <div className="absolute inset-0 dot-bg opacity-30" />
+              <div className={`relative h-40 ${item.preview} hex-grid overflow-hidden`}>
+                {/* Rank shield centerpiece */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative">
+                    <div className="rank-shield w-14 h-14"
+                      style={{ background:`linear-gradient(135deg,${item.accent},${item.color})`, boxShadow:`0 8px 24px ${item.color}66` }}>
+                      {(() => { const G = gameIcons[item.gameKey] || Trophy; return <G className="w-5 h-5 text-white drop-shadow" />; })()}
+                    </div>
+                    <div className="absolute -inset-2 -z-10 rounded-full opacity-40 blur-xl" style={{ background:item.color }} />
+                  </div>
+                </div>
 
                 {/* Heart button */}
                 <button
@@ -149,19 +167,22 @@ export default function GameListings() {
                   <Heart className="w-4 h-4 text-white" />
                 </button>
 
-                {/* Bottom-left rank + id */}
-                <div className="absolute bottom-3 left-3 flex flex-col gap-1">
-                  <span className="text-[10px] font-mono font-bold text-white/60">#{item.id}</span>
-                  <div className="flex items-center gap-1.5">
-                    <Trophy className="w-3.5 h-3.5 text-white/90" />
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">{item.rank}</span>
-                  </div>
+                {/* Top-right ID */}
+                <div className="absolute top-3 right-3 group-hover:opacity-0 transition-opacity text-[9px] font-mono font-bold px-2 py-0.5 rounded backdrop-blur-md text-white/80"
+                  style={{ background:"rgba(0,0,0,.3)" }}>#{item.id}</div>
+
+                {/* Bottom-left rank */}
+                <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-2 py-1 rounded-lg backdrop-blur-md"
+                  style={{ background:"rgba(0,0,0,.4)" }}>
+                  <Trophy className="w-3 h-3 text-white" />
+                  <span className="text-[10px] font-bold text-white uppercase tracking-wider">{item.rank}</span>
                 </div>
 
                 {/* Bottom-right meta */}
-                <div className="absolute bottom-3 right-3 flex items-center gap-2 text-[11px] text-white/70">
-                  <span className="flex items-center gap-1"><Eye className="w-3 h-3" />{item.views}</span>
-                  {item.favs && <span className="flex items-center gap-1"><Heart className="w-3 h-3" />{item.favs}</span>}
+                <div className="absolute bottom-3 right-3 flex items-center gap-1.5 text-[10px] text-white/90">
+                  <span className="flex items-center gap-1 px-1.5 py-0.5 rounded-md backdrop-blur-md" style={{ background:"rgba(0,0,0,.4)" }}>
+                    <Eye className="w-3 h-3" />{item.views}
+                  </span>
                 </div>
               </div>
 
