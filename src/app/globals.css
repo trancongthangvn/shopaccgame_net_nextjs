@@ -49,15 +49,21 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Chakra Petch', 'Inter', sans-serif;
+  font-family: var(--font-gilroy), 'Inter', system-ui, sans-serif;
   background: var(--bg);
   color: var(--fg);
   min-height: 100dvh;
   overflow-x: hidden;
   font-feature-settings: "ss01","cv11";
+  letter-spacing: -0.005em;
 }
 
-h1,h2,h3,h4,h5,h6 { font-family: 'Russo One', sans-serif; line-height: 1.15; }
+h1,h2,h3,h4,h5,h6 {
+  font-family: var(--font-gilroy), system-ui, sans-serif;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
 
 ::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: var(--bg); }

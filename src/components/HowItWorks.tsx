@@ -17,7 +17,7 @@ export default function HowItWorks() {
       <div className="relative max-w-6xl mx-auto">
         <div className="text-center mb-14">
           <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#10b981" }}>Quy Trình</span>
-          <h2 className="text-3xl sm:text-4xl mt-2 mb-3" style={{ fontFamily: "var(--font-russo),sans-serif" }}>
+          <h2 className="text-3xl sm:text-4xl mt-2 mb-3" style={{ fontFamily: "var(--font-gilroy),sans-serif" }}>
             <span style={{ color: "var(--fg)" }}>Mua Bán </span>
             <span className="grad-green">Chỉ 3 Bước</span>
           </h2>
@@ -42,7 +42,7 @@ export default function HowItWorks() {
                 <div className="card card-hover p-6 lg:p-8 h-full relative">
                   {/* Big number */}
                   <div className="absolute top-4 right-4 text-5xl font-bold leading-none select-none opacity-10"
-                    style={{ fontFamily: "var(--font-russo),sans-serif", color: s.color }}>
+                    style={{ fontFamily: "var(--font-gilroy),sans-serif", color: s.color }}>
                     {s.n}
                   </div>
 
@@ -55,7 +55,7 @@ export default function HowItWorks() {
                     <Icon className="w-6 h-6 text-white" />
                   </div>
 
-                  <h3 className="font-bold text-lg mb-3" style={{ fontFamily: "var(--font-russo),sans-serif", color: "var(--fg)" }}>
+                  <h3 className="font-bold text-lg mb-3" style={{ fontFamily: "var(--font-gilroy),sans-serif", color: "var(--fg)" }}>
                     {s.title}
                   </h3>
                   <p className="text-sm leading-relaxed" style={{ color: "var(--fg2)" }}>{s.desc}</p>

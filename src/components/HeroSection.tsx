@@ -61,7 +61,7 @@ export default function HeroSection() {
               <span className="grad-rose">#1 VN</span>
             </div>
 
-            <h1 className="mb-5 tracking-tight glitch-hover cursor-default" style={{ fontFamily:"var(--font-russo),sans-serif", fontSize:"clamp(2.2rem,5vw,4rem)", lineHeight:1.05 }}>
+            <h1 className="mb-5 tracking-tight glitch-hover cursor-default" style={{ fontFamily:"var(--font-gilroy),sans-serif", fontSize:"clamp(2.2rem,5vw,4rem)", lineHeight:1.05 }}>
               <span className="block" style={{ color:"var(--fg)" }}>Mua Bán</span>
               <span className="block">
                 <span className="grad-purple text-glow-pink">Acc Game</span>
@@ -127,7 +127,7 @@ export default function HeroSection() {
                 <div key={lbl}>
                   <div className="flex items-center gap-1.5 mb-0.5">
                     <Icon className="w-3.5 h-3.5" style={{ color:c }} />
-                    <span className="text-xl sm:text-2xl font-bold" style={{ fontFamily:"var(--font-russo),sans-serif", color:c }}>{val}</span>
+                    <span className="text-xl sm:text-2xl font-bold" style={{ fontFamily:"var(--font-gilroy),sans-serif", color:c }}>{val}</span>
                   </div>
                   <div className="text-[10px] uppercase tracking-widest" style={{ color:"var(--fg3)" }}>{lbl}</div>
                 </div>
@@ -221,7 +221,7 @@ export default function HeroSection() {
                       <div className="flex items-end justify-between">
                         <div>
                           <div className="flex items-baseline gap-1.5">
-                            <span className="text-lg font-bold" style={{ fontFamily:"var(--font-russo),sans-serif", color:c.color }}>
+                            <span className="text-lg font-bold" style={{ fontFamily:"var(--font-gilroy),sans-serif", color:c.color }}>
                               {c.price}
                             </span>
                             {c.oldPrice && (

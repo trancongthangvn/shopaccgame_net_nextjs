@@ -23,7 +23,7 @@ export default function CategoriesGrid() {
               <Sparkles className="w-4 h-4" style={{ color:"#a78bfa" }} />
               <span className="text-xs font-bold uppercase tracking-widest" style={{ color:"#a78bfa" }}>Danh Mục Game</span>
             </div>
-            <h2 className="section-heading-line text-3xl sm:text-4xl mb-2" style={{ fontFamily:"var(--font-russo),sans-serif" }}>
+            <h2 className="section-heading-line text-3xl sm:text-4xl mb-2" style={{ fontFamily:"var(--font-gilroy),sans-serif" }}>
               <span style={{ color:"var(--fg)" }}>Chọn </span>
               <span className="grad-purple">Tựa Game</span>
               <span style={{ color:"var(--fg)" }}> Yêu Thích</span>

@@ -22,7 +22,7 @@ export default function CTASection() {
             {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" style={{ color: "#fbbf24" }} />)}
             <span className="ml-2 text-sm font-semibold" style={{ color: "#fbbf24" }}>4.9/5 từ 3,247 đánh giá</span>
           </div>
-          <h2 className="mb-3" style={{ fontFamily: "var(--font-russo),sans-serif", fontSize: "clamp(1.8rem,4.5vw,3rem)" }}>
+          <h2 className="mb-3" style={{ fontFamily: "var(--font-gilroy),sans-serif", fontSize: "clamp(1.8rem,4.5vw,3rem)" }}>
             <span style={{ color: "var(--fg)" }}>Bán Acc </span>
             <span className="grad-rose">Nhanh Chóng?</span>
           </h2>
@@ -49,7 +49,7 @@ export default function CTASection() {
               )}
 
               <div className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: p.color }}>{p.name}</div>
-              <div className="text-3xl font-bold mb-5" style={{ fontFamily: "var(--font-russo),sans-serif", color: "var(--fg)" }}>
+              <div className="text-3xl font-bold mb-5" style={{ fontFamily: "var(--font-gilroy),sans-serif", color: "var(--fg)" }}>
                 {p.price}
               </div>
 

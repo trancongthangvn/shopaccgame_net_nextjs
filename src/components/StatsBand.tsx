@@ -21,7 +21,7 @@ export default function StatsBand() {
                 style={{ background: `linear-gradient(135deg,${c}26,${c}10)`, border: `1px solid ${c}33` }}>
                 <Icon className="w-5 h-5" style={{ color: c }} />
               </div>
-              <div className="text-2xl sm:text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-russo),sans-serif", color: c }}>
+              <div className="text-2xl sm:text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-gilroy),sans-serif", color: c }}>
                 {val}
               </div>
               <div className="text-xs uppercase tracking-wider" style={{ color: "var(--fg3)" }}>{lbl}</div>

@@ -37,7 +37,7 @@ export default function FlashSale() {
               <span className="badge badge-hot">🔥 Flash Sale</span>
               <span className="text-xs font-bold uppercase tracking-widest" style={{ color:"var(--fg3)" }}>Giảm sốc · Có hạn</span>
             </div>
-            <h2 className="section-heading-line text-3xl sm:text-4xl mb-2" style={{ fontFamily:"var(--font-russo),sans-serif" }}>
+            <h2 className="section-heading-line text-3xl sm:text-4xl mb-2" style={{ fontFamily:"var(--font-gilroy),sans-serif" }}>
               <span style={{ color:"var(--fg)" }}>Giảm Sốc </span>
               <span className="grad-rose">Đến 50%</span>
             </h2>
@@ -130,7 +130,7 @@ export default function FlashSale() {
                   </h3>
 
                   <div className="flex items-baseline gap-2 mb-3">
-                    <span className="text-xl font-bold" style={{ fontFamily:"var(--font-russo),sans-serif", color:"#f43f5e" }}>
+                    <span className="text-xl font-bold" style={{ fontFamily:"var(--font-gilroy),sans-serif", color:"#f43f5e" }}>
                       {d.price}<span className="text-xs">đ</span>
                     </span>
                     <span className="text-xs line-through" style={{ color:"var(--fg4)" }}>{d.oldPrice}đ</span>

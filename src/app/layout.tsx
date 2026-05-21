@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
-import { Russo_One, Chakra_Petch } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const russoOne = Russo_One({
-  weight: "400",
-  variable: "--font-russo",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const chakraPetch = Chakra_Petch({
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-chakra",
-  subsets: ["latin"],
+// SVN Gilroy — local font (see /src/app/fonts/)
+const svnGilroy = localFont({
+  src: [
+    { path: "./fonts/SVN-Gilroy_Regular.woff2",     weight: "400", style: "normal" },
+    { path: "./fonts/SVN-Gilroy_Medium.woff2",      weight: "500", style: "normal" },
+    { path: "./fonts/SVN-Gilroy_SemiBold.woff2",    weight: "600", style: "normal" },
+    { path: "./fonts/SVN-Gilroy_Bold.woff2",        weight: "700", style: "normal" },
+    { path: "./fonts/SVN-Gilroy_Bold_Italic.woff2", weight: "700", style: "italic" },
+    { path: "./fonts/SVN-Gilroy_Heavy.woff2",       weight: "800", style: "normal" },
+    { path: "./fonts/SVN-Gilroy_Black.woff2",       weight: "900", style: "normal" },
+    { path: "./fonts/SVN-Gilroy_Black_Italic.woff2",weight: "900", style: "italic" },
+  ],
+  variable: "--font-gilroy",
   display: "swap",
 });
 
@@ -45,13 +47,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="vi"
-      className={`${russoOne.variable} ${chakraPetch.variable} h-full`}
-    >
+    <html lang="vi" className={`${svnGilroy.variable} h-full`}>
       <body
         className="min-h-full flex flex-col antialiased"
-        style={{ fontFamily: "var(--font-chakra), sans-serif" }}
+        style={{ fontFamily: "var(--font-gilroy), system-ui, sans-serif" }}
       >
         {children}
       </body>

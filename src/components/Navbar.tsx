@@ -38,7 +38,7 @@ export default function Navbar() {
           <div className="relative w-9 h-9 rounded-xl btn-primary flex items-center justify-center">
             <Gamepad2 className="w-5 h-5 text-white relative z-10" />
           </div>
-          <span className="text-[15px] font-bold leading-none" style={{ fontFamily: "var(--font-russo),sans-serif" }}>
+          <span className="text-[15px] font-bold leading-none" style={{ fontFamily: "var(--font-gilroy),sans-serif" }}>
             <span className="grad-purple">Shop</span><span className="grad-rose">Acc</span><span className="text-white">Game</span>
             <span className="text-xs ml-0.5" style={{ color: "var(--fg3)" }}>.net</span>
           </span>

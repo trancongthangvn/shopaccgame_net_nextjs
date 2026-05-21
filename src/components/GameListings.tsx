@@ -71,7 +71,7 @@ export default function GameListings() {
               <Sparkles className="w-4 h-4" style={{ color: "#a78bfa" }} />
               <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#a78bfa" }}>Tin Đăng</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl" style={{ fontFamily: "var(--font-russo),sans-serif" }}>
+            <h2 className="text-3xl sm:text-4xl" style={{ fontFamily: "var(--font-gilroy),sans-serif" }}>
               <span style={{ color: "var(--fg)" }}>Acc Game </span>
               <span className="grad-purple">Mới Nhất</span>
             </h2>
@@ -218,7 +218,7 @@ export default function GameListings() {
                 <div className="flex items-end justify-between pt-3" style={{ borderTop: "1px solid var(--border)" }}>
                   <div>
                     <div className="flex items-baseline gap-1.5">
-                      <span className="text-xl font-bold" style={{ fontFamily: "var(--font-russo),sans-serif", color: item.color }}>
+                      <span className="text-xl font-bold" style={{ fontFamily: "var(--font-gilroy),sans-serif", color: item.color }}>
                         {item.price}<span className="text-xs">đ</span>
                       </span>
                     </div>

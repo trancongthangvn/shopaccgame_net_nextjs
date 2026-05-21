@@ -34,7 +34,7 @@ export default function Testimonials() {
             <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#fbbf24" }}>Đánh Giá Người Dùng</span>
             <Star className="w-4 h-4 fill-current" style={{ color: "#fbbf24" }} />
           </div>
-          <h2 className="text-3xl sm:text-4xl mb-3" style={{ fontFamily: "var(--font-russo),sans-serif" }}>
+          <h2 className="text-3xl sm:text-4xl mb-3" style={{ fontFamily: "var(--font-gilroy),sans-serif" }}>
             <span style={{ color: "var(--fg)" }}>3,200+ Game Thủ </span>
             <span className="grad-gold">Tin Tưởng</span>
           </h2>
