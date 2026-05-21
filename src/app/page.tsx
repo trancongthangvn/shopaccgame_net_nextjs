@@ -1,7 +1,8 @@
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
 import LiveTicker from "@/components/LiveTicker";
+import HeroSection from "@/components/HeroSection";
+import CategoriesGrid from "@/components/CategoriesGrid";
 import FlashSale from "@/components/FlashSale";
 import GameListings from "@/components/GameListings";
 import StatsBand from "@/components/StatsBand";
@@ -29,13 +30,22 @@ export default function Home() {
       <LiveTicker />
 
       <main id="main-content">
+        {/* Per Marketplace/Directory pattern: Hero → Categories → Featured → Trust → CTA */}
         <HeroSection />
+        <div className="divider-gradient" />
+
+        <CategoriesGrid />
         <FlashSale />
         <GameListings />
+
+        <div className="divider-gradient" />
         <StatsBand />
+
         <Testimonials />
         <HowItWorks />
         <TrustSection />
+
+        <div className="divider-gradient" />
         <CTASection />
         <LegalSection />
       </main>

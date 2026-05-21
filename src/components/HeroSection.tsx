@@ -38,7 +38,7 @@ export default function HeroSection() {
   const [q, setQ] = useState("");
 
   return (
-    <section className="relative overflow-hidden pt-10 pb-16 lg:pt-16 lg:pb-24">
+    <section className="relative overflow-hidden section-py section-px scanlines">
       {/* Background */}
       <div className="absolute inset-0 grid-bg opacity-50" />
       <div className="absolute top-0 left-1/4 w-[800px] h-[600px] rounded-full opacity-30 float"
@@ -61,7 +61,7 @@ export default function HeroSection() {
               <span className="grad-rose">#1 VN</span>
             </div>
 
-            <h1 className="mb-5 tracking-tight" style={{ fontFamily:"var(--font-russo),sans-serif", fontSize:"clamp(2.2rem,5vw,4rem)", lineHeight:1.05 }}>
+            <h1 className="mb-5 tracking-tight glitch-hover cursor-default" style={{ fontFamily:"var(--font-russo),sans-serif", fontSize:"clamp(2.2rem,5vw,4rem)", lineHeight:1.05 }}>
               <span className="block" style={{ color:"var(--fg)" }}>Mua Bán</span>
               <span className="block">
                 <span className="grad-purple text-glow-pink">Acc Game</span>

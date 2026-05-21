@@ -8,10 +8,37 @@ const cols = {
   "Pháp Lý":  ["Điều Khoản Sử Dụng","Chính Sách Bảo Mật","Quy Chế Hoạt Động","Thông Tin Công Ty"],
 };
 
+const payments = [
+  { name:"MoMo",       c:"#a50064" },
+  { name:"ZaloPay",    c:"#0068ff" },
+  { name:"VNPay",      c:"#005baa" },
+  { name:"ViettelPay", c:"#ee0033" },
+  { name:"Vietcombank",c:"#1e5f3f" },
+  { name:"Techcombank",c:"#ed1c24" },
+];
+
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer style={{ background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
+      {/* Payment methods strip */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6" style={{ borderBottom:"1px solid var(--border)" }}>
+        <div className="flex items-center justify-between flex-wrap gap-4">
+          <div className="text-xs font-bold uppercase tracking-widest" style={{ color:"var(--fg3)" }}>
+            🔒 Phương thức thanh toán phổ biến giữa người dùng
+          </div>
+          <div className="flex items-center gap-2 flex-wrap">
+            {payments.map(p => (
+              <div key={p.name}
+                className="px-3 py-1.5 rounded-lg text-[11px] font-bold transition-all hover:scale-105 cursor-default"
+                style={{ background:"var(--surface2)", border:"1px solid var(--border)", color: p.c }}>
+                {p.name}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-10 mb-12">
           {/* Brand col */}

@@ -9,7 +9,7 @@ const stats = [
 
 export default function StatsBand() {
   return (
-    <section className="relative py-12 overflow-hidden">
+    <section className="relative section-py section-px overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-40" />
       <div className="absolute inset-0" style={{ background: "linear-gradient(135deg,rgba(124,58,237,0.08),transparent 50%,rgba(244,63,94,0.06))" }} />
 

@@ -11,7 +11,7 @@ const plans = [
 
 export default function CTASection() {
   return (
-    <section className="py-24 px-4 sm:px-6 relative overflow-hidden">
+    <section className="section-py section-px relative overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-40" />
       <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 50%,rgba(124,58,237,0.1),transparent)" }} />
 

@@ -140,6 +140,40 @@ h1,h2,h3,h4,h5,h6 { font-family: 'Russo One', sans-serif; line-height: 1.15; }
 @keyframes glowSpin { to{transform:rotate(360deg)} }
 @keyframes bounce-x { 0%,100%{transform:translateX(0)} 50%{transform:translateX(4px)} }
 @keyframes wiggle   { 0%,100%{transform:rotate(0)} 25%{transform:rotate(-5deg)} 75%{transform:rotate(5deg)} }
+@keyframes glitch   {
+  0%,100% { transform: translate(0); text-shadow: 0 0 24px rgba(244,63,94,.5); }
+  20%     { transform: translate(-1px,1px); text-shadow: 2px 0 rgba(124,58,237,.7), -2px 0 rgba(244,63,94,.7); }
+  40%     { transform: translate(1px,-1px); text-shadow: -2px 0 rgba(124,58,237,.7), 2px 0 rgba(244,63,94,.7); }
+  60%     { transform: translate(0,1px); text-shadow: 0 2px rgba(124,58,237,.5); }
+}
+.glitch-hover:hover { animation: glitch .4s ease-in-out; }
+
+/* CRT scanlines — signature Retro-Futurism */
+.scanlines {
+  position: relative;
+}
+.scanlines::after {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 2px,
+    rgba(0,0,0,0.06) 2px,
+    rgba(0,0,0,0.06) 3px
+  );
+  z-index: 1;
+}
+
+/* Section spacing tokens */
+.section-py { padding-top: clamp(3rem, 6vw, 5rem); padding-bottom: clamp(3rem, 6vw, 5rem); }
+.section-px { padding-left: 1rem; padding-right: 1rem; }
+@media (min-width: 640px) { .section-px { padding-left: 1.5rem; padding-right: 1.5rem; } }
+
+/* Section divider hairline */
+.divider-gradient {
+  height: 1px; width: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(124,58,237,.3) 30%, rgba(244,63,94,.3) 70%, transparent 100%);
+}
 
 .float    { animation: float 5s ease-in-out infinite; }
 .float2   { animation: float2 6s ease-in-out infinite; }
