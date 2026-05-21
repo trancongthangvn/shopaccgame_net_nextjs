@@ -71,7 +71,7 @@ export default function GameListings() {
               <Sparkles className="w-4 h-4" style={{ color: "#a78bfa" }} />
               <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#a78bfa" }}>Tin Đăng</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl" style={{ fontFamily: "var(--font-gilroy),sans-serif" }}>
+            <h2 className="text-display-3" style={{ fontFamily: "var(--font-gilroy),sans-serif" }}>
               <span style={{ color: "var(--fg)" }}>Acc Game </span>
               <span className="grad-purple">Mới Nhất</span>
             </h2>
@@ -125,7 +125,7 @@ export default function GameListings() {
               }}
             >
               {t.label}
-              <span className="text-[10px] px-1.5 py-0.5 rounded font-bold"
+              <span className="text-2xs px-1.5 py-0.5 rounded font-bold"
                 style={{ background: tab === t.key ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.06)", color: tab === t.key ? "white" : "var(--fg3)" }}>
                 {t.count.toLocaleString()}
               </span>
@@ -168,18 +168,18 @@ export default function GameListings() {
                 </button>
 
                 {/* Top-right ID */}
-                <div className="absolute top-3 right-3 group-hover:opacity-0 transition-opacity text-[9px] font-mono font-bold px-2 py-0.5 rounded backdrop-blur-md text-white/80"
+                <div className="absolute top-3 right-3 group-hover:opacity-0 transition-opacity text-2xs font-mono font-bold px-2 py-0.5 rounded backdrop-blur-md text-white/80"
                   style={{ background:"rgba(0,0,0,.3)" }}>#{item.id}</div>
 
                 {/* Bottom-left rank */}
                 <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-2 py-1 rounded-lg backdrop-blur-md"
                   style={{ background:"rgba(0,0,0,.4)" }}>
                   <Trophy className="w-3 h-3 text-white" />
-                  <span className="text-[10px] font-bold text-white uppercase tracking-wider">{item.rank}</span>
+                  <span className="text-2xs font-bold text-white uppercase tracking-wider">{item.rank}</span>
                 </div>
 
                 {/* Bottom-right meta */}
-                <div className="absolute bottom-3 right-3 flex items-center gap-1.5 text-[10px] text-white/90">
+                <div className="absolute bottom-3 right-3 flex items-center gap-1.5 text-2xs text-white/90">
                   <span className="flex items-center gap-1 px-1.5 py-0.5 rounded-md backdrop-blur-md" style={{ background:"rgba(0,0,0,.4)" }}>
                     <Eye className="w-3 h-3" />{item.views}
                   </span>
@@ -194,21 +194,21 @@ export default function GameListings() {
                     {item.game}
                   </span>
                   {item.verified && (
-                    <span className="flex items-center gap-1 text-[10px] font-semibold" style={{ color: "#10b981" }}>
+                    <span className="flex items-center gap-1 text-2xs font-semibold" style={{ color: "#10b981" }}>
                       <BadgeCheck className="w-3 h-3" /> Đã xác minh
                     </span>
                   )}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-[13px] font-semibold leading-snug mb-3 line-clamp-2 min-h-[2.4rem]" style={{ color: "var(--fg)" }}>
+                <h3 className="text-sm font-semibold leading-snug mb-3 line-clamp-2 min-h-[2.4rem]" style={{ color: "var(--fg)" }}>
                   {item.title}
                 </h3>
 
                 {/* Tags */}
                 <div className="flex flex-wrap gap-1 mb-3">
                   {item.tags.slice(0,3).map(t => (
-                    <span key={t} className="text-[10px] px-1.5 py-0.5 rounded-md font-medium" style={{ background: "rgba(255,255,255,0.05)", color: "var(--fg2)" }}>
+                    <span key={t} className="text-2xs px-1.5 py-0.5 rounded-md font-medium" style={{ background: "rgba(255,255,255,0.05)", color: "var(--fg2)" }}>
                       {t}
                     </span>
                   ))}
@@ -223,7 +223,7 @@ export default function GameListings() {
                       </span>
                     </div>
                     {item.oldPrice && (
-                      <div className="text-[11px] line-through" style={{ color: "var(--fg4)" }}>{item.oldPrice}đ</div>
+                      <div className="text-2xs line-through" style={{ color: "var(--fg4)" }}>{item.oldPrice}đ</div>
                     )}
                   </div>
                   <button className="px-3 py-2 rounded-xl text-xs font-bold text-white transition-all cursor-pointer"
@@ -237,7 +237,7 @@ export default function GameListings() {
                 </div>
 
                 {/* Footer meta */}
-                <div className="flex items-center justify-between mt-3 pt-3 text-[10px]" style={{ borderTop: "1px solid var(--border)", color: "var(--fg3)" }}>
+                <div className="flex items-center justify-between mt-3 pt-3 text-2xs" style={{ borderTop: "1px solid var(--border)", color: "var(--fg3)" }}>
                   <span className="flex items-center gap-1"><Star className="w-3 h-3 fill-current" style={{ color: "#fbbf24" }} /> 4.9</span>
                   <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {item.posted}</span>
                 </div>

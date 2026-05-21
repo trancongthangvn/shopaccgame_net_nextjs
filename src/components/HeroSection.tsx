@@ -61,7 +61,7 @@ export default function HeroSection() {
               <span className="grad-rose">#1 VN</span>
             </div>
 
-            <h1 className="mb-5 tracking-tight glitch-hover cursor-default" style={{ fontFamily:"var(--font-gilroy),sans-serif", fontSize:"clamp(2.2rem,5vw,4rem)", lineHeight:1.05 }}>
+            <h1 className="text-display mb-5 glitch-hover cursor-default">
               <span className="block" style={{ color:"var(--fg)" }}>Mua Bán</span>
               <span className="block">
                 <span className="grad-purple text-glow-pink">Acc Game</span>
@@ -129,7 +129,7 @@ export default function HeroSection() {
                     <Icon className="w-3.5 h-3.5" style={{ color:c }} />
                     <span className="text-xl sm:text-2xl font-bold" style={{ fontFamily:"var(--font-gilroy),sans-serif", color:c }}>{val}</span>
                   </div>
-                  <div className="text-[10px] uppercase tracking-widest" style={{ color:"var(--fg3)" }}>{lbl}</div>
+                  <div className="text-2xs uppercase tracking-widest" style={{ color:"var(--fg3)" }}>{lbl}</div>
                 </div>
               ))}
             </div>
@@ -146,7 +146,7 @@ export default function HeroSection() {
                   <Eye className="w-3.5 h-3.5" style={{ color:"#a78bfa" }} />
                 </div>
                 <div className="leading-tight">
-                  <div className="text-[10px] font-bold uppercase tracking-wider" style={{ color:"var(--fg3)" }}>Đang Xem</div>
+                  <div className="text-2xs font-bold uppercase tracking-wider" style={{ color:"var(--fg3)" }}>Đang Xem</div>
                   <div className="text-sm font-bold" style={{ color:"#a78bfa" }}>5,234</div>
                 </div>
               </div>
@@ -158,7 +158,7 @@ export default function HeroSection() {
                   <Star className="w-3.5 h-3.5 fill-current" style={{ color:"#fbbf24" }} />
                 </div>
                 <div className="leading-tight">
-                  <div className="text-[10px] font-bold uppercase tracking-wider" style={{ color:"var(--fg3)" }}>Rating</div>
+                  <div className="text-2xs font-bold uppercase tracking-wider" style={{ color:"var(--fg3)" }}>Rating</div>
                   <div className="text-sm font-bold" style={{ color:"#fbbf24" }}>4.9 / 5</div>
                 </div>
               </div>
@@ -200,21 +200,21 @@ export default function HeroSection() {
                       </div>
 
                       {/* Top-right ID */}
-                      <div className="absolute top-2.5 right-2.5 text-[9px] font-mono font-bold px-1.5 py-0.5 rounded backdrop-blur-md text-white/80"
+                      <div className="absolute top-2.5 right-2.5 text-2xs font-mono font-bold px-1.5 py-0.5 rounded backdrop-blur-md text-white/80"
                         style={{ background:"rgba(0,0,0,.35)" }}>#{c.id}</div>
 
                       {/* Bottom-left rank */}
                       <div className="absolute bottom-2.5 left-2.5 flex items-center gap-1 px-1.5 py-0.5 rounded-md backdrop-blur-md"
                         style={{ background:"rgba(0,0,0,.4)" }}>
                         <Trophy className="w-2.5 h-2.5 text-white" />
-                        <span className="text-[9px] font-bold text-white uppercase tracking-wider">{c.rank}</span>
+                        <span className="text-2xs font-bold text-white uppercase tracking-wider">{c.rank}</span>
                       </div>
                     </div>
 
                     {/* Content footer */}
                     <div className="p-3">
                       <div className="flex items-center gap-1.5 mb-2">
-                        <span className="badge" style={{ background:c.accent+"22", color:c.color, border:`1px solid ${c.accent}44`, fontSize:"9px", padding:"2px 8px" }}>
+                        <span className="badge text-2xs" style={{ background:c.accent+"22", color:c.color, border:`1px solid ${c.accent}44`, padding:"2px 8px" }}>
                           {c.game}
                         </span>
                       </div>
@@ -225,11 +225,11 @@ export default function HeroSection() {
                               {c.price}
                             </span>
                             {c.oldPrice && (
-                              <span className="text-[10px] line-through" style={{ color:"var(--fg4)" }}>{c.oldPrice}</span>
+                              <span className="text-2xs line-through" style={{ color:"var(--fg4)" }}>{c.oldPrice}</span>
                             )}
                           </div>
                         </div>
-                        <button className="px-2.5 py-1.5 rounded-lg text-[10px] font-bold text-white cursor-pointer flex items-center gap-1"
+                        <button className="px-2.5 py-1.5 rounded-lg text-2xs font-bold text-white cursor-pointer flex items-center gap-1"
                           style={{ background:`linear-gradient(135deg,${c.accent},${c.color})`, boxShadow:`0 3px 10px ${c.accent}55` }}>
                           Xem <ArrowRight className="w-2.5 h-2.5" />
                         </button>
@@ -246,8 +246,8 @@ export default function HeroSection() {
                   <Zap className="w-4 h-4" style={{ color:"#10b981" }} />
                 </div>
                 <div className="leading-tight">
-                  <div className="text-[11px] font-bold" style={{ color:"#10b981" }}>Vừa mua thành công!</div>
-                  <div className="text-[10px]" style={{ color:"var(--fg3)" }}>Anh Minh · LMHT KC1 · 2 phút</div>
+                  <div className="text-2xs font-bold" style={{ color:"#10b981" }}>Vừa mua thành công!</div>
+                  <div className="text-2xs" style={{ color:"var(--fg3)" }}>Anh Minh · LMHT KC1 · 2 phút</div>
                 </div>
               </div>
 

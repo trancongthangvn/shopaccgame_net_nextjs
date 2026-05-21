@@ -34,7 +34,7 @@ export default function Testimonials() {
             <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#fbbf24" }}>Đánh Giá Người Dùng</span>
             <Star className="w-4 h-4 fill-current" style={{ color: "#fbbf24" }} />
           </div>
-          <h2 className="text-3xl sm:text-4xl mb-3" style={{ fontFamily: "var(--font-gilroy),sans-serif" }}>
+          <h2 className="text-display-3 mb-3" style={{ fontFamily: "var(--font-gilroy),sans-serif" }}>
             <span style={{ color: "var(--fg)" }}>3,200+ Game Thủ </span>
             <span className="grad-gold">Tin Tưởng</span>
           </h2>
@@ -76,12 +76,12 @@ export default function Testimonials() {
                     <span className="text-sm font-semibold truncate" style={{ color: "var(--fg)" }}>{r.name}</span>
                     <BadgeCheck className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#10b981" }} />
                   </div>
-                  <div className="text-[11px]" style={{ color: "var(--fg3)" }}>{r.role}</div>
+                  <div className="text-2xs" style={{ color: "var(--fg3)" }}>{r.role}</div>
                 </div>
               </div>
 
               {/* Bought */}
-              <div className="mt-3 text-[11px] flex items-center justify-between" style={{ color: "var(--fg3)" }}>
+              <div className="mt-3 text-2xs flex items-center justify-between" style={{ color: "var(--fg3)" }}>
                 <span className="px-2 py-1 rounded-md font-medium" style={{ background: r.color + "18", color: r.color }}>
                   {r.bought}
                 </span>

@@ -38,7 +38,7 @@ export default function Navbar() {
           <div className="relative w-9 h-9 rounded-xl btn-primary flex items-center justify-center">
             <Gamepad2 className="w-5 h-5 text-white relative z-10" />
           </div>
-          <span className="text-[15px] font-bold leading-none" style={{ fontFamily: "var(--font-gilroy),sans-serif" }}>
+          <span className="text-base font-bold leading-none" style={{ fontFamily: "var(--font-gilroy),sans-serif" }}>
             <span className="grad-purple">Shop</span><span className="grad-rose">Acc</span><span className="text-white">Game</span>
             <span className="text-xs ml-0.5" style={{ color: "var(--fg3)" }}>.net</span>
           </span>
@@ -56,7 +56,7 @@ export default function Navbar() {
               style={{ color: "var(--fg)" }}
               aria-label="Tìm kiếm"
             />
-            <kbd className="hidden md:inline text-[10px] px-1.5 py-0.5 rounded font-mono" style={{ background: "rgba(255,255,255,0.06)", color: "var(--fg3)" }}>⌘K</kbd>
+            <kbd className="hidden md:inline text-2xs px-1.5 py-0.5 rounded font-mono" style={{ background: "rgba(255,255,255,0.06)", color: "var(--fg3)" }}>⌘K</kbd>
           </div>
         </div>
 
@@ -69,7 +69,7 @@ export default function Navbar() {
             >
               {l.label}
               {l.hot && (
-                <span className="absolute -top-0.5 -right-0.5 text-[8px] px-1 rounded font-bold text-white" style={{ background: "#f43f5e" }}>HOT</span>
+                <span className="absolute -top-0.5 -right-0.5 text-2xs px-1 rounded font-bold text-white" style={{ background: "#f43f5e" }}>HOT</span>
               )}
             </a>
           ))}
@@ -109,7 +109,7 @@ export default function Navbar() {
               onClick={() => setOpen(false)}
             >
               {l.label}
-              {l.hot && <span className="text-[10px] px-1.5 rounded font-bold text-white" style={{ background: "#f43f5e" }}>HOT</span>}
+              {l.hot && <span className="text-2xs px-1.5 rounded font-bold text-white" style={{ background: "#f43f5e" }}>HOT</span>}
             </a>
           ))}
           <div className="pt-2">

@@ -37,7 +37,7 @@ export default function FlashSale() {
               <span className="badge badge-hot">🔥 Flash Sale</span>
               <span className="text-xs font-bold uppercase tracking-widest" style={{ color:"var(--fg3)" }}>Giảm sốc · Có hạn</span>
             </div>
-            <h2 className="section-heading-line text-3xl sm:text-4xl mb-2" style={{ fontFamily:"var(--font-gilroy),sans-serif" }}>
+            <h2 className="section-heading-line text-display-3 mb-2" style={{ fontFamily:"var(--font-gilroy),sans-serif" }}>
               <span style={{ color:"var(--fg)" }}>Giảm Sốc </span>
               <span className="grad-rose">Đến 50%</span>
             </h2>
@@ -53,7 +53,7 @@ export default function FlashSale() {
                   <span className="w-11 h-11 sm:w-14 sm:h-14 rounded-xl flex flex-col items-center justify-center font-mono font-bold tabular-nums text-white"
                     style={{ background:"linear-gradient(135deg,#f43f5e,#dc2626)", boxShadow:"0 4px 16px rgba(244,63,94,.4), inset 0 1px 0 rgba(255,255,255,.2)" }}>
                     <span className="text-base sm:text-lg leading-none">{pad(u.v)}</span>
-                    <span className="text-[8px] mt-1 opacity-80 tracking-wider">{u.l}</span>
+                    <span className="text-2xs mt-1 opacity-80 tracking-wider">{u.l}</span>
                   </span>
                   {i < arr.length - 1 && <span className="text-2xl font-bold" style={{ color:"#f43f5e" }}>:</span>}
                 </span>
@@ -106,17 +106,17 @@ export default function FlashSale() {
                   <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-2 py-1 rounded-lg backdrop-blur-md"
                     style={{ background:"rgba(0,0,0,.4)" }}>
                     <Trophy className="w-3 h-3 text-white" />
-                    <span className="text-[10px] font-bold text-white uppercase tracking-wider">{d.rank}</span>
+                    <span className="text-2xs font-bold text-white uppercase tracking-wider">{d.rank}</span>
                   </div>
 
                   {/* Bottom-right views */}
-                  <div className="absolute bottom-3 right-3 flex items-center gap-1 text-[10px] text-white/90 px-2 py-1 rounded-lg backdrop-blur-md"
+                  <div className="absolute bottom-3 right-3 flex items-center gap-1 text-2xs text-white/90 px-2 py-1 rounded-lg backdrop-blur-md"
                     style={{ background:"rgba(0,0,0,.4)" }}>
                     <Eye className="w-3 h-3" />{d.views}
                   </div>
 
                   {/* Top-right ID */}
-                  <div className="absolute top-3 right-3 text-[9px] font-mono font-bold px-2 py-0.5 rounded backdrop-blur-md text-white/80"
+                  <div className="absolute top-3 right-3 text-2xs font-mono font-bold px-2 py-0.5 rounded backdrop-blur-md text-white/80"
                     style={{ background:"rgba(0,0,0,.3)" }}>#{d.id}</div>
                 </div>
 
@@ -125,7 +125,7 @@ export default function FlashSale() {
                   <span className="badge mb-2 inline-flex" style={{ background:d.color+"22", color:d.color, border:`1px solid ${d.color}44` }}>
                     {d.game}
                   </span>
-                  <h3 className="text-[13px] font-semibold leading-snug mb-3 line-clamp-2 min-h-[2.4rem]" style={{ color:"var(--fg)" }}>
+                  <h3 className="text-sm font-semibold leading-snug mb-3 line-clamp-2 min-h-[2.4rem]" style={{ color:"var(--fg)" }}>
                     {d.title}
                   </h3>
 
@@ -142,7 +142,7 @@ export default function FlashSale() {
                       <div className="h-full rounded-full shimmer-bg"
                         style={{ width:`${soldPct}%`, background:"linear-gradient(90deg,#f59e0b,#f43f5e)" }} />
                     </div>
-                    <div className="flex items-center justify-between mt-1.5 text-[10px]">
+                    <div className="flex items-center justify-between mt-1.5 text-2xs">
                       <span className="font-bold" style={{ color:"#fbbf24" }}>🔥 Đã bán {d.sold}/{d.total}</span>
                       <span style={{ color:"var(--fg3)" }}>{soldPct}%</span>
                     </div>

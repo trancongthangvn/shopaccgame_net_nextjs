@@ -23,7 +23,7 @@ export default function CategoriesGrid() {
               <Sparkles className="w-4 h-4" style={{ color:"#a78bfa" }} />
               <span className="text-xs font-bold uppercase tracking-widest" style={{ color:"#a78bfa" }}>Danh Mục Game</span>
             </div>
-            <h2 className="section-heading-line text-3xl sm:text-4xl mb-2" style={{ fontFamily:"var(--font-gilroy),sans-serif" }}>
+            <h2 className="section-heading-line text-display-3 mb-2" style={{ fontFamily:"var(--font-gilroy),sans-serif" }}>
               <span style={{ color:"var(--fg)" }}>Chọn </span>
               <span className="grad-purple">Tựa Game</span>
               <span style={{ color:"var(--fg)" }}> Yêu Thích</span>
@@ -50,8 +50,8 @@ export default function CategoriesGrid() {
                   {/* Tag */}
                   {cat.tag && (
                     <div className="absolute top-2 right-2 z-10">
-                      <span className="badge"
-                        style={{ background: cat.c1+"33", color:"white", border:`1px solid ${cat.c1}88`, fontSize:"9px", padding:"2px 8px" }}>
+                      <span className="badge text-2xs"
+                        style={{ background: cat.c1+"33", color:"white", border:`1px solid ${cat.c1}88`, padding:"2px 8px" }}>
                         {cat.tag}
                       </span>
                     </div>
@@ -74,7 +74,7 @@ export default function CategoriesGrid() {
                   <div className="text-sm font-bold leading-tight mb-1 whitespace-pre-line" style={{ color:"var(--fg)" }}>
                     {cat.name}
                   </div>
-                  <div className="text-[11px] mb-2" style={{ color:"var(--fg3)" }}>{cat.short}</div>
+                  <div className="text-2xs mb-2" style={{ color:"var(--fg3)" }}>{cat.short}</div>
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-bold" style={{ color: cat.c1 }}>{cat.count} tin</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" style={{ color: cat.c1 }} />

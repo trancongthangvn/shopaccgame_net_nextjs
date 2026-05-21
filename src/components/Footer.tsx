@@ -30,7 +30,7 @@ export default function Footer() {
           <div className="flex items-center gap-2 flex-wrap">
             {payments.map(p => (
               <div key={p.name}
-                className="px-3 py-1.5 rounded-lg text-[11px] font-bold transition-all hover:scale-105 cursor-default"
+                className="px-3 py-1.5 rounded-lg text-2xs font-bold transition-all hover:scale-105 cursor-default"
                 style={{ background:"var(--surface2)", border:"1px solid var(--border)", color: p.c }}>
                 {p.name}
               </div>
@@ -47,7 +47,7 @@ export default function Footer() {
               <div className="w-9 h-9 rounded-xl btn-primary flex items-center justify-center">
                 <Gamepad2 className="w-5 h-5 text-white" />
               </div>
-              <span className="text-[15px] font-bold leading-none" style={{ fontFamily: "var(--font-gilroy),sans-serif" }}>
+              <span className="text-base font-bold leading-none" style={{ fontFamily: "var(--font-gilroy),sans-serif" }}>
                 <span className="grad-purple">Shop</span><span className="grad-rose">Acc</span><span className="text-white">Game</span>
                 <span className="text-xs ml-0.5" style={{ color: "var(--fg3)" }}>.net</span>
               </span>

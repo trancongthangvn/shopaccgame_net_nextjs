@@ -26,7 +26,7 @@ export default function TrustSection() {
             <ShieldCheck className="w-3.5 h-3.5" style={{ color: "#06b6d4" }} />
             <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#06b6d4" }}>An Toàn</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl" style={{ fontFamily: "var(--font-gilroy),sans-serif" }}>
+          <h2 className="text-display-3" style={{ fontFamily: "var(--font-gilroy),sans-serif" }}>
             <span style={{ color: "var(--fg)" }}>Giao Dịch </span>
             <span className="grad-cyan">Thông Minh</span>
           </h2>

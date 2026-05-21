@@ -19,7 +19,7 @@ export default function FloatingChat() {
       >
         {open ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
         {!open && (
-          <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold text-white pulse-soft"
+          <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full flex items-center justify-center text-2xs font-bold text-white pulse-soft"
             style={{ background: "#f43f5e", boxShadow: "0 0 8px #f43f5e" }}>
             1
           </span>
@@ -42,7 +42,7 @@ export default function FloatingChat() {
               </div>
               <div>
                 <div className="font-bold text-sm">Hỗ Trợ ShopAccGame</div>
-                <div className="text-[11px] opacity-90 flex items-center gap-1">
+                <div className="text-2xs opacity-90 flex items-center gap-1">
                   <span className="live-dot" style={{ background: "#86efac" }} />
                   Đang online · Phản hồi ~2 phút
                 </div>
@@ -53,7 +53,7 @@ export default function FloatingChat() {
           {/* Messages */}
           <div className="p-4 space-y-3 max-h-72 overflow-y-auto" style={{ background: "var(--bg2)" }}>
             <div className="flex items-start gap-2">
-              <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0"
+              <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-2xs font-bold flex-shrink-0"
                 style={{ background: "linear-gradient(135deg,#7c3aed,#a855f7)" }}>SA</div>
               <div className="max-w-[80%]">
                 <div className="p-3 rounded-2xl rounded-tl-none text-xs leading-relaxed"
@@ -71,7 +71,7 @@ export default function FloatingChat() {
             <div className="flex flex-wrap gap-1.5 pt-2">
               {["Cách đăng tin","Tìm acc","Bảo mật","Liên hệ"].map(q => (
                 <button key={q}
-                  className="text-[11px] px-3 py-1.5 rounded-full transition-colors cursor-pointer hover:bg-purple-500/20"
+                  className="text-2xs px-3 py-1.5 rounded-full transition-colors cursor-pointer hover:bg-purple-500/20"
                   style={{ background: "rgba(124,58,237,0.12)", border: "1px solid rgba(124,58,237,0.3)", color: "var(--purple3)" }}>
                   {q}
                 </button>

@@ -17,7 +17,7 @@ export default function HowItWorks() {
       <div className="relative max-w-6xl mx-auto">
         <div className="text-center mb-14">
           <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#10b981" }}>Quy Trình</span>
-          <h2 className="text-3xl sm:text-4xl mt-2 mb-3" style={{ fontFamily: "var(--font-gilroy),sans-serif" }}>
+          <h2 className="text-display-3 mt-2 mb-3" style={{ fontFamily: "var(--font-gilroy),sans-serif" }}>
             <span style={{ color: "var(--fg)" }}>Mua Bán </span>
             <span className="grad-green">Chỉ 3 Bước</span>
           </h2>

@@ -23,10 +23,10 @@ export default function LiveTicker() {
         <div className="flex items-center gap-2 flex-shrink-0 pr-4" style={{ borderRight: "1px solid var(--border)" }}>
           <div className="flex items-center gap-1.5">
             <span className="live-dot" />
-            <span className="text-[11px] font-bold uppercase tracking-widest" style={{ color: "#10b981" }}>Live</span>
+            <span className="text-2xs font-bold uppercase tracking-widest" style={{ color: "#10b981" }}>Live</span>
           </div>
           <TrendingUp className="w-3.5 h-3.5" style={{ color: "var(--fg3)" }} />
-          <span className="text-[11px] hidden sm:inline" style={{ color: "var(--fg3)" }}>Giao dịch gần đây</span>
+          <span className="text-2xs hidden sm:inline" style={{ color: "var(--fg3)" }}>Giao dịch gần đây</span>
         </div>
 
         {/* Marquee */}

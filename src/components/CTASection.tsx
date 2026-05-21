@@ -22,7 +22,7 @@ export default function CTASection() {
             {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" style={{ color: "#fbbf24" }} />)}
             <span className="ml-2 text-sm font-semibold" style={{ color: "#fbbf24" }}>4.9/5 từ 3,247 đánh giá</span>
           </div>
-          <h2 className="mb-3" style={{ fontFamily: "var(--font-gilroy),sans-serif", fontSize: "clamp(1.8rem,4.5vw,3rem)" }}>
+          <h2 className="text-display-2 mb-3">
             <span style={{ color: "var(--fg)" }}>Bán Acc </span>
             <span className="grad-rose">Nhanh Chóng?</span>
           </h2>
@@ -42,7 +42,7 @@ export default function CTASection() {
                 borderColor: p.popular ? p.color + "66" : "var(--border)",
               }}>
               {p.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-white"
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-2xs font-bold uppercase tracking-wider text-white"
                   style={{ background: `linear-gradient(135deg,${p.color},#f97316)`, boxShadow: `0 4px 12px ${p.color}66` }}>
                   ★ Phổ biến nhất
                 </div>

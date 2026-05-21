@@ -23,7 +23,7 @@ export default function LegalSection() {
             <Scale className="w-3.5 h-3.5" style={{ color: "#c4b5fd" }} />
             <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#c4b5fd" }}>Tuân Thủ Pháp Luật VN</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl mb-3" style={{ fontFamily: "var(--font-gilroy),sans-serif" }}>
+          <h2 className="text-display-3 mb-3" style={{ fontFamily: "var(--font-gilroy),sans-serif" }}>
             <span style={{ color: "var(--fg)" }}>Điều Khoản </span>
             <span className="grad-purple">& Pháp Lý</span>
           </h2>
