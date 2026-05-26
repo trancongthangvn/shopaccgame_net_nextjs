@@ -241,7 +241,7 @@ h1, h2, h3, h4, h5, h6 {
 .float    { animation: float 9s ease-in-out infinite; }
 .float2   { animation: float2 11s ease-in-out infinite; }
 .pulse-soft { animation: pulse 5s ease-in-out infinite; }
-.marquee  { animation: marquee 70s linear infinite; }
+.marquee  { animation: marquee 45s linear infinite; }
 .bounce-x { animation: bounce-x 2.8s ease-in-out infinite; }
 .wiggle   { animation: wiggle 5s ease-in-out infinite; }
 
