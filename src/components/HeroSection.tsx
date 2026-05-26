@@ -11,7 +11,7 @@ const cards = [
     icon: Crown, preview: "preview-lmht",
     color: "#a78bfa", accent: "#7c3aed",
     rotate: "-6deg",
-    pos: { top: "0px", left: "10%" },
+    pos: { top: "20px", left: "0%" },
     z: 3,
   },
   {
@@ -19,8 +19,8 @@ const cards = [
     price: "2.5tr", oldPrice: "",  discount: "",
     icon: Wand2, preview: "preview-genshin",
     color: "#c4b5fd", accent: "#7c3aed",
-    rotate: "3deg",
-    pos: { top: "70px", right: "5%" },
+    rotate: "4deg",
+    pos: { top: "150px", right: "0%" },
     z: 2,
   },
   {
@@ -28,8 +28,8 @@ const cards = [
     price: "650K", oldPrice: "950K", discount: "32%",
     icon: Crosshair, preview: "preview-ff",
     color: "#fb7185", accent: "#f43f5e",
-    rotate: "-2deg",
-    pos: { top: "180px", left: "5%" },
+    rotate: "-3deg",
+    pos: { top: "300px", left: "8%" },
     z: 1,
   },
 ];
@@ -68,7 +68,7 @@ export default function HeroSection() {
                 {" "}
                 <span style={{ color:"var(--fg)" }}>Uy Tín</span>
               </span>
-              <span className="block grad-rose">Giá Tốt Nhất 2025</span>
+              <span className="block grad-rose">Giá Tốt Nhất 2026</span>
             </h1>
 
             <p className="text-base sm:text-lg mb-8 leading-relaxed max-w-lg" style={{ color:"var(--fg2)" }}>
@@ -137,10 +137,10 @@ export default function HeroSection() {
 
           {/* ═════════ RIGHT — 3 Floating Cards (v2 layout + v3 styling) ═════════ */}
           <div className="lg:col-span-5 relative hidden md:block">
-            <div className="relative h-[560px] max-w-md mx-auto">
+            <div className="relative h-[600px] max-w-lg mx-auto">
 
               {/* ── Floating chip: Viewers (top) ── */}
-              <div className="absolute -top-2 left-0 z-30 flex items-center gap-2 px-3 py-2 rounded-xl float"
+              <div className="absolute -top-4 right-2 z-30 flex items-center gap-2 px-3 py-2 rounded-xl float"
                 style={{ background:"rgba(20,20,50,.95)", backdropFilter:"blur(12px)", border:"1px solid rgba(167,139,250,.4)", boxShadow:"0 8px 24px rgba(0,0,0,.5)" }}>
                 <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background:"rgba(167,139,250,.2)" }}>
                   <Eye className="w-3.5 h-3.5" style={{ color:"#a78bfa" }} />
@@ -151,8 +151,8 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              {/* ── Floating chip: Rating (middle right) ── */}
-              <div className="absolute top-1/2 -translate-y-1/2 -right-2 z-30 flex items-center gap-2 px-3 py-2 rounded-xl float2"
+              {/* ── Floating chip: Rating (top-left) ── */}
+              <div className="absolute top-4 -left-4 z-30 flex items-center gap-2 px-3 py-2 rounded-xl float2"
                 style={{ background:"rgba(20,20,50,.95)", backdropFilter:"blur(12px)", border:"1px solid rgba(251,191,36,.4)", boxShadow:"0 8px 24px rgba(0,0,0,.5)" }}>
                 <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background:"rgba(251,191,36,.2)" }}>
                   <Star className="w-3.5 h-3.5 fill-current" style={{ color:"#fbbf24" }} />
@@ -239,8 +239,8 @@ export default function HeroSection() {
                 );
               })}
 
-              {/* ── Notification "Vừa mua" (bottom) ── */}
-              <div className="absolute -bottom-1 left-2 z-30 flex items-center gap-2.5 px-3 py-2 rounded-xl pulse-soft"
+              {/* ── Notification "Vừa mua" (bottom-right) ── */}
+              <div className="absolute -bottom-2 right-0 z-30 flex items-center gap-2.5 px-3 py-2 rounded-xl pulse-soft"
                 style={{ background:"rgba(20,20,50,.95)", backdropFilter:"blur(12px)", border:"1px solid rgba(16,185,129,.4)", boxShadow:"0 8px 24px rgba(0,0,0,.5)" }}>
                 <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style={{ background:"rgba(16,185,129,.18)" }}>
                   <Zap className="w-4 h-4" style={{ color:"#10b981" }} />

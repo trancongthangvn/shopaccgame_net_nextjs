@@ -6,21 +6,21 @@ const reviews = [
     rating: 5,
     text: "Đã mua 3 acc LMHT trên shopaccgame.net, lần nào cũng đúng mô tả. Người bán rất uy tín và phản hồi nhanh. Đáng tin cậy nhất so với các sàn khác mình từng dùng.",
     bought: "Acc LMHT Kim Cương 1",
-    date: "12/05/2025"
+    date: "12/05/2026"
   },
   {
     name: "Trần Thu Hà", role: "Streamer Genshin", avatar: "TH", color: "#f43f5e",
     rating: 5,
     text: "Mình bán 5 acc Genshin trong 2 tháng, tin đăng nổi bật giúp tiếp cận rất nhiều người mua. Hệ thống xác minh giúp giao dịch an toàn hơn nhiều so với chợ tự phát.",
     bought: "Người bán xác minh",
-    date: "08/05/2025"
+    date: "08/05/2026"
   },
   {
     name: "Lê Văn Phong", role: "PUBG Pro Player", avatar: "LP", color: "#f59e0b",
     rating: 5,
     text: "Trang web có nhiều tin đăng chất lượng. Mình tìm được acc PUBG Conqueror đúng yêu cầu trong vòng 1 giờ. Giao dịch trực tiếp với người bán nên giá rất tốt.",
     bought: "Acc PUBG Conqueror",
-    date: "05/05/2025"
+    date: "05/05/2026"
   },
 ];
 

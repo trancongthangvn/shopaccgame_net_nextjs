@@ -66,7 +66,7 @@ export default function LegalSection() {
         </div>
 
         <p className="text-center text-xs mt-5" style={{ color: "var(--fg3)" }}>
-          Cập nhật: 05/2025 · Liên hệ pháp lý: <span style={{ color: "var(--purple3)" }}>legal@shopaccgame.net</span>
+          Cập nhật: 05/2026 · Liên hệ pháp lý: <span style={{ color: "var(--purple3)" }}>legal@shopaccgame.net</span>
         </p>
       </div>
     </section>

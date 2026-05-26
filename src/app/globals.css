@@ -45,7 +45,9 @@
   --r-2xl: 24px;
 }
 
-*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+@layer base {
+  *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+}
 html { scroll-behavior: smooth; }
 
 /* ════════════════════════════════════════════════════════════

@@ -61,15 +61,15 @@ export default function Navbar() {
         </div>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-0.5 flex-shrink-0">
+        <div className="hidden md:flex items-center gap-1 flex-shrink-0">
           {links.map((l) => (
             <a key={l.label} href={l.href}
-              className="relative px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/5"
+              className={`relative px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/5 whitespace-nowrap ${l.hot ? 'pr-9' : ''}`}
               style={{ color: "var(--fg2)" }}
             >
               {l.label}
               {l.hot && (
-                <span className="absolute -top-0.5 -right-0.5 text-2xs px-1 rounded font-bold text-white" style={{ background: "#f43f5e" }}>HOT</span>
+                <span className="absolute top-1/2 -translate-y-1/2 right-1.5 text-2xs px-1.5 py-0.5 rounded font-bold text-white leading-none" style={{ background: "#f43f5e" }}>HOT</span>
               )}
             </a>
           ))}
