@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Zap, ArrowRight, Star, Check } from "lucide-react";
 
 const plans = [
@@ -62,8 +63,8 @@ export default function CTASection() {
                 ))}
               </ul>
 
-              <button
-                className={`w-full py-3 rounded-xl text-sm font-bold cursor-pointer transition-all ${p.popular ? "text-white" : ""}`}
+              <Link href="/dang-tin/"
+                className={`block text-center w-full py-3 rounded-xl text-sm font-bold cursor-pointer transition-all ${p.popular ? "text-white" : ""}`}
                 style={p.popular ? {
                   background: `linear-gradient(135deg,${p.color},#f97316)`,
                   boxShadow: `0 4px 14px ${p.color}44`,
@@ -73,7 +74,7 @@ export default function CTASection() {
                   color: "var(--fg)",
                 }}>
                 {p.popular ? "Bắt Đầu Ngay" : "Chọn Gói"}
-              </button>
+              </Link>
             </div>
           ))}
         </div>
@@ -81,12 +82,12 @@ export default function CTASection() {
         {/* CTA buttons */}
         <div className="text-center">
           <div className="inline-flex flex-col sm:flex-row items-center gap-3">
-            <button className="flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-bold text-white btn-rose cursor-pointer">
+            <Link href="/dang-tin/" className="flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-bold text-white btn-rose cursor-pointer">
               <Zap className="w-4 h-4" /> Đăng Tin Miễn Phí
-            </button>
-            <button className="flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold btn-ghost cursor-pointer" style={{ color: "var(--fg2)" }}>
+            </Link>
+            <Link href="/tim-kiem/" className="flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold btn-ghost cursor-pointer" style={{ color: "var(--fg2)" }}>
               Xem Bảng Giá Chi Tiết <ArrowRight className="w-4 h-4" />
-            </button>
+            </Link>
           </div>
           <p className="text-xs mt-5" style={{ color: "var(--fg3)" }}>
             Bằng việc đăng ký, bạn đồng ý với{" "}

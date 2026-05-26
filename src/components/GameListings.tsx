@@ -1,6 +1,10 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { Trophy, Eye, Heart, Clock, BadgeCheck, ArrowRight, Star, Sparkles, Shield, Filter, Crown, Swords, Wand2, Crosshair, Globe } from "lucide-react";
+import { listings as all, gameCategories as tabs } from "@/data/listings";
+import { useFavorites } from "@/lib/favorites";
+import { useToast } from "@/components/Toast";
 
 const gameIcons: Record<string, typeof Trophy> = {
   lmht: Swords,
@@ -10,36 +14,6 @@ const gameIcons: Record<string, typeof Trophy> = {
   lq: Crown,
   valo: Globe,
 };
-
-type Listing = {
-  id: string; game: string; gameKey: string; title: string;
-  rank: string; price: string; oldPrice?: string;
-  views: string; favs?: number; posted: string;
-  verified?: boolean; tags: string[];
-  preview: string; color: string; accent: string;
-  badge?: "hot" | "new" | "vip" | "sale";
-};
-
-const all: Listing[] = [
-  { id:"LMHT8425", game:"LMHT", gameKey:"lmht", title:"Acc LMHT Kim Cương 1 — 80 tướng + 15 skin legendary, email gốc", rank:"Kim Cương 1", price:"850.000", oldPrice:"1.200.000", views:"2.4k", favs:48, posted:"2 giờ trước", verified:true, tags:["80+ tướng","15 skin","Email gốc"], preview:"preview-lmht", color:"#3b82f6", accent:"#60a5fa", badge:"sale" },
-  { id:"LMHT8542", game:"LMHT", gameKey:"lmht", title:"Acc LMHT Cao Thủ — Full tướng + 200 skin, all rune trang", rank:"Cao Thủ", price:"1.890.000", views:"3.1k", favs:67, posted:"4 giờ trước", verified:true, tags:["Full tướng","200 skin","Cao Thủ"], preview:"preview-lmht", color:"#3b82f6", accent:"#60a5fa", badge:"hot" },
-  { id:"FF7733", game:"Free Fire", gameKey:"ff", title:"Acc Free Fire Thách Đấu — Skin súng MP40 Cobra cực hiếm", rank:"Thách Đấu", price:"650.000", oldPrice:"950.000", views:"1.8k", favs:35, posted:"5 giờ trước", verified:true, tags:["MP40 Cobra","30+ skin","Garena VN"], preview:"preview-ff", color:"#f43f5e", accent:"#fb7185", badge:"sale" },
-  { id:"FF7891", game:"Free Fire", gameKey:"ff", title:"Acc Free Fire Cao Cấp — Diamond max, full skin nhân vật", rank:"Bậc Thầy", price:"380.000", views:"1.1k", favs:21, posted:"6 giờ trước", verified:false, tags:["Full skin NV","Diamond","Email gốc"], preview:"preview-ff", color:"#f43f5e", accent:"#fb7185", badge:"new" },
-  { id:"PUBG2024", game:"PUBG", gameKey:"pubg", title:"Acc PUBG Conqueror — Glacier M416, Pharaoh X-Suit", rank:"Conqueror", price:"1.200.000", oldPrice:"1.800.000", views:"3.1k", favs:89, posted:"1 ngày trước", verified:false, tags:["Conqueror","X-Suit","Glacier"], preview:"preview-pubg", color:"#f59e0b", accent:"#fbbf24", badge:"vip" },
-  { id:"GS9012", game:"Genshin", gameKey:"genshin", title:"Genshin AR55 — 12 nhân vật 5★ (Hutao C2, Zhongli C0, Raiden C0)", rank:"AR55", price:"2.500.000", views:"4.2k", favs:128, posted:"3 giờ trước", verified:true, tags:["12 NV 5★","Hutao C2","Whale acc"], preview:"preview-genshin", color:"#c4b5fd", accent:"#a78bfa", badge:"vip" },
-  { id:"LQ2024", game:"Liên Quân", gameKey:"lq", title:"Acc Liên Quân Huyền Thoại — Full 110 tướng VN Server", rank:"Huyền Thoại", price:"480.000", oldPrice:"700.000", views:"1.2k", favs:42, posted:"30 phút trước", verified:true, tags:["110 tướng","15 trang phục","S5 rank"], preview:"preview-lq", color:"#10b981", accent:"#34d399", badge:"sale" },
-  { id:"VAL3344", game:"Valorant", gameKey:"valo", title:"Acc Valorant Radiant — 20 agent + Vandal Prime Skin", rank:"Radiant", price:"3.200.000", views:"5.6k", favs:156, posted:"1 giờ trước", verified:true, tags:["Radiant","20 agent","Prime Vandal"], preview:"preview-valo", color:"#06b6d4", accent:"#22d3ee", badge:"hot" },
-];
-
-const tabs = [
-  { key:"all",     label:"Tất Cả",      count:12500 },
-  { key:"lmht",    label:"LMHT",        count:3200, color:"#3b82f6" },
-  { key:"ff",      label:"Free Fire",   count:2100, color:"#f43f5e" },
-  { key:"pubg",    label:"PUBG",        count:1850, color:"#f59e0b" },
-  { key:"genshin", label:"Genshin",     count:980,  color:"#c4b5fd" },
-  { key:"lq",      label:"Liên Quân",   count:1420, color:"#10b981" },
-  { key:"valo",    label:"Valorant",    count:760,  color:"#06b6d4" },
-];
 
 const badgeMap: Record<string, string> = {
   hot: "badge-hot",
@@ -57,8 +31,14 @@ const badgeLabel: Record<string, string> = {
 export default function GameListings() {
   const [tab, setTab] = useState("all");
   const [sort, setSort] = useState("newest");
+  const { isFav, toggle } = useFavorites();
+  const { push } = useToast();
 
-  const filtered = tab === "all" ? all : all.filter(a => a.gameKey === tab);
+  const filtered = (tab === "all" ? all : all.filter(a => a.gameKey === tab)).slice().sort((a,b) => {
+    if (sort === "price") return a.priceNum - b.priceNum;
+    if (sort === "hot") return (b.favs ?? 0) - (a.favs ?? 0);
+    return 0; // newest = original order
+  });
 
   return (
     <section id="listings" className="py-16 lg:py-24 px-4 sm:px-6" style={{ background: "var(--bg2)" }}>
@@ -136,7 +116,8 @@ export default function GameListings() {
         {/* Listing grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {filtered.map(item => (
-            <article key={item.id} className="relative card card-hover overflow-hidden group cursor-pointer" aria-label={item.title}>
+            <Link key={item.id} href={`/acc/${item.id}/`} className="contents" aria-label={item.title}>
+            <article className="relative card card-hover overflow-hidden group cursor-pointer">
 
               {/* Badge */}
               {item.badge && (
@@ -160,11 +141,12 @@ export default function GameListings() {
 
                 {/* Heart button */}
                 <button
-                  className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-md transition-all opacity-0 group-hover:opacity-100 cursor-pointer"
-                  style={{ background: "rgba(0,0,0,0.4)" }}
+                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); const nowFav = toggle(item.id); push(nowFav ? "Đã thêm vào yêu thích" : "Đã bỏ yêu thích", "success"); }}
+                  className={`absolute top-3 right-3 z-20 w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-md transition-all cursor-pointer ${isFav(item.id) ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+                  style={{ background: isFav(item.id) ? "#f43f5e" : "rgba(0,0,0,0.4)" }}
                   aria-label="Yêu thích"
                 >
-                  <Heart className="w-4 h-4 text-white" />
+                  <Heart className={`w-4 h-4 text-white ${isFav(item.id) ? "fill-current" : ""}`} />
                 </button>
 
                 {/* Top-right ID */}
@@ -243,15 +225,16 @@ export default function GameListings() {
                 </div>
               </div>
             </article>
+            </Link>
           ))}
         </div>
 
         {/* View all */}
         <div className="text-center mt-10">
-          <button className="px-8 py-3.5 rounded-2xl font-semibold text-sm btn-ghost cursor-pointer inline-flex items-center gap-2" style={{ color: "var(--fg2)" }}>
+          <Link href="/tim-kiem/" className="px-8 py-3.5 rounded-2xl font-semibold text-sm btn-ghost cursor-pointer inline-flex items-center gap-2" style={{ color: "var(--fg2)" }}>
             Xem tất cả 12,500+ tin đăng
             <ArrowRight className="w-4 h-4 bounce-x" />
-          </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Search, Flame, Star, Trophy, Shield, Zap, ArrowRight, Sparkles, TrendingUp, Users, Eye, Crown, Wand2, Crosshair } from "lucide-react";
 
 const hot = ["LMHT Kim Cương","Free Fire Thách Đấu","PUBG Conqueror","Genshin AR55","Valorant Radiant"];
@@ -36,6 +38,12 @@ const cards = [
 
 export default function HeroSection() {
   const [q, setQ] = useState("");
+  const router = useRouter();
+
+  const submitSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    router.push(`/tim-kiem/${q.trim() ? `?q=${encodeURIComponent(q.trim())}` : ""}`);
+  };
 
   return (
     <section className="relative overflow-hidden py-16 lg:py-24 px-4 sm:px-6 scanlines">
@@ -80,7 +88,7 @@ export default function HeroSection() {
             <div className="mb-5">
               <div className="relative p-[2px] rounded-2xl"
                 style={{ background:"linear-gradient(135deg,rgba(249,115,22,.7),rgba(244,63,94,.5) 50%,rgba(249,115,22,.3))" }}>
-                <div className="flex items-center gap-2 rounded-2xl pl-5 pr-2 h-14" style={{ background:"var(--surface)" }}>
+                <form onSubmit={submitSearch} className="flex items-center gap-2 rounded-2xl pl-5 pr-2 h-14" style={{ background:"var(--surface)" }}>
                   <Search className="w-5 h-5 flex-shrink-0" style={{ color:"var(--fg3)" }} />
                   <input
                     type="text" value={q} onChange={e=>setQ(e.target.value)}
@@ -89,11 +97,11 @@ export default function HeroSection() {
                     style={{ color:"var(--fg)" }}
                     aria-label="Tìm kiếm"
                   />
-                  <button className="h-10 px-5 rounded-xl text-sm font-bold text-white btn-primary cursor-pointer flex items-center gap-1.5">
+                  <button type="submit" className="h-10 px-5 rounded-xl text-sm font-bold text-white btn-primary cursor-pointer flex items-center gap-1.5">
                     <Search className="w-4 h-4" />
                     <span className="hidden sm:inline">Tìm Acc</span>
                   </button>
-                </div>
+                </form>
               </div>
 
               <div className="flex items-center gap-2 flex-wrap mt-4">
@@ -101,21 +109,21 @@ export default function HeroSection() {
                   <Flame className="w-3 h-3" style={{ color:"#f43f5e" }} /> Hot:
                 </span>
                 {hot.map(t => (
-                  <button key={t}
+                  <Link key={t} href={`/tim-kiem/?q=${encodeURIComponent(t)}`}
                     className="px-3 py-1 rounded-full text-xs font-medium transition-all hover:scale-105 cursor-pointer"
                     style={{ background:"var(--scrim)", border:"1px solid var(--scrim2)", color:"var(--fg2)" }}
-                  >{t}</button>
+                  >{t}</Link>
                 ))}
               </div>
             </div>
 
             <div className="flex items-center gap-3 flex-wrap mb-8">
-              <button className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white btn-rose cursor-pointer">
+              <Link href="/dang-tin/" className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white btn-rose cursor-pointer">
                 <Zap className="w-4 h-4" /> Đăng Tin Miễn Phí
-              </button>
-              <button className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold btn-ghost cursor-pointer" style={{ color:"var(--fg2)" }}>
+              </Link>
+              <Link href="/tim-kiem/" className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold btn-ghost cursor-pointer" style={{ color:"var(--fg2)" }}>
                 Xem Tin Đăng <ArrowRight className="w-4 h-4 bounce-x" />
-              </button>
+              </Link>
             </div>
 
             <div className="grid grid-cols-3 gap-6 pt-6" style={{ borderTop:"1px solid var(--border)" }}>
@@ -229,10 +237,10 @@ export default function HeroSection() {
                             )}
                           </div>
                         </div>
-                        <button className="px-2.5 py-1.5 rounded-lg text-2xs font-bold text-white cursor-pointer flex items-center gap-1"
+                        <Link href={`/tim-kiem/?game=${c.game === "LMHT" ? "lmht" : c.game === "Genshin" ? "genshin" : "ff"}`} className="px-2.5 py-1.5 rounded-lg text-2xs font-bold text-white cursor-pointer flex items-center gap-1"
                           style={{ background:`linear-gradient(135deg,${c.accent},${c.color})`, boxShadow:`0 3px 10px ${c.accent}55` }}>
                           Xem <ArrowRight className="w-2.5 h-2.5" />
-                        </button>
+                        </Link>
                       </div>
                     </div>
                   </div>

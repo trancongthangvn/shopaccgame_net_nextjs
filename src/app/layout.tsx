@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { ToastProvider } from "@/components/Toast";
+import SearchOverlay from "@/components/SearchOverlay";
 
 // SVN Gilroy — local font (see /src/app/fonts/)
 const svnGilroy = localFont({
@@ -62,7 +64,10 @@ export default function RootLayout({
         className="min-h-full flex flex-col antialiased"
         style={{ fontFamily: "var(--font-gilroy), system-ui, sans-serif" }}
       >
-        {children}
+        <ToastProvider>
+          {children}
+          <SearchOverlay />
+        </ToastProvider>
       </body>
     </html>
   );

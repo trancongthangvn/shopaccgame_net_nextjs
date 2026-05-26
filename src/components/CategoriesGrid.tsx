@@ -1,14 +1,15 @@
-import { Swords, Crosshair, Wand2, Crown, Globe, Car, Gamepad2, Trophy, Sparkles, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { Swords, Crosshair, Wand2, Crown, Globe, Car, Gamepad2, Sparkles, ArrowRight } from "lucide-react";
 
 const cats = [
-  { name:"Liên Minh\nHuyền Thoại", short:"MOBA · PC",    count:"3,200+", icon:Swords,    c1:"#60a5fa", c2:"#3b82f6", preview:"preview-lmht",    tag:"🔥 Hot" },
-  { name:"Free Fire",              short:"Battle Royale",count:"2,100+", icon:Crosshair, c1:"#fb7185", c2:"#f43f5e", preview:"preview-ff",      tag:"🔥 Hot" },
-  { name:"PUBG\nMobile",           short:"Battle Royale",count:"1,850+", icon:Crosshair, c1:"#fbbf24", c2:"#f59e0b", preview:"preview-pubg",    tag:"Trending" },
-  { name:"Genshin\nImpact",        short:"Action RPG",   count:"980+",   icon:Wand2,     c1:"#c4b5fd", c2:"#7c3aed", preview:"preview-genshin", tag:"Mới" },
-  { name:"Liên Quân\nMobile",      short:"MOBA · Mobile",count:"1,420+", icon:Crown,     c1:"#34d399", c2:"#10b981", preview:"preview-lq",      tag:"" },
-  { name:"Valorant",               short:"Tactical FPS", count:"760+",   icon:Globe,     c1:"#22d3ee", c2:"#06b6d4", preview:"preview-valo",    tag:"Trending" },
-  { name:"Minecraft",              short:"Sandbox",      count:"430+",   icon:Car,       c1:"#84cc16", c2:"#65a30d", preview:"preview-lq",      tag:"" },
-  { name:"Tất Cả\nGame Khác",      short:"100+ tựa game",count:"1,800+", icon:Gamepad2,  c1:"#94a3b8", c2:"#64748b", preview:"preview-lmht",    tag:"" },
+  { name:"Liên Minh\nHuyền Thoại", short:"MOBA · PC",    count:"3,200+", icon:Swords,    c1:"#60a5fa", c2:"#3b82f6", preview:"preview-lmht",    tag:"🔥 Hot", key:"lmht" },
+  { name:"Free Fire",              short:"Battle Royale",count:"2,100+", icon:Crosshair, c1:"#fb7185", c2:"#f43f5e", preview:"preview-ff",      tag:"🔥 Hot", key:"ff" },
+  { name:"PUBG\nMobile",           short:"Battle Royale",count:"1,850+", icon:Crosshair, c1:"#fbbf24", c2:"#f59e0b", preview:"preview-pubg",    tag:"Trending", key:"pubg" },
+  { name:"Genshin\nImpact",        short:"Action RPG",   count:"980+",   icon:Wand2,     c1:"#c4b5fd", c2:"#7c3aed", preview:"preview-genshin", tag:"Mới", key:"genshin" },
+  { name:"Liên Quân\nMobile",      short:"MOBA · Mobile",count:"1,420+", icon:Crown,     c1:"#34d399", c2:"#10b981", preview:"preview-lq",      tag:"", key:"lq" },
+  { name:"Valorant",               short:"Tactical FPS", count:"760+",   icon:Globe,     c1:"#22d3ee", c2:"#06b6d4", preview:"preview-valo",    tag:"Trending", key:"valo" },
+  { name:"Minecraft",              short:"Sandbox",      count:"430+",   icon:Car,       c1:"#84cc16", c2:"#65a30d", preview:"preview-lq",      tag:"", key:"all" },
+  { name:"Tất Cả\nGame Khác",      short:"100+ tựa game",count:"1,800+", icon:Gamepad2,  c1:"#94a3b8", c2:"#64748b", preview:"preview-lmht",    tag:"", key:"all" },
 ];
 
 export default function CategoriesGrid() {
@@ -30,9 +31,9 @@ export default function CategoriesGrid() {
             </h2>
             <p className="text-sm" style={{ color:"var(--fg3)" }}>Hàng nghìn tin đăng từ các tựa game phổ biến nhất Việt Nam</p>
           </div>
-          <button className="flex items-center gap-1 text-sm font-semibold pb-1 cursor-pointer transition-colors hover:text-orange-400" style={{ color:"var(--fg2)" }}>
+          <Link href="/tim-kiem/" className="flex items-center gap-1 text-sm font-semibold pb-1 cursor-pointer transition-colors hover:text-orange-400" style={{ color:"var(--fg2)" }}>
             Xem tất cả <ArrowRight className="w-4 h-4 bounce-x" />
-          </button>
+          </Link>
         </div>
 
         {/* Grid */}
@@ -40,7 +41,7 @@ export default function CategoriesGrid() {
           {cats.map((cat) => {
             const Icon = cat.icon;
             return (
-              <button key={cat.name}
+              <Link key={cat.name} href={`/tim-kiem/?game=${cat.key}`}
                 className="relative group card overflow-hidden text-left transition-all cursor-pointer hover:scale-[1.02]"
                 style={{ background:"var(--surface)" }}
                 aria-label={cat.name.replace("\n", " ")}
@@ -80,7 +81,7 @@ export default function CategoriesGrid() {
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" style={{ color: cat.c1 }} />
                   </div>
                 </div>
-              </button>
+              </Link>
             );
           })}
         </div>

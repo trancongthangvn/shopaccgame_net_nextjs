@@ -1,6 +1,16 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Flame, Trophy, Eye, Heart, ArrowRight, Zap, Crown } from "lucide-react";
+import Link from "next/link";
+import { Trophy, Eye, Heart, ArrowRight, Zap, Crown } from "lucide-react";
+import { useFavorites } from "@/lib/favorites";
+import { useToast } from "@/components/Toast";
+
+const gameKeyMap: Record<string, string> = {
+  LMHT: "lmht",
+  Genshin: "genshin",
+  PUBG: "pubg",
+  Valorant: "valo",
+};
 
 const deals = [
   { id:"FS001", game:"LMHT",     title:"Acc LMHT Cao Thủ — 100 tướng + 50 skin",     rank:"Cao Thủ",   price:"1.490.000", oldPrice:"2.500.000", discount:40, sold:8, total:10, views:"5.2k", preview:"preview-lmht",    color:"#60a5fa", icon:Crown },
@@ -11,6 +21,8 @@ const deals = [
 
 export default function FlashSale() {
   const [time, setTime] = useState({ h: 5, m: 42, s: 17 });
+  const { isFav, toggle } = useFavorites();
+  const { push } = useToast();
 
   useEffect(() => {
     const t = setInterval(() => {
@@ -70,7 +82,8 @@ export default function FlashSale() {
             const remaining = d.total - d.sold;
 
             return (
-              <article key={d.id} className="relative card card-hover overflow-hidden group cursor-pointer">
+              <Link key={d.id} href={`/tim-kiem/?game=${gameKeyMap[d.game] ?? "all"}`} className="contents">
+              <article className="relative card card-hover overflow-hidden group cursor-pointer">
                 {/* Ribbon discount badge */}
                 <div className="ribbon" style={{ background:"linear-gradient(135deg,#f43f5e,#dc2626)" }}>
                   -{d.discount}%
@@ -97,9 +110,10 @@ export default function FlashSale() {
                   </div>
 
                   {/* Heart on hover */}
-                  <button className="absolute top-3 right-12 w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-md transition-all opacity-0 group-hover:opacity-100 cursor-pointer"
-                    style={{ background:"rgba(0,0,0,.4)", color:"white" }} aria-label="Yêu thích">
-                    <Heart className="w-4 h-4" />
+                  <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); const nowFav = toggle(d.id); push(nowFav ? "Đã thêm vào yêu thích" : "Đã bỏ yêu thích", "success"); }}
+                    className={`absolute top-3 right-12 w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-md transition-all cursor-pointer z-20 ${isFav(d.id) ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+                    style={{ background: isFav(d.id) ? "#f43f5e" : "rgba(0,0,0,.4)", color:"white" }} aria-label="Yêu thích">
+                    <Heart className={`w-4 h-4 ${isFav(d.id) ? "fill-current" : ""}`} />
                   </button>
 
                   {/* Bottom-left rank */}
@@ -148,19 +162,20 @@ export default function FlashSale() {
                     </div>
                   </div>
 
-                  <button className="w-full flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-xs font-bold text-white btn-rose cursor-pointer">
+                  <div className="w-full flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-xs font-bold text-white btn-rose cursor-pointer">
                     <Zap className="w-3.5 h-3.5" /> Mua Ngay
-                  </button>
+                  </div>
                 </div>
               </article>
+              </Link>
             );
           })}
         </div>
 
         <div className="text-center mt-10">
-          <button className="px-6 py-3 rounded-xl font-semibold text-sm btn-ghost cursor-pointer inline-flex items-center gap-2" style={{ color:"var(--fg2)" }}>
+          <Link href="/tim-kiem/" className="px-6 py-3 rounded-xl font-semibold text-sm btn-ghost cursor-pointer inline-flex items-center gap-2" style={{ color:"var(--fg2)" }}>
             Xem tất cả flash sale <ArrowRight className="w-4 h-4 bounce-x" />
-          </button>
+          </Link>
         </div>
       </div>
     </section>
