@@ -2,7 +2,7 @@ import { Star, Quote, BadgeCheck } from "lucide-react";
 
 const reviews = [
   {
-    name: "Nguyễn Minh Tuấn", role: "Game thủ LMHT 7 năm", avatar: "MT", color: "#7c3aed",
+    name: "Nguyễn Minh Tuấn", role: "Game thủ LMHT 7 năm", avatar: "MT", color: "#3b82f6",
     rating: 5,
     text: "Đã mua 3 acc LMHT trên shopaccgame.net, lần nào cũng đúng mô tả. Người bán rất uy tín và phản hồi nhanh. Đáng tin cậy nhất so với các sàn khác mình từng dùng.",
     bought: "Acc LMHT Kim Cương 1",

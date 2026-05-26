@@ -9,7 +9,7 @@ const cards = [
     id: "ACC8425", game: "LMHT", rank: "Kim Cương",
     price: "850K", oldPrice: "1.2tr", discount: "30%",
     icon: Crown, preview: "preview-lmht",
-    color: "#a78bfa", accent: "#7c3aed",
+    color: "#60a5fa", accent: "#3b82f6",
     rotate: "-6deg",
     pos: { top: "20px", left: "0%" },
     z: 3,
@@ -18,7 +18,7 @@ const cards = [
     id: "ACC9012", game: "Genshin", rank: "AR55",
     price: "2.5tr", oldPrice: "",  discount: "",
     icon: Wand2, preview: "preview-genshin",
-    color: "#c4b5fd", accent: "#7c3aed",
+    color: "#c4b5fd", accent: "#6d28d9",
     rotate: "4deg",
     pos: { top: "150px", right: "0%" },
     z: 2,
@@ -41,9 +41,9 @@ export default function HeroSection() {
     <section className="relative overflow-hidden py-16 lg:py-24 px-4 sm:px-6 scanlines">
       {/* Background */}
       <div className="absolute inset-0 grid-bg opacity-50" />
-      <div className="absolute top-0 left-1/4 w-[800px] h-[600px] rounded-full opacity-30 float"
-        style={{ background:"radial-gradient(ellipse,#7c3aed 0%,transparent 60%)", filter:"blur(80px)" }} />
-      <div className="absolute bottom-0 right-0 w-[600px] h-[500px] rounded-full opacity-25 float2"
+      <div className="absolute top-0 left-1/4 w-[800px] h-[600px] rounded-full opacity-25 float"
+        style={{ background:"radial-gradient(ellipse,#f97316 0%,transparent 60%)", filter:"blur(90px)" }} />
+      <div className="absolute bottom-0 right-0 w-[600px] h-[500px] rounded-full opacity-20 float2"
         style={{ background:"radial-gradient(ellipse,#f43f5e 0%,transparent 60%)", filter:"blur(100px)" }} />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
@@ -53,7 +53,7 @@ export default function HeroSection() {
           <div className="lg:col-span-7 max-w-2xl">
 
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-6 text-xs font-bold uppercase tracking-wider"
-              style={{ background:"rgba(124,58,237,0.15)", border:"1px solid rgba(124,58,237,0.35)", color:"#c4b5fd" }}>
+              style={{ background:"rgba(249,115,22,0.12)", border:"1px solid rgba(249,115,22,0.35)", color:"#fed7aa" }}>
               <span className="live-dot" />
               <span>Live · <span style={{ color:"#10b981" }}>230 online</span></span>
               <span className="opacity-40">·</span>
@@ -64,7 +64,7 @@ export default function HeroSection() {
             <h1 className="text-display mb-5 glitch-hover cursor-default">
               <span className="block" style={{ color:"var(--fg)" }}>Mua Bán</span>
               <span className="block">
-                <span className="grad-purple text-glow-pink">Acc Game</span>
+                <span className="grad-orange text-glow-orange">Acc Game</span>
                 {" "}
                 <span style={{ color:"var(--fg)" }}>Uy Tín</span>
               </span>
@@ -79,7 +79,7 @@ export default function HeroSection() {
             {/* Search */}
             <div className="mb-5">
               <div className="relative p-[2px] rounded-2xl"
-                style={{ background:"linear-gradient(135deg,rgba(124,58,237,.7),rgba(244,63,94,.5) 50%,rgba(124,58,237,.3))" }}>
+                style={{ background:"linear-gradient(135deg,rgba(249,115,22,.7),rgba(244,63,94,.5) 50%,rgba(249,115,22,.3))" }}>
                 <div className="flex items-center gap-2 rounded-2xl pl-5 pr-2 h-14" style={{ background:"var(--surface)" }}>
                   <Search className="w-5 h-5 flex-shrink-0" style={{ color:"var(--fg3)" }} />
                   <input
@@ -120,7 +120,7 @@ export default function HeroSection() {
 
             <div className="grid grid-cols-3 gap-6 pt-6" style={{ borderTop:"1px solid var(--border)" }}>
               {[
-                { val:"12,500+", lbl:"Tin đăng",   icon:TrendingUp, c:"#a78bfa" },
+                { val:"12,500+", lbl:"Tin đăng",   icon:TrendingUp, c:"#f97316" },
                 { val:"48K+",    lbl:"Thành viên", icon:Users,      c:"#fb7185" },
                 { val:"4.9★",    lbl:"Đánh giá",   icon:Star,       c:"#fbbf24" },
               ].map(({val,lbl,icon:Icon,c}) => (
@@ -141,19 +141,19 @@ export default function HeroSection() {
 
               {/* ── Floating chip: Viewers (top) ── */}
               <div className="absolute -top-4 right-2 z-30 flex items-center gap-2 px-3 py-2 rounded-xl float"
-                style={{ background:"rgba(20,20,50,.95)", backdropFilter:"blur(12px)", border:"1px solid rgba(167,139,250,.4)", boxShadow:"0 8px 24px rgba(0,0,0,.5)" }}>
-                <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background:"rgba(167,139,250,.2)" }}>
-                  <Eye className="w-3.5 h-3.5" style={{ color:"#a78bfa" }} />
+                style={{ background:"rgba(20,20,20,.95)", backdropFilter:"blur(12px)", border:"1px solid rgba(249,115,22,.4)", boxShadow:"0 8px 24px rgba(0,0,0,.5)" }}>
+                <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background:"rgba(249,115,22,.2)" }}>
+                  <Eye className="w-3.5 h-3.5" style={{ color:"#f97316" }} />
                 </div>
                 <div className="leading-tight">
                   <div className="text-2xs font-bold uppercase tracking-wider" style={{ color:"var(--fg3)" }}>Đang Xem</div>
-                  <div className="text-sm font-bold" style={{ color:"#a78bfa" }}>5,234</div>
+                  <div className="text-sm font-bold" style={{ color:"#f97316" }}>5,234</div>
                 </div>
               </div>
 
               {/* ── Floating chip: Rating (top-left) ── */}
               <div className="absolute top-4 -left-4 z-30 flex items-center gap-2 px-3 py-2 rounded-xl float2"
-                style={{ background:"rgba(20,20,50,.95)", backdropFilter:"blur(12px)", border:"1px solid rgba(251,191,36,.4)", boxShadow:"0 8px 24px rgba(0,0,0,.5)" }}>
+                style={{ background:"rgba(20,20,20,.95)", backdropFilter:"blur(12px)", border:"1px solid rgba(251,191,36,.4)", boxShadow:"0 8px 24px rgba(0,0,0,.5)" }}>
                 <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background:"rgba(251,191,36,.2)" }}>
                   <Star className="w-3.5 h-3.5 fill-current" style={{ color:"#fbbf24" }} />
                 </div>
@@ -176,7 +176,7 @@ export default function HeroSection() {
                       left: c.pos.left,
                       right: c.pos.right,
                       zIndex: c.z,
-                      boxShadow: "0 16px 48px rgba(0,0,0,.5), 0 0 0 1px rgba(124,58,237,.15)",
+                      boxShadow: "0 16px 48px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.06)",
                     }}
                   >
                     {/* Ribbon (only if discount) */}
@@ -241,7 +241,7 @@ export default function HeroSection() {
 
               {/* ── Notification "Vừa mua" (bottom-right) ── */}
               <div className="absolute -bottom-2 right-0 z-30 flex items-center gap-2.5 px-3 py-2 rounded-xl pulse-soft"
-                style={{ background:"rgba(20,20,50,.95)", backdropFilter:"blur(12px)", border:"1px solid rgba(16,185,129,.4)", boxShadow:"0 8px 24px rgba(0,0,0,.5)" }}>
+                style={{ background:"rgba(20,20,20,.95)", backdropFilter:"blur(12px)", border:"1px solid rgba(16,185,129,.4)", boxShadow:"0 8px 24px rgba(0,0,0,.5)" }}>
                 <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style={{ background:"rgba(16,185,129,.18)" }}>
                   <Zap className="w-4 h-4" style={{ color:"#10b981" }} />
                 </div>
@@ -252,7 +252,7 @@ export default function HeroSection() {
               </div>
 
               {/* Decorative orbs */}
-              <div className="absolute top-12 right-8 w-2.5 h-2.5 rounded-full float opacity-70" style={{ background:"#a78bfa", boxShadow:"0 0 14px #a78bfa" }} />
+              <div className="absolute top-12 right-8 w-2.5 h-2.5 rounded-full float opacity-70" style={{ background:"#f97316", boxShadow:"0 0 14px #f97316" }} />
               <div className="absolute bottom-32 left-12 w-2 h-2 rounded-full float2 opacity-60" style={{ background:"#fbbf24", boxShadow:"0 0 12px #fbbf24" }} />
               <div className="absolute top-1/3 right-16 w-3 h-3 rounded-full float opacity-40" style={{ background:"#f43f5e", boxShadow:"0 0 16px #f43f5e" }} />
             </div>
@@ -263,7 +263,7 @@ export default function HeroSection() {
         <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-16 pt-8" style={{ borderTop:"1px solid var(--border)" }}>
           {[
             { t:"Bảo mật SSL 256-bit", i:Shield,     c:"#10b981" },
-            { t:"Xác minh CCCD",       i:Sparkles,   c:"#a78bfa" },
+            { t:"Xác minh CCCD",       i:Sparkles,   c:"#f97316" },
             { t:"Hỗ trợ 24/7",         i:Zap,        c:"#f59e0b" },
             { t:"Đánh giá thật",       i:Star,       c:"#fbbf24" },
             { t:"Tuân thủ pháp luật VN", i:Shield,   c:"#06b6d4" },

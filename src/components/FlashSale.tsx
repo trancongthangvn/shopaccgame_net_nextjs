@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Flame, Trophy, Eye, Heart, ArrowRight, Zap, Crown } from "lucide-react";
 
 const deals = [
-  { id:"FS001", game:"LMHT",     title:"Acc LMHT Cao Thủ — 100 tướng + 50 skin",     rank:"Cao Thủ",   price:"1.490.000", oldPrice:"2.500.000", discount:40, sold:8, total:10, views:"5.2k", preview:"preview-lmht",    color:"#a78bfa", icon:Crown },
+  { id:"FS001", game:"LMHT",     title:"Acc LMHT Cao Thủ — 100 tướng + 50 skin",     rank:"Cao Thủ",   price:"1.490.000", oldPrice:"2.500.000", discount:40, sold:8, total:10, views:"5.2k", preview:"preview-lmht",    color:"#60a5fa", icon:Crown },
   { id:"FS002", game:"Genshin",  title:"Genshin AR55 — Hutao C2 + Zhongli C0",         rank:"AR55",      price:"2.290.000", oldPrice:"3.800.000", discount:39, sold:5, total:8,  views:"4.1k", preview:"preview-genshin", color:"#c4b5fd", icon:Trophy },
   { id:"FS003", game:"PUBG",     title:"PUBG Conqueror — Glacier M416 + UMP45",       rank:"Conqueror", price:"890.000",   oldPrice:"1.500.000", discount:41, sold:12,total:15, views:"3.8k", preview:"preview-pubg",    color:"#fbbf24", icon:Crown },
   { id:"FS004", game:"Valorant", title:"Valorant Immortal — Vandal Prime + Skin Set", rank:"Immortal",  price:"1.690.000", oldPrice:"2.900.000", discount:42, sold:3, total:6,  views:"6.4k", preview:"preview-valo",    color:"#22d3ee", icon:Trophy },

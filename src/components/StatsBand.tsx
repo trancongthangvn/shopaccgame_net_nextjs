@@ -1,7 +1,7 @@
 import { Users, Trophy, MessageSquare, Banknote } from "lucide-react";
 
 const stats = [
-  { icon:Users,         val:"48,000+", lbl:"Thành viên đăng ký", c:"#a78bfa" },
+  { icon:Users,         val:"48,000+", lbl:"Thành viên đăng ký", c:"#f97316" },
   { icon:Trophy,        val:"320+",    lbl:"Giao dịch / ngày",   c:"#fbbf24" },
   { icon:Banknote,      val:"15 tỷ+",  lbl:"Tổng GMV (VNĐ)",     c:"#10b981" },
   { icon:MessageSquare, val:"4.9/5",   lbl:"Đánh giá người dùng",c:"#f43f5e" },
@@ -11,7 +11,7 @@ export default function StatsBand() {
   return (
     <section className="relative py-16 lg:py-24 px-4 sm:px-6 overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-40" />
-      <div className="absolute inset-0" style={{ background: "linear-gradient(135deg,rgba(124,58,237,0.08),transparent 50%,rgba(244,63,94,0.06))" }} />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(135deg,rgba(249,115,22,0.06),transparent 50%,rgba(244,63,94,0.04))" }} />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">

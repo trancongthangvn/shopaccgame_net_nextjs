@@ -1,7 +1,7 @@
 import { Search, MessageSquare, Handshake, ArrowRight } from "lucide-react";
 
 const steps = [
-  { n:"01", icon:Search,         title:"Tìm Kiếm",    color:"#7c3aed", c2:"#a855f7",
+  { n:"01", icon:Search,         title:"Tìm Kiếm",    color:"#f97316", c2:"#fb923c",
     desc:"Lọc tin đăng theo game, rank, giá. So sánh và chọn acc phù hợp với nhu cầu của bạn." },
   { n:"02", icon:MessageSquare,  title:"Liên Hệ",     color:"#f43f5e", c2:"#fb7185",
     desc:"Chat trực tiếp với người bán qua hệ thống nội bộ. Xác minh thông tin trước khi giao dịch." },
@@ -67,8 +67,8 @@ export default function HowItWorks() {
 
         {/* Note */}
         <div className="mt-10 max-w-3xl mx-auto p-5 rounded-2xl text-sm text-center"
-          style={{ background: "rgba(124,58,237,0.06)", border: "1px solid rgba(124,58,237,0.18)" }}>
-          <strong style={{ color: "var(--purple3)" }}>Quan trọng:</strong>
+          style={{ background: "rgba(249,115,22,0.06)", border: "1px solid rgba(249,115,22,0.18)" }}>
+          <strong style={{ color: "var(--orange3)" }}>Quan trọng:</strong>
           <span style={{ color: "var(--fg2)" }}> ShopAccGame.net là sàn đăng tin quảng cáo (classified ads). Chúng tôi không tham gia mua bán, không giữ tiền, và không chịu trách nhiệm về tranh chấp giữa các bên.</span>
         </div>
       </div>

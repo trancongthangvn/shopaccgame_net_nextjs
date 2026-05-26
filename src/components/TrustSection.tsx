@@ -2,8 +2,8 @@ import { BadgeCheck, Eye, MessageSquare, PhoneCall, Lock, FileText, AlertTriangl
 
 const features = [
   { icon:BadgeCheck,    title:"Người Bán Xác Minh",   color:"#10b981", desc:"Đăng ký xác minh CCCD để tăng uy tín và nhận badge xanh." },
-  { icon:Eye,           title:"Tin Đăng Minh Bạch",   color:"#7c3aed", desc:"Thời gian đăng, lượt xem, đánh giá đều hiển thị công khai." },
-  { icon:MessageSquare, title:"Hệ Thống Đánh Giá",    color:"#a78bfa", desc:"Review thật từ người mua giúp cộng đồng tham khảo dễ dàng." },
+  { icon:Eye,           title:"Tin Đăng Minh Bạch",   color:"#f97316", desc:"Thời gian đăng, lượt xem, đánh giá đều hiển thị công khai." },
+  { icon:MessageSquare, title:"Hệ Thống Đánh Giá",    color:"#fb923c", desc:"Review thật từ người mua giúp cộng đồng tham khảo dễ dàng." },
   { icon:PhoneCall,     title:"Báo Cáo Lừa Đảo",      color:"#f43f5e", desc:"Xử lý tin vi phạm trong vòng 24 giờ làm việc." },
   { icon:Lock,          title:"Bảo Mật Dữ Liệu",      color:"#06b6d4", desc:"SSL 256-bit, không chia sẻ thông tin với bên thứ ba." },
   { icon:FileText,      title:"Điều Khoản Rõ Ràng",   color:"#f59e0b", desc:"Quy tắc sử dụng công khai, cập nhật định kỳ." },

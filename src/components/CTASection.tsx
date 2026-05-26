@@ -5,7 +5,7 @@ const plans = [
     feats:["Đăng tin không giới hạn","Hiển thị trong 7 ngày","Hỗ trợ cơ bản"] },
   { name:"Nổi Bật",  price:"29.000đ/3 ngày", color:"#f59e0b", popular:true,
     feats:["Hiển thị top trang chủ","Badge HOT trên tin","Hỗ trợ ưu tiên 24/7","Lượt xem tăng x5"] },
-  { name:"Premium",  price:"149.000đ/tuần", color:"#a78bfa", popular:false,
+  { name:"Premium",  price:"149.000đ/tuần", color:"#60a5fa", popular:false,
     feats:["Top 1 kết quả tìm kiếm","Banner trang chủ","Tin pinned 7 ngày","Tư vấn 1-1"] },
 ];
 
@@ -13,7 +13,7 @@ export default function CTASection() {
   return (
     <section className="py-16 lg:py-24 px-4 sm:px-6 relative overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-40" />
-      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 50%,rgba(124,58,237,0.1),transparent)" }} />
+      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 50%,rgba(249,115,22,0.07),transparent)" }} />
 
       <div className="relative max-w-6xl mx-auto">
         {/* Header */}
@@ -90,8 +90,8 @@ export default function CTASection() {
           </div>
           <p className="text-xs mt-5" style={{ color: "var(--fg3)" }}>
             Bằng việc đăng ký, bạn đồng ý với{" "}
-            <a href="#legal" className="underline hover:text-purple-400 transition-colors" style={{ color: "var(--purple3)" }}>Điều khoản</a>{" "}và{" "}
-            <a href="#legal" className="underline hover:text-purple-400 transition-colors" style={{ color: "var(--purple3)" }}>Chính sách bảo mật</a>
+            <a href="#legal" className="underline hover:text-orange-400 transition-colors" style={{ color: "var(--orange3)" }}>Điều khoản</a>{" "}và{" "}
+            <a href="#legal" className="underline hover:text-orange-400 transition-colors" style={{ color: "var(--orange3)" }}>Chính sách bảo mật</a>
           </p>
         </div>
       </div>

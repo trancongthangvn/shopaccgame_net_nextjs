@@ -41,13 +41,23 @@ export const metadata: Metadata = {
   },
 };
 
+// Inline pre-hydration script: read saved theme from localStorage and apply
+// data-theme="dark" before first paint. Default is light, so we only set the
+// attribute when dark is wanted — avoids flash on the much more common case.
+const themeInitScript = `
+(function(){try{var t=localStorage.getItem('theme');if(t==='dark'){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className={`${svnGilroy.variable} h-full`}>
+    <html lang="vi" className={`${svnGilroy.variable} h-full`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body
         className="min-h-full flex flex-col antialiased"
         style={{ fontFamily: "var(--font-gilroy), system-ui, sans-serif" }}
