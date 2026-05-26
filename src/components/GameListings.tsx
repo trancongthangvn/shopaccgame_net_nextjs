@@ -126,7 +126,7 @@ export default function GameListings() {
             >
               {t.label}
               <span className="text-2xs px-1.5 py-0.5 rounded font-bold"
-                style={{ background: tab === t.key ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.06)", color: tab === t.key ? "white" : "var(--fg3)" }}>
+                style={{ background: tab === t.key ? "var(--scrim4)" : "var(--scrim2)", color: tab === t.key ? "white" : "var(--fg3)" }}>
                 {t.count.toLocaleString()}
               </span>
             </button>
@@ -208,7 +208,7 @@ export default function GameListings() {
                 {/* Tags */}
                 <div className="flex flex-wrap gap-1 mb-3">
                   {item.tags.slice(0,3).map(t => (
-                    <span key={t} className="text-2xs px-1.5 py-0.5 rounded-md font-medium" style={{ background: "rgba(255,255,255,0.05)", color: "var(--fg2)" }}>
+                    <span key={t} className="text-2xs px-1.5 py-0.5 rounded-md font-medium" style={{ background: "var(--scrim)", color: "var(--fg2)" }}>
                       {t}
                     </span>
                   ))}

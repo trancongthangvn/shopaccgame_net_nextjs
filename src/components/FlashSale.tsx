@@ -51,7 +51,7 @@ export default function FlashSale() {
               {[{l:"GIỜ",v:time.h},{l:"PHÚT",v:time.m},{l:"GIÂY",v:time.s}].map((u,i,arr) => (
                 <span key={u.l} className="flex items-center gap-1.5">
                   <span className="w-11 h-11 sm:w-14 sm:h-14 rounded-xl flex flex-col items-center justify-center font-mono font-bold tabular-nums text-white"
-                    style={{ background:"linear-gradient(135deg,#f43f5e,#dc2626)", boxShadow:"0 4px 16px rgba(244,63,94,.4), inset 0 1px 0 rgba(255,255,255,.2)" }}>
+                    style={{ background:"linear-gradient(135deg,#f43f5e,#dc2626)", boxShadow:"0 4px 16px rgba(244,63,94,.4), inset 0 1px 0 var(--scrim4)" }}>
                     <span className="text-base sm:text-lg leading-none">{pad(u.v)}</span>
                     <span className="text-2xs mt-1 opacity-80 tracking-wider">{u.l}</span>
                   </span>
@@ -138,7 +138,7 @@ export default function FlashSale() {
 
                   {/* Progress */}
                   <div className="mb-3">
-                    <div className="h-2 rounded-full overflow-hidden" style={{ background:"rgba(255,255,255,.05)" }}>
+                    <div className="h-2 rounded-full overflow-hidden" style={{ background:"var(--scrim)" }}>
                       <div className="h-full rounded-full shimmer-bg"
                         style={{ width:`${soldPct}%`, background:"linear-gradient(90deg,#f59e0b,#f43f5e)" }} />
                     </div>

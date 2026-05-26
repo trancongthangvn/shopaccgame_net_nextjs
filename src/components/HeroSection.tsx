@@ -72,7 +72,7 @@ export default function HeroSection() {
             </h1>
 
             <p className="text-base sm:text-lg mb-8 leading-relaxed max-w-lg" style={{ color:"var(--fg2)" }}>
-              Sàn đăng tin trung gian kết nối <strong className="text-white">48,000+</strong> người mua &amp; bán acc game.
+              Sàn đăng tin trung gian kết nối <strong style={{ color: "var(--fg)" }}>48,000+</strong> người mua &amp; bán acc game.
               An toàn — Minh bạch — Không trung gian giữ tiền.
             </p>
 
@@ -103,7 +103,7 @@ export default function HeroSection() {
                 {hot.map(t => (
                   <button key={t}
                     className="px-3 py-1 rounded-full text-xs font-medium transition-all hover:scale-105 cursor-pointer"
-                    style={{ background:"rgba(255,255,255,0.05)", border:"1px solid rgba(255,255,255,0.08)", color:"var(--fg2)" }}
+                    style={{ background:"var(--scrim)", border:"1px solid var(--scrim2)", color:"var(--fg2)" }}
                   >{t}</button>
                 ))}
               </div>
@@ -176,7 +176,7 @@ export default function HeroSection() {
                       left: c.pos.left,
                       right: c.pos.right,
                       zIndex: c.z,
-                      boxShadow: "0 16px 48px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.06)",
+                      boxShadow: "0 16px 48px rgba(0,0,0,.5), 0 0 0 1px var(--scrim2)",
                     }}
                   >
                     {/* Ribbon (only if discount) */}

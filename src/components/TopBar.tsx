@@ -41,7 +41,7 @@ export default function TopBar() {
           <button className="hidden sm:flex items-center gap-1 text-xs font-semibold hover:opacity-80 transition-opacity cursor-pointer">
             Áp dụng ngay <ChevronRight className="w-3 h-3" />
           </button>
-          <button onClick={() => setShow(false)} className="p-1 hover:bg-white/20 rounded transition-colors cursor-pointer" aria-label="Đóng">
+          <button onClick={() => setShow(false)} className="p-1 hover:bg-[var(--scrim4)] rounded transition-colors cursor-pointer" aria-label="Đóng">
             <X className="w-3.5 h-3.5" />
           </button>
         </div>

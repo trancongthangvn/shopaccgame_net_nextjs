@@ -27,7 +27,7 @@ export default function CTASection() {
             <span className="grad-rose">Nhanh Chóng?</span>
           </h2>
           <p className="text-sm sm:text-base max-w-xl mx-auto" style={{ color: "var(--fg2)" }}>
-            Đăng tin và tiếp cận <strong className="text-white">48,000+</strong> người mua tiềm năng.
+            Đăng tin và tiếp cận <strong style={{ color: "var(--fg)" }}>48,000+</strong> người mua tiềm năng.
             Chọn gói phù hợp với nhu cầu của bạn.
           </p>
         </div>
@@ -68,7 +68,7 @@ export default function CTASection() {
                   background: `linear-gradient(135deg,${p.color},#f97316)`,
                   boxShadow: `0 4px 14px ${p.color}44`,
                 } : {
-                  background: "rgba(255,255,255,0.04)",
+                  background: "var(--scrim)",
                   border: "1px solid var(--border)",
                   color: "var(--fg)",
                 }}>
