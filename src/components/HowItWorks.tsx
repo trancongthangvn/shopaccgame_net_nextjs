@@ -49,8 +49,7 @@ export default function HowItWorks() {
                   {/* Icon */}
                   <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 relative"
                     style={{
-                      background: `linear-gradient(135deg,${s.color},${s.c2})`,
-                      boxShadow: `0 8px 24px ${s.color}44`,
+                      background: `${s.color}`,
                     }}>
                     <Icon className="w-6 h-6 text-white" />
                   </div>

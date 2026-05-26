@@ -44,7 +44,7 @@ export default function CTASection() {
               }}>
               {p.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-2xs font-bold uppercase tracking-wider text-white"
-                  style={{ background: `linear-gradient(135deg,${p.color},#f97316)`, boxShadow: `0 4px 12px ${p.color}66` }}>
+                  style={{ background: `${p.color}` }}>
                   ★ Phổ biến nhất
                 </div>
               )}
@@ -66,8 +66,7 @@ export default function CTASection() {
               <Link href="/dang-tin/"
                 className={`block text-center w-full py-3 rounded-xl text-sm font-bold cursor-pointer transition-all ${p.popular ? "text-white" : ""}`}
                 style={p.popular ? {
-                  background: `linear-gradient(135deg,${p.color},#f97316)`,
-                  boxShadow: `0 4px 14px ${p.color}44`,
+                  background: `${p.color}`,
                 } : {
                   background: "var(--scrim)",
                   border: "1px solid var(--border)",

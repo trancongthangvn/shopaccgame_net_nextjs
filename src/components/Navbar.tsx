@@ -110,7 +110,7 @@ export default function Navbar() {
           </Link>
           <Link href={user ? "/tai-khoan/" : "/dang-nhap/"} className="hidden sm:flex w-9 h-9 rounded-lg items-center justify-center hover:bg-[var(--scrim2)] transition-colors cursor-pointer" style={{ color: "var(--fg2)" }} aria-label={user ? "Tài khoản" : "Đăng nhập"}>
             {user ? (
-              <span className="w-7 h-7 rounded-full flex items-center justify-center font-bold text-white text-xs" style={{ background: "linear-gradient(135deg,#f97316,#f43f5e)" }}>
+              <span className="w-7 h-7 rounded-full flex items-center justify-center font-bold text-white text-xs" style={{ background: "#f97316" }}>
                 {user.name.charAt(0).toUpperCase()}
               </span>
             ) : (

@@ -23,7 +23,7 @@ export default function TopBar() {
   const pad = (n: number) => n.toString().padStart(2, "0");
 
   return (
-    <div className="relative z-50" style={{ background: "linear-gradient(90deg,#ea580c,#f43f5e,#f59e0b)" }}>
+    <div className="relative z-50" style={{ background: "#ea580c" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-9 flex items-center justify-between text-xs text-white font-medium">
         <div className="flex items-center gap-3 overflow-hidden">
           <Gift className="w-3.5 h-3.5 wiggle flex-shrink-0" />

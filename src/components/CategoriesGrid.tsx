@@ -62,7 +62,7 @@ export default function CategoriesGrid() {
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="relative transition-transform duration-300 group-hover:scale-110">
                       <div className="rank-shield w-12 h-12"
-                        style={{ background:`linear-gradient(135deg,${cat.c1},${cat.c2})`, boxShadow:`0 6px 20px ${cat.c2}66` }}>
+                        style={{ background:`${cat.c1}` }}>
                         <Icon className="w-5 h-5 text-white drop-shadow" />
                       </div>
                       <div className="absolute -inset-2 -z-10 rounded-full opacity-50 blur-xl" style={{ background: cat.c2 }} />

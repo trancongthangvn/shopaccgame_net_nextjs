@@ -38,8 +38,6 @@ export default function FlashSale() {
 
   return (
     <section id="flash" className="py-16 lg:py-24 px-4 sm:px-6 relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[400px] opacity-20"
-        style={{ background:"radial-gradient(ellipse,#f43f5e 0%,transparent 60%)", filter:"blur(80px)" }} />
 
       <div className="relative max-w-7xl mx-auto">
         {/* Section header */}
@@ -63,7 +61,7 @@ export default function FlashSale() {
               {[{l:"GIỜ",v:time.h},{l:"PHÚT",v:time.m},{l:"GIÂY",v:time.s}].map((u,i,arr) => (
                 <span key={u.l} className="flex items-center gap-1.5">
                   <span className="w-11 h-11 sm:w-14 sm:h-14 rounded-xl flex flex-col items-center justify-center font-mono font-bold tabular-nums text-white"
-                    style={{ background:"linear-gradient(135deg,#f43f5e,#dc2626)", boxShadow:"0 4px 16px rgba(244,63,94,.4), inset 0 1px 0 var(--scrim4)" }}>
+                    style={{ background: "#f43f5e" }}>
                     <span className="text-base sm:text-lg leading-none">{pad(u.v)}</span>
                     <span className="text-2xs mt-1 opacity-80 tracking-wider">{u.l}</span>
                   </span>
@@ -85,7 +83,7 @@ export default function FlashSale() {
               <Link key={d.id} href={`/tim-kiem/?game=${gameKeyMap[d.game] ?? "all"}`} className="contents">
               <article className="relative card card-hover overflow-hidden group cursor-pointer">
                 {/* Ribbon discount badge */}
-                <div className="ribbon" style={{ background:"linear-gradient(135deg,#f43f5e,#dc2626)" }}>
+                <div className="ribbon" style={{ background: "#f43f5e" }}>
                   -{d.discount}%
                 </div>
 
@@ -101,11 +99,9 @@ export default function FlashSale() {
                   {/* Rank shield centerpiece */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="relative">
-                      <div className="rank-shield w-16 h-16"
-                        style={{ background:`linear-gradient(135deg,${d.color},${d.color}cc)`, boxShadow:`0 8px 24px ${d.color}66` }}>
-                        <Icon className="w-6 h-6 text-white drop-shadow" />
+                      <div className="rank-shield w-16 h-16" style={{ background: d.color }}>
+                        <Icon className="w-6 h-6 text-white" />
                       </div>
-                      <div className="absolute -inset-2 -z-10 rounded-full opacity-50 blur-xl" style={{ background:d.color }} />
                     </div>
                   </div>
 
@@ -154,7 +150,7 @@ export default function FlashSale() {
                   <div className="mb-3">
                     <div className="h-2 rounded-full overflow-hidden" style={{ background:"var(--scrim)" }}>
                       <div className="h-full rounded-full shimmer-bg"
-                        style={{ width:`${soldPct}%`, background:"linear-gradient(90deg,#f59e0b,#f43f5e)" }} />
+                        style={{ width:`${soldPct}%`, background: "#f97316" }} />
                     </div>
                     <div className="flex items-center justify-between mt-1.5 text-2xs">
                       <span className="font-bold" style={{ color:"#fbbf24" }}>🔥 Đã bán {d.sold}/{d.total}</span>

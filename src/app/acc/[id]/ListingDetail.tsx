@@ -60,7 +60,7 @@ export default function ListingDetail({ listing: l }: { listing: Listing }) {
             <div className={`relative h-72 sm:h-96 rounded-2xl ${l.preview} hex-grid overflow-hidden`}>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="rank-shield w-28 h-28"
-                  style={{ background: `linear-gradient(135deg,${l.accent},${l.color})`, boxShadow: `0 16px 48px ${l.color}66` }}>
+                  style={{ background: `${l.accent}`, boxShadow: `0 16px 48px ${l.color}66` }}>
                   <Trophy className="w-10 h-10 text-white" />
                 </div>
               </div>
@@ -148,7 +148,7 @@ export default function ListingDetail({ listing: l }: { listing: Listing }) {
                 onClick={() => setShowBuy(true)}
                 className="w-full py-3.5 rounded-xl text-sm font-bold text-white mb-2.5 transition-all cursor-pointer"
                 style={{
-                  background: `linear-gradient(135deg,${l.color},${l.accent})`,
+                  background: `${l.color}`,
                   boxShadow: `0 8px 24px ${l.color}55`,
                 }}
               >
@@ -184,7 +184,7 @@ export default function ListingDetail({ listing: l }: { listing: Listing }) {
                 <div className="text-xs uppercase tracking-wider font-bold mb-3" style={{ color: "var(--fg3)" }}>Người bán</div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white"
-                    style={{ background: `linear-gradient(135deg,${l.color},${l.accent})` }}>
+                    style={{ background: `${l.color}` }}>
                     {l.seller.name.charAt(0)}
                   </div>
                   <div className="flex-1">
@@ -217,7 +217,7 @@ export default function ListingDetail({ listing: l }: { listing: Listing }) {
                 <Link key={r.id} href={`/acc/${r.id}/`} className="card card-hover overflow-hidden">
                   <div className={`relative h-28 ${r.preview} hex-grid`}>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="rank-shield w-10 h-10" style={{ background: `linear-gradient(135deg,${r.accent},${r.color})` }}>
+                      <div className="rank-shield w-10 h-10" style={{ background: `${r.accent}` }}>
                         <Trophy className="w-4 h-4 text-white" />
                       </div>
                     </div>
@@ -253,7 +253,7 @@ export default function ListingDetail({ listing: l }: { listing: Listing }) {
               <button onClick={() => setShowBuy(false)} className="flex-1 py-3 rounded-xl text-sm font-semibold cursor-pointer" style={{ background: "var(--scrim)", border: "1px solid var(--border)", color: "var(--fg2)" }}>
                 Huỷ
               </button>
-              <button onClick={() => { setShowBuy(false); push("Yêu cầu đã gửi! Người bán sẽ liên hệ trong 5 phút.", "success"); }} className="flex-1 py-3 rounded-xl text-sm font-bold text-white cursor-pointer" style={{ background: `linear-gradient(135deg,${l.color},${l.accent})` }}>
+              <button onClick={() => { setShowBuy(false); push("Yêu cầu đã gửi! Người bán sẽ liên hệ trong 5 phút.", "success"); }} className="flex-1 py-3 rounded-xl text-sm font-bold text-white cursor-pointer" style={{ background: `${l.color}` }}>
                 Xác nhận
               </button>
             </div>

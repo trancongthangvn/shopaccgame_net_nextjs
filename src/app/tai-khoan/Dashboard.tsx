@@ -38,7 +38,7 @@ export default function Dashboard() {
       {/* Header */}
       <div className="card p-6 mb-6">
         <div className="flex items-center gap-4 flex-wrap">
-          <div className="w-16 h-16 rounded-2xl flex items-center justify-center font-bold text-white text-2xl" style={{ background: "linear-gradient(135deg,#f97316,#f43f5e)" }}>
+          <div className="w-16 h-16 rounded-2xl flex items-center justify-center font-bold text-white text-2xl" style={{ background: "#f97316" }}>
             {user.name.charAt(0).toUpperCase()}
           </div>
           <div className="flex-1 min-w-0">
@@ -115,7 +115,7 @@ export default function Dashboard() {
               <Link key={l.id} href={`/acc/${l.id}/`} className="card card-hover overflow-hidden">
                 <div className={`relative h-32 ${l.preview} hex-grid`}>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="rank-shield w-12 h-12" style={{ background: `linear-gradient(135deg,${l.accent},${l.color})` }}>
+                    <div className="rank-shield w-12 h-12" style={{ background: `${l.accent}` }}>
                       <Trophy className="w-4 h-4 text-white" />
                     </div>
                   </div>

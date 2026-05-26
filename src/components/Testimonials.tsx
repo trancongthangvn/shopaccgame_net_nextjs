@@ -68,7 +68,7 @@ export default function Testimonials() {
               {/* Reviewer */}
               <div className="flex items-center gap-3 pt-4" style={{ borderTop: "1px solid var(--border)" }}>
                 <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                  style={{ background: `linear-gradient(135deg,${r.color},${r.color}cc)` }}>
+                  style={{ background: `${r.color}` }}>
                   {r.avatar}
                 </div>
                 <div className="flex-1 min-w-0">

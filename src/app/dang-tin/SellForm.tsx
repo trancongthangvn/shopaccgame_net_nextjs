@@ -90,10 +90,10 @@ export default function SellForm() {
                 onClick={() => setGame(g.key)}
                 className="py-2.5 rounded-xl text-xs font-semibold transition-all cursor-pointer"
                 style={{
-                  background: game === g.key ? `linear-gradient(135deg,${g.color},${g.color}cc)` : "var(--scrim)",
+                  background: game === g.key ? `${g.color}` : "var(--scrim)",
                   border: `1px solid ${game === g.key ? "transparent" : "var(--border)"}`,
                   color: game === g.key ? "white" : "var(--fg2)",
-                  boxShadow: game === g.key ? `0 4px 14px ${g.color}55` : "none",
+                  boxShadow: game === g.key ? "var(--shadow-sm)" : "none",
                 }}
               >
                 {g.label}

@@ -12,7 +12,7 @@ export default function FloatingChat() {
         onClick={() => setOpen(!open)}
         className="fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full flex items-center justify-center text-white transition-all duration-300 cursor-pointer"
         style={{
-          background: "linear-gradient(135deg,#f97316,#f43f5e)",
+          background: "#f97316",
           boxShadow: "0 8px 32px rgba(249,115,22,0.5), 0 0 0 8px rgba(249,115,22,0.12)",
         }}
         aria-label={open ? "Đóng chat" : "Mở chat hỗ trợ"}
@@ -32,7 +32,7 @@ export default function FloatingChat() {
           style={{ background: "var(--surface)", border: "1px solid var(--border3)" }}>
 
           {/* Header */}
-          <div className="p-4 text-white" style={{ background: "linear-gradient(135deg,#f97316,#fb923c)" }}>
+          <div className="p-4 text-white" style={{ background: "#f97316" }}>
             <div className="flex items-center gap-3">
               <div className="relative">
                 <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: "var(--scrim4)" }}>
@@ -54,7 +54,7 @@ export default function FloatingChat() {
           <div className="p-4 space-y-3 max-h-72 overflow-y-auto" style={{ background: "var(--bg2)" }}>
             <div className="flex items-start gap-2">
               <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-2xs font-bold flex-shrink-0"
-                style={{ background: "linear-gradient(135deg,#f97316,#fb923c)" }}>SA</div>
+                style={{ background: "#f97316" }}>SA</div>
               <div className="max-w-[80%]">
                 <div className="p-3 rounded-2xl rounded-tl-none text-xs leading-relaxed"
                   style={{ background: "var(--surface2)", color: "var(--fg2)" }}>

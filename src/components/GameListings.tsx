@@ -97,11 +97,11 @@ export default function GameListings() {
               className="flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all cursor-pointer"
               style={{
                 background: tab === t.key
-                  ? `linear-gradient(135deg,${t.color || "#f97316"},${t.color ? t.color : "#fb923c"})`
+                  ? `${t.color || "#f97316"}`
                   : "var(--surface)",
                 color: tab === t.key ? "white" : "var(--fg2)",
                 border: `1px solid ${tab === t.key ? "transparent" : "var(--border)"}`,
-                boxShadow: tab === t.key ? `0 4px 16px ${t.color || "#f97316"}44` : "none",
+                boxShadow: tab === t.key ? "var(--shadow-sm)" : "none",
               }}
             >
               {t.label}
@@ -132,7 +132,7 @@ export default function GameListings() {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="relative">
                     <div className="rank-shield w-14 h-14"
-                      style={{ background:`linear-gradient(135deg,${item.accent},${item.color})`, boxShadow:`0 8px 24px ${item.color}66` }}>
+                      style={{ background:`${item.accent}` }}>
                       {(() => { const G = gameIcons[item.gameKey] || Trophy; return <G className="w-5 h-5 text-white drop-shadow" />; })()}
                     </div>
                     <div className="absolute -inset-2 -z-10 rounded-full opacity-40 blur-xl" style={{ background:item.color }} />
@@ -210,8 +210,7 @@ export default function GameListings() {
                   </div>
                   <button className="px-3 py-2 rounded-xl text-xs font-bold text-white transition-all cursor-pointer"
                     style={{
-                      background: `linear-gradient(135deg,${item.color},${item.accent})`,
-                      boxShadow: `0 4px 14px ${item.color}44`,
+                      background: `${item.color}`,
                     }}
                   >
                     Xem <ArrowRight className="w-3 h-3 inline ml-0.5" />

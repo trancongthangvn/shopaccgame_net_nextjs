@@ -85,7 +85,7 @@ export default function SearchOverlay() {
                     onClick={() => submit(l.title)}
                     className="w-full flex items-center gap-3 px-4 py-3 text-left cursor-pointer hover:bg-[var(--scrim)] transition-colors"
                   >
-                    <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: `linear-gradient(135deg,${l.accent},${l.color})` }}>
+                    <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: `${l.accent}` }}>
                       <Trophy className="w-4 h-4 text-white" />
                     </div>
                     <div className="flex-1 min-w-0">

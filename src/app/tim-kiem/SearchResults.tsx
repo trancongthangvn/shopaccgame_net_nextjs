@@ -102,7 +102,7 @@ export default function SearchResults() {
             <Link key={l.id} href={`/acc/${l.id}/`} className="card card-hover overflow-hidden">
               <div className={`relative h-36 ${l.preview} hex-grid`}>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="rank-shield w-14 h-14" style={{ background: `linear-gradient(135deg,${l.accent},${l.color})` }}>
+                  <div className="rank-shield w-14 h-14" style={{ background: `${l.accent}` }}>
                     <Trophy className="w-5 h-5 text-white" />
                   </div>
                 </div>

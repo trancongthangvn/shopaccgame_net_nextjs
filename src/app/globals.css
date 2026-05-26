@@ -201,60 +201,61 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 99px; }
 
-/* ── Text gradients ── */
-.grad-orange { background: linear-gradient(135deg,#fb923c,#f97316); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.grad-blue   { background: linear-gradient(135deg,#60a5fa,#3b82f6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.grad-rose   { background: linear-gradient(135deg,#fb7185,#f43f5e); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.grad-gold   { background: linear-gradient(135deg,#fbbf24,#f59e0b); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.grad-cyan   { background: linear-gradient(135deg,#22d3ee,#06b6d4); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.grad-green  { background: linear-gradient(135deg,#34d399,#10b981); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-/* Legacy alias for any remaining uses */
-.grad-purple { background: linear-gradient(135deg,#a78bfa,#7c3aed); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.grad-rainbow{ background: linear-gradient(90deg,#f97316,#f43f5e,#f59e0b); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+/* ── Brand text accent — single flat color, gradients kept as semantic
+   aliases so we don't have to rewrite every call site. Each class now
+   renders as a solid colour rather than a 2-stop gradient. ── */
+.grad-orange { color: #f97316; }
+.grad-blue   { color: #3b82f6; }
+.grad-rose   { color: #f43f5e; }
+.grad-gold   { color: #d97706; }
+.grad-cyan   { color: #0891b2; }
+.grad-green  { color: #059669; }
+.grad-purple { color: #7c3aed; }
+.grad-rainbow{ color: #f97316; }
 
-/* ── Buttons ── */
+/* ── Buttons — flat fills, restrained shadows ── */
 .btn-primary {
-  background: linear-gradient(135deg,#f97316,#fb923c);
-  box-shadow: 0 4px 20px rgba(249,115,22,.35), inset 0 1px 0 rgba(255,255,255,.15);
-  transition: all .2s;
+  background: #f97316;
+  box-shadow: 0 1px 2px rgba(15,23,42,.08);
+  transition: background .15s, box-shadow .15s, transform .15s;
 }
-.btn-primary:hover { box-shadow: 0 6px 28px rgba(249,115,22,.55), inset 0 1px 0 rgba(255,255,255,.2); transform: translateY(-1px); }
+.btn-primary:hover { background: #ea580c; box-shadow: 0 2px 6px rgba(249,115,22,.25); }
 .btn-rose {
-  background: linear-gradient(135deg,#f43f5e,#fb7185);
-  box-shadow: 0 4px 20px rgba(244,63,94,.35), inset 0 1px 0 rgba(255,255,255,.15);
-  transition: all .2s;
+  background: #f43f5e;
+  box-shadow: 0 1px 2px rgba(15,23,42,.08);
+  transition: background .15s, box-shadow .15s, transform .15s;
 }
-.btn-rose:hover { box-shadow: 0 6px 28px rgba(244,63,94,.55); transform: translateY(-1px); }
+.btn-rose:hover { background: #e11d48; box-shadow: 0 2px 6px rgba(244,63,94,.25); }
 .btn-gold {
-  background: linear-gradient(135deg,#f59e0b,#fbbf24);
-  box-shadow: 0 4px 20px rgba(245,158,11,.35), inset 0 1px 0 rgba(255,255,255,.15);
+  background: #d97706;
+  box-shadow: 0 1px 2px rgba(15,23,42,.08);
   transition: all .2s; color: #1a1a00;
 }
-.btn-gold:hover { box-shadow: 0 6px 28px rgba(245,158,11,.55); transform: translateY(-1px); }
+.btn-gold:hover { background: #b45309; box-shadow: 0 2px 6px rgba(217,119,6,.25); }
 .btn-blue {
-  background: linear-gradient(135deg,#3b82f6,#60a5fa);
-  box-shadow: 0 4px 20px rgba(59,130,246,.35), inset 0 1px 0 rgba(255,255,255,.15);
-  transition: all .2s;
+  background: #3b82f6;
+  box-shadow: 0 1px 2px rgba(15,23,42,.08);
+  transition: background .15s, box-shadow .15s;
 }
-.btn-blue:hover { box-shadow: 0 6px 28px rgba(59,130,246,.55); transform: translateY(-1px); }
+.btn-blue:hover { background: #2563eb; box-shadow: 0 2px 6px rgba(59,130,246,.25); }
 .btn-ghost {
   background: var(--scrim);
   border: 1px solid var(--border);
-  transition: all .2s;
+  transition: background .15s, border-color .15s;
 }
-.btn-ghost:hover { background: rgba(249,115,22,.08); border-color: var(--border3); }
+.btn-ghost:hover { background: var(--scrim2); border-color: var(--border); }
 
 /* ── Card with elevation + hover ── */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
-  transition: all .25s;
+  transition: border-color .15s, box-shadow .15s, transform .15s;
 }
 .card-hover:hover {
-  border-color: var(--border3);
-  box-shadow: var(--shadow), 0 0 32px rgba(249,115,22,.1);
-  transform: translateY(-2px);
+  border-color: var(--fg4);
+  box-shadow: var(--shadow);
+  transform: translateY(-1px);
 }
 
 /* ── Grid bg ── */
@@ -271,15 +272,15 @@ h1, h2, h3, h4, h5, h6 {
   background-size: 24px 24px;
 }
 
-/* ── Glow ── */
-.glow-orange-lg { box-shadow: 0 0 40px rgba(249,115,22,.4), 0 0 80px rgba(249,115,22,.15); }
-.glow-blue-lg   { box-shadow: 0 0 40px rgba(59,130,246,.4),  0 0 80px rgba(59,130,246,.15); }
-.glow-rose-lg   { box-shadow: 0 0 40px rgba(244,63,94,.4),   0 0 80px rgba(244,63,94,.15); }
-.glow-gold-lg   { box-shadow: 0 0 40px rgba(245,158,11,.4),  0 0 80px rgba(245,158,11,.15); }
-/* Legacy */
-.glow-purple-lg { box-shadow: 0 0 40px rgba(124,58,237,.4),  0 0 80px rgba(124,58,237,.15); }
-.text-glow-pink { text-shadow: 0 0 24px rgba(244,63,94,.5); }
-.text-glow-orange { text-shadow: 0 0 24px rgba(249,115,22,.6); }
+/* ── Glow — neutered to plain shadows. Kept as classes so existing
+   markup compiles unchanged, but no neon halos anymore. ── */
+.glow-orange-lg,
+.glow-blue-lg,
+.glow-rose-lg,
+.glow-gold-lg,
+.glow-purple-lg { box-shadow: var(--shadow); }
+.text-glow-pink,
+.text-glow-orange { text-shadow: none; }
 
 /* ── Animations ── */
 @keyframes float    { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
@@ -446,19 +447,13 @@ h1, h2, h3, h4, h5, h6 {
     radial-gradient(ellipse 50% 40% at 50% 70%, rgba(255,255,255,.12), transparent 70%);
 }
 
-/* Glow border with animated gradient */
+/* Border accent (was animated rainbow — now a static 1px border) */
 .border-anim {
   position: relative;
   background: var(--surface);
+  border: 1px solid var(--border);
 }
-.border-anim::before {
-  content:''; position:absolute; inset:-1px;
-  background: linear-gradient(135deg, #f97316, #f43f5e, #f59e0b, #f97316);
-  background-size: 300% 300%;
-  border-radius: inherit;
-  z-index: -1;
-  animation: gradient-shift 10s ease infinite;
-}
+.border-anim::before { content: none; }
 @keyframes gradient-shift {
   0%,100% { background-position: 0% 50%; }
   50%     { background-position: 100% 50%; }
@@ -470,32 +465,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 .section-heading-line::before {
   content:''; position:absolute; left:0; top:50%; transform: translateY(-50%);
-  width: 4px; height: 70%; border-radius: 99px;
-  background: linear-gradient(180deg, #f97316, #f43f5e);
+  width: 3px; height: 65%; border-radius: 99px;
+  background: #f97316;
 }
 
-/* ── Badges ── */
+/* ── Badges — flat fills, no halos ── */
 .badge {
   display: inline-flex; align-items: center; gap: 4px;
   padding: 3px 10px; border-radius: 99px; font-size: 10.5px; font-weight: 700;
   letter-spacing: .04em; text-transform: uppercase;
 }
-.badge-hot {
-  background: linear-gradient(135deg,#f43f5e,#dc2626);
-  color: white; box-shadow: 0 2px 8px rgba(244,63,94,.4);
-}
-.badge-sale {
-  background: linear-gradient(135deg,#f97316,#dc2626);
-  color: white; box-shadow: 0 2px 8px rgba(249,115,22,.4);
-}
-.badge-new {
-  background: linear-gradient(135deg,#10b981,#059669);
-  color: white;
-}
-.badge-vip {
-  background: linear-gradient(135deg,#fbbf24,#f59e0b);
-  color: #1a1a00;
-}
+.badge-hot   { background: #f43f5e; color: white; }
+.badge-sale  { background: #f97316; color: white; }
+.badge-new   { background: #10b981; color: white; }
+.badge-vip   { background: #d97706; color: white; }
 
 /* Marquee gradient mask */
 .marquee-mask {
