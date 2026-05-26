@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ToastProvider } from "@/components/Toast";
 import SearchOverlay from "@/components/SearchOverlay";
@@ -18,6 +19,14 @@ const svnGilroy = localFont({
   ],
   variable: "--font-gilroy",
   display: "swap",
+});
+
+// Editorial mono — used for prices, IDs, ticker, marketplace data.
+const jbm = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -56,7 +65,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className={`${svnGilroy.variable} h-full`} suppressHydrationWarning>
+    <html lang="vi" className={`${svnGilroy.variable} ${jbm.variable} h-full`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>

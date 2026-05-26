@@ -1,11 +1,13 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Eye, Heart, Clock, BadgeCheck, ArrowRight, Star, Shield, Filter } from "lucide-react";
+import { Heart, Clock, BadgeCheck, Star, Shield, Filter, Eye, ArrowRight } from "lucide-react";
 import { listings as all, gameCategories as tabs } from "@/data/listings";
 import { useFavorites } from "@/lib/favorites";
 import { useToast } from "@/components/Toast";
 import ListingImage from "@/components/ListingImage";
+import SectionHead from "@/components/SectionHead";
+import ListingStats from "@/components/ListingStats";
 
 const badgeMap: Record<string, string> = {
   hot: "badge-hot",
@@ -36,40 +38,37 @@ export default function GameListings() {
     <section id="listings" className="py-16 lg:py-24 px-4 sm:px-6" style={{ background: "var(--bg2)" }}>
       <div className="max-w-7xl mx-auto">
 
-        {/* Section header */}
-        <div className="flex items-end justify-between mb-6 flex-wrap gap-4">
-          <div>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#f97316" }}>Tin Đăng</span>
-            </div>
-            <h2 className="text-display-3" style={{ fontFamily: "var(--font-gilroy),sans-serif" }}>
-              <span style={{ color: "var(--fg)" }}>Acc Game </span>
-              <span className="grad-orange">Mới Nhất</span>
-            </h2>
-          </div>
+        <SectionHead
+          index="02"
+          eyebrow="Tin đăng"
+          title="Tất cả"
+          titleAccent="acc game"
+          subtitle="Danh sách acc mới đăng, lọc theo game hoặc sắp xếp theo giá/độ hot."
+          rightHref="/tim-kiem/"
+          rightLabel="Xem tất cả"
+        />
 
-          {/* Sort */}
-          <div className="flex items-center gap-2">
-            <span className="text-xs hidden sm:inline" style={{ color: "var(--fg3)" }}>Sắp xếp:</span>
-            <div className="flex gap-1 p-1 rounded-xl" style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
-              {[
-                { k:"newest", l:"Mới nhất" },
-                { k:"price",  l:"Giá thấp" },
-                { k:"hot",    l:"Hot" },
-              ].map(s => (
-                <button key={s.k} onClick={()=>setSort(s.k)}
-                  className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer"
-                  style={{
-                    background: sort === s.k ? "var(--purple)" : "transparent",
-                    color:      sort === s.k ? "white" : "var(--fg2)",
-                  }}
-                >{s.l}</button>
-              ))}
-            </div>
-            <button className="hidden sm:flex w-9 h-9 rounded-xl items-center justify-center btn-ghost cursor-pointer" aria-label="Bộ lọc">
-              <Filter className="w-4 h-4" style={{ color: "var(--fg2)" }} />
-            </button>
+        {/* Sort row — sits below the editorial head */}
+        <div className="flex items-center gap-2 mb-6 justify-end">
+          <span className="text-xs hidden sm:inline" style={{ color: "var(--fg3)" }}>Sắp xếp:</span>
+          <div className="flex gap-1 p-1 rounded-xl" style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
+            {[
+              { k:"newest", l:"Mới nhất" },
+              { k:"price",  l:"Giá thấp" },
+              { k:"hot",    l:"Hot" },
+            ].map(s => (
+              <button key={s.k} onClick={()=>setSort(s.k)}
+                className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer"
+                style={{
+                  background: sort === s.k ? "var(--fg)" : "transparent",
+                  color:      sort === s.k ? "var(--bg)" : "var(--fg2)",
+                }}
+              >{s.l}</button>
+            ))}
           </div>
+          <button className="hidden sm:flex w-9 h-9 rounded-xl items-center justify-center btn-ghost cursor-pointer" aria-label="Bộ lọc">
+            <Filter className="w-4 h-4" style={{ color: "var(--fg2)" }} />
+          </button>
         </div>
 
         {/* Disclaimer */}
@@ -173,32 +172,25 @@ export default function GameListings() {
                   ))}
                 </div>
 
-                {/* Price + CTA */}
+                {/* Price + small meta — editorial mono treatment */}
                 <div className="flex items-end justify-between pt-3" style={{ borderTop: "1px solid var(--border)" }}>
                   <div>
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-xl font-bold" style={{ fontFamily: "var(--font-gilroy),sans-serif", color: item.color }}>
-                        {item.price}<span className="text-xs">đ</span>
-                      </span>
+                    <div className="font-mono-ed text-xl font-semibold leading-none" style={{ color: "var(--fg)" }}>
+                      {item.price}<span className="text-xs" style={{ color: "var(--fg3)" }}>đ</span>
                     </div>
                     {item.oldPrice && (
-                      <div className="text-2xs line-through" style={{ color: "var(--fg4)" }}>{item.oldPrice}đ</div>
+                      <div className="font-mono-ed text-2xs line-through mt-1" style={{ color: "var(--fg4)" }}>{item.oldPrice}đ</div>
                     )}
                   </div>
-                  <button className="px-3 py-2 rounded-xl text-xs font-bold text-white transition-all cursor-pointer"
-                    style={{
-                      background: `${item.color}`,
-                    }}
-                  >
-                    Xem <ArrowRight className="w-3 h-3 inline ml-0.5" />
-                  </button>
+                  <div className="flex items-center gap-1.5 text-2xs font-medium" style={{ color: "var(--fg3)" }}>
+                    <Star className="w-3 h-3 fill-current" style={{ color: "#fbbf24" }} /> 4.9
+                    <span style={{ color: "var(--fg4)" }}>·</span>
+                    <Clock className="w-3 h-3" /> {item.posted}
+                  </div>
                 </div>
 
-                {/* Footer meta */}
-                <div className="flex items-center justify-between mt-3 pt-3 text-2xs" style={{ borderTop: "1px solid var(--border)", color: "var(--fg3)" }}>
-                  <span className="flex items-center gap-1"><Star className="w-3 h-3 fill-current" style={{ color: "#fbbf24" }} /> 4.9</span>
-                  <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {item.posted}</span>
-                </div>
+                {/* Marketplace stats line */}
+                <ListingStats l={item} />
               </div>
             </article>
             </Link>

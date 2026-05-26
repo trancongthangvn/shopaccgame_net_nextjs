@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Swords, Crosshair, Wand2, Crown, Globe, Car, Gamepad2, ArrowRight } from "lucide-react";
+import SectionHead from "@/components/SectionHead";
 
 const cats = [
   { name:"Liên Minh\nHuyền Thoại", short:"MOBA · PC",    count:"3,200+", icon:Swords,    c1:"#60a5fa", c2:"#3b82f6", preview:"preview-lmht",    tag:"🔥 Hot", key:"lmht" },
@@ -17,23 +18,15 @@ export default function CategoriesGrid() {
     <section id="categories" className="py-16 lg:py-24 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
 
-        {/* Header */}
-        <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-xs font-bold uppercase tracking-widest" style={{ color:"#f97316" }}>Danh Mục Game</span>
-            </div>
-            <h2 className="section-heading-line text-display-3 mb-2" style={{ fontFamily:"var(--font-gilroy),sans-serif" }}>
-              <span style={{ color:"var(--fg)" }}>Chọn </span>
-              <span className="grad-orange">Tựa Game</span>
-              <span style={{ color:"var(--fg)" }}> Yêu Thích</span>
-            </h2>
-            <p className="text-sm" style={{ color:"var(--fg3)" }}>Hàng nghìn tin đăng từ các tựa game phổ biến nhất Việt Nam</p>
-          </div>
-          <Link href="/tim-kiem/" className="flex items-center gap-1 text-sm font-semibold pb-1 cursor-pointer transition-colors hover:text-orange-400" style={{ color:"var(--fg2)" }}>
-            Xem tất cả <ArrowRight className="w-4 h-4 bounce-x" />
-          </Link>
-        </div>
+        <SectionHead
+          index="01"
+          eyebrow="Danh mục"
+          title="Chọn"
+          titleAccent="tựa game"
+          subtitle="Hàng nghìn tin đăng từ các tựa game phổ biến nhất Việt Nam."
+          rightHref="/tim-kiem/"
+          rightLabel="Tất cả game"
+        />
 
         {/* Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">

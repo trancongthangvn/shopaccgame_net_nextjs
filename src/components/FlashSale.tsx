@@ -5,6 +5,7 @@ import { Eye, Heart, ArrowRight, Zap } from "lucide-react";
 import { useFavorites } from "@/lib/favorites";
 import { useToast } from "@/components/Toast";
 import ListingImage from "@/components/ListingImage";
+import SectionHead from "@/components/SectionHead";
 
 const gameKeyMap: Record<string, string> = {
   LMHT: "lmht",
@@ -41,35 +42,23 @@ export default function FlashSale() {
     <section id="flash" className="py-16 lg:py-24 px-4 sm:px-6 relative overflow-hidden">
 
       <div className="relative max-w-7xl mx-auto">
-        {/* Section header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="badge badge-hot">🔥 Flash Sale</span>
-              <span className="text-xs font-bold uppercase tracking-widest" style={{ color:"var(--fg3)" }}>Giảm sốc · Có hạn</span>
-            </div>
-            <h2 className="section-heading-line text-display-3 mb-2" style={{ fontFamily:"var(--font-gilroy),sans-serif" }}>
-              <span style={{ color:"var(--fg)" }}>Giảm Sốc </span>
-              <span className="grad-rose">Đến 50%</span>
-            </h2>
-            <p className="text-sm" style={{ color:"var(--fg3)" }}>Khuyến mãi giới hạn — chỉ áp dụng hôm nay</p>
-          </div>
+        <SectionHead
+          index="03"
+          eyebrow="Flash sale · giới hạn hôm nay"
+          title="Giảm sốc"
+          titleAccent="đến 50%"
+          subtitle="Khuyến mãi có hạn — kết thúc cuối ngày."
+        />
 
-          {/* Countdown */}
-          <div className="flex items-center gap-3">
-            <span className="text-xs uppercase tracking-widest font-bold hidden sm:inline" style={{ color:"var(--fg3)" }}>Kết thúc:</span>
-            <div className="flex items-center gap-1.5">
-              {[{l:"GIỜ",v:time.h},{l:"PHÚT",v:time.m},{l:"GIÂY",v:time.s}].map((u,i,arr) => (
-                <span key={u.l} className="flex items-center gap-1.5">
-                  <span className="w-11 h-11 sm:w-14 sm:h-14 rounded-xl flex flex-col items-center justify-center font-mono font-bold tabular-nums text-white"
-                    style={{ background: "#f43f5e" }}>
-                    <span className="text-base sm:text-lg leading-none">{pad(u.v)}</span>
-                    <span className="text-2xs mt-1 opacity-80 tracking-wider">{u.l}</span>
-                  </span>
-                  {i < arr.length - 1 && <span className="text-2xl font-bold" style={{ color:"#f43f5e" }}>:</span>}
-                </span>
-              ))}
-            </div>
+        {/* Countdown row — editorial mono */}
+        <div className="flex items-center gap-3 mb-8">
+          <span className="text-xs uppercase tracking-[0.18em] font-bold hidden sm:inline" style={{ color:"var(--fg3)" }}>Kết thúc trong</span>
+          <div className="font-mono-ed flex items-center text-2xl sm:text-3xl font-semibold tabular-nums" style={{ color: "#f43f5e" }}>
+            <span>{pad(time.h)}</span>
+            <span className="opacity-50 mx-1">:</span>
+            <span>{pad(time.m)}</span>
+            <span className="opacity-50 mx-1">:</span>
+            <span>{pad(time.s)}</span>
           </div>
         </div>
 
