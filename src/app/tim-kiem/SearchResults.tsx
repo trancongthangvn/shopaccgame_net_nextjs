@@ -2,8 +2,8 @@
 import { useState, useMemo } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { Search, Trophy, Eye, X } from "lucide-react";
-import { listings, gameCategories, searchListings } from "@/data/listings";
+import { Search, Eye, X } from "lucide-react";
+import { gameCategories, searchListings, imgFor } from "@/data/listings";
 
 export default function SearchResults() {
   const sp = useSearchParams();
@@ -100,20 +100,17 @@ export default function SearchResults() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {results.map(l => (
             <Link key={l.id} href={`/acc/${l.id}/`} className="card card-hover overflow-hidden">
-              <div className={`relative h-36 ${l.preview} hex-grid`}>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="rank-shield w-14 h-14" style={{ background: `${l.accent}` }}>
-                    <Trophy className="w-5 h-5 text-white" />
-                  </div>
-                </div>
+              <div className="relative h-40 overflow-hidden" style={{ background: "var(--bg3)" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={imgFor(l.id, 500, 320)} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+                <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.5))" }} />
                 <div className="absolute top-2 left-2">
-                  <span className="badge" style={{ background: l.color + "ee", color: "white" }}>{l.game}</span>
+                  <span className="badge" style={{ background: l.color, color: "white" }}>{l.game}</span>
                 </div>
-                <div className="absolute bottom-2 left-2 flex items-center gap-1 px-2 py-0.5 rounded backdrop-blur-md" style={{ background: "rgba(0,0,0,0.4)" }}>
-                  <Trophy className="w-3 h-3 text-white" />
-                  <span className="text-2xs font-bold text-white">{l.rank}</span>
+                <div className="absolute bottom-2 left-2 px-2 py-0.5 rounded text-2xs font-semibold text-white uppercase" style={{ background: "rgba(0,0,0,0.55)" }}>
+                  {l.rank}
                 </div>
-                <div className="absolute bottom-2 right-2 flex items-center gap-1 text-2xs text-white/90 px-1.5 py-0.5 rounded backdrop-blur-md" style={{ background: "rgba(0,0,0,0.4)" }}>
+                <div className="absolute bottom-2 right-2 flex items-center gap-1 text-2xs text-white/90 px-1.5 py-0.5 rounded" style={{ background: "rgba(0,0,0,0.5)" }}>
                   <Eye className="w-3 h-3" />{l.views}
                 </div>
               </div>

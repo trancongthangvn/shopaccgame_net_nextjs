@@ -65,7 +65,6 @@ export default function SellForm() {
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center gap-2 mb-2">
-          <Sparkles className="w-4 h-4" style={{ color: "#f97316" }} />
           <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#f97316" }}>Đăng tin miễn phí</span>
         </div>
         <h1 className="text-display-3 mb-3" style={{ fontFamily: "var(--font-gilroy),sans-serif" }}>

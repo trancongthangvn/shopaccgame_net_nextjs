@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Swords, Crosshair, Wand2, Crown, Globe, Car, Gamepad2, Sparkles, ArrowRight } from "lucide-react";
+import { Swords, Crosshair, Wand2, Crown, Globe, Car, Gamepad2, ArrowRight } from "lucide-react";
 
 const cats = [
   { name:"Liên Minh\nHuyền Thoại", short:"MOBA · PC",    count:"3,200+", icon:Swords,    c1:"#60a5fa", c2:"#3b82f6", preview:"preview-lmht",    tag:"🔥 Hot", key:"lmht" },
@@ -21,7 +21,6 @@ export default function CategoriesGrid() {
         <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <Sparkles className="w-4 h-4" style={{ color:"#f97316" }} />
               <span className="text-xs font-bold uppercase tracking-widest" style={{ color:"#f97316" }}>Danh Mục Game</span>
             </div>
             <h2 className="section-heading-line text-display-3 mb-2" style={{ fontFamily:"var(--font-gilroy),sans-serif" }}>
@@ -46,27 +45,22 @@ export default function CategoriesGrid() {
                 style={{ background:"var(--surface)" }}
                 aria-label={cat.name.replace("\n", " ")}
               >
-                {/* Preview area with rank shield */}
-                <div className={`relative h-28 ${cat.preview} hex-grid overflow-hidden`}>
+                {/* Preview — photo placeholder */}
+                <div className="relative h-32 overflow-hidden" style={{ background: "var(--bg3)" }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`https://picsum.photos/seed/cat-${cat.key}-${cat.name.replace(/\s+/g, "")}/400/250`} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                  <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.5))" }} />
                   {/* Tag */}
                   {cat.tag && (
                     <div className="absolute top-2 right-2 z-10">
-                      <span className="badge text-2xs"
-                        style={{ background: cat.c1+"33", color:"white", border:`1px solid ${cat.c1}88`, padding:"2px 8px" }}>
+                      <span className="badge text-2xs" style={{ background: cat.c1, color: "white" }}>
                         {cat.tag}
                       </span>
                     </div>
                   )}
-
-                  {/* Centerpiece icon with glow */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="relative transition-transform duration-300 group-hover:scale-110">
-                      <div className="rank-shield w-12 h-12"
-                        style={{ background:`${cat.c1}` }}>
-                        <Icon className="w-5 h-5 text-white drop-shadow" />
-                      </div>
-                      <div className="absolute -inset-2 -z-10 rounded-full opacity-50 blur-xl" style={{ background: cat.c2 }} />
-                    </div>
+                  {/* Small game icon chip bottom-left */}
+                  <div className="absolute bottom-2 left-2 w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: cat.c1 }}>
+                    <Icon className="w-4 h-4 text-white" />
                   </div>
                 </div>
 

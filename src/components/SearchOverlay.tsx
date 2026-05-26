@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Search, X, Trophy } from "lucide-react";
-import { searchListings } from "@/data/listings";
+import { Search, X } from "lucide-react";
+import { searchListings, imgFor } from "@/data/listings";
 
 export default function SearchOverlay() {
   const [open, setOpen] = useState(false);
@@ -85,9 +85,8 @@ export default function SearchOverlay() {
                     onClick={() => submit(l.title)}
                     className="w-full flex items-center gap-3 px-4 py-3 text-left cursor-pointer hover:bg-[var(--scrim)] transition-colors"
                   >
-                    <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: `${l.accent}` }}>
-                      <Trophy className="w-4 h-4 text-white" />
-                    </div>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={imgFor(l.id, 80, 80)} alt="" loading="lazy" className="w-10 h-10 rounded-lg object-cover flex-shrink-0" />
                     <div className="flex-1 min-w-0">
                       <div className="text-sm font-semibold truncate" style={{ color: "var(--fg)" }}>{l.title}</div>
                       <div className="text-xs flex items-center gap-2" style={{ color: "var(--fg3)" }}>

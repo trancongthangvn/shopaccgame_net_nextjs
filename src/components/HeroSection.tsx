@@ -94,9 +94,7 @@ export default function HeroSection() {
               </form>
 
               <div className="flex items-center gap-2 flex-wrap mt-4">
-                <span className="text-xs flex items-center gap-1 font-semibold" style={{ color:"var(--fg3)" }}>
-                  <Flame className="w-3 h-3" style={{ color:"#f43f5e" }} /> Hot:
-                </span>
+                <span className="text-xs font-semibold" style={{ color:"var(--fg3)" }}>Hot:</span>
                 {hot.map(t => (
                   <Link key={t} href={`/tim-kiem/?q=${encodeURIComponent(t)}`}
                     className="px-3 py-1 rounded-full text-xs font-medium transition-all hover:scale-105 cursor-pointer"
@@ -160,27 +158,20 @@ export default function HeroSection() {
                       </div>
                     )}
 
-                    {/* Preview area */}
-                    <div className={`relative h-32 ${c.preview} hex-grid overflow-hidden`}>
-                      {/* Rank shield center */}
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="relative">
-                          <div className="rank-shield w-14 h-14"
-                            style={{ background: c.color }}>
-                            <Icon className="w-5 h-5 text-white" />
-                          </div>
-                        </div>
-                      </div>
+                    {/* Preview image */}
+                    <div className="relative h-32 overflow-hidden" style={{ background: "var(--bg3)" }}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={`https://picsum.photos/seed/${encodeURIComponent(c.id)}/400/250`} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+                      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.45))" }} />
 
                       {/* Top-right ID */}
-                      <div className="absolute top-2.5 right-2.5 text-2xs font-mono font-bold px-1.5 py-0.5 rounded backdrop-blur-md text-white/80"
-                        style={{ background:"rgba(0,0,0,.35)" }}>#{c.id}</div>
+                      <div className="absolute top-2.5 right-2.5 text-2xs font-mono px-1.5 py-0.5 rounded text-white/85"
+                        style={{ background:"rgba(0,0,0,.4)" }}>#{c.id}</div>
 
                       {/* Bottom-left rank */}
-                      <div className="absolute bottom-2.5 left-2.5 flex items-center gap-1 px-1.5 py-0.5 rounded-md backdrop-blur-md"
-                        style={{ background:"rgba(0,0,0,.4)" }}>
-                        <Trophy className="w-2.5 h-2.5 text-white" />
-                        <span className="text-2xs font-bold text-white uppercase tracking-wider">{c.rank}</span>
+                      <div className="absolute bottom-2.5 left-2.5 px-1.5 py-0.5 rounded text-2xs font-semibold text-white uppercase tracking-wide"
+                        style={{ background:"rgba(0,0,0,.5)" }}>
+                        {c.rank}
                       </div>
                     </div>
 
@@ -229,19 +220,13 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Trust strip */}
-        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-16 pt-8" style={{ borderTop:"1px solid var(--border)" }}>
-          {[
-            { t:"Bảo mật SSL 256-bit", i:Shield,     c:"#10b981" },
-            { t:"Xác minh CCCD",       i:Sparkles,   c:"#f97316" },
-            { t:"Hỗ trợ 24/7",         i:Zap,        c:"#f59e0b" },
-            { t:"Đánh giá thật",       i:Star,       c:"#fbbf24" },
-            { t:"Tuân thủ pháp luật VN", i:Shield,   c:"#06b6d4" },
-          ].map(({t,i:Icon,c}) => (
-            <div key={t} className="flex items-center gap-1.5 text-xs font-medium" style={{ color:"var(--fg3)" }}>
-              <Icon className="w-3.5 h-3.5" style={{ color:c }} />
-              {t}
-            </div>
+        {/* Trust strip — text-only, no decorative icons */}
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-16 pt-8 text-xs" style={{ borderTop:"1px solid var(--border)", color:"var(--fg3)" }}>
+          {["Bảo mật SSL 256-bit","Xác minh CCCD","Hỗ trợ 24/7","Đánh giá thật","Tuân thủ pháp luật VN"].map((t, i, arr) => (
+            <span key={t} className="flex items-center gap-x-6">
+              <span>{t}</span>
+              {i < arr.length - 1 && <span style={{ color:"var(--fg4)" }}>·</span>}
+            </span>
           ))}
         </div>
       </div>

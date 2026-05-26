@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Trophy, Eye, Heart, ArrowRight, Zap, Crown } from "lucide-react";
+import { Eye, Heart, ArrowRight, Zap } from "lucide-react";
 import { useFavorites } from "@/lib/favorites";
 import { useToast } from "@/components/Toast";
+import ListingImage from "@/components/ListingImage";
 
 const gameKeyMap: Record<string, string> = {
   LMHT: "lmht",
@@ -13,10 +14,10 @@ const gameKeyMap: Record<string, string> = {
 };
 
 const deals = [
-  { id:"FS001", game:"LMHT",     title:"Acc LMHT Cao Thủ — 100 tướng + 50 skin",     rank:"Cao Thủ",   price:"1.490.000", oldPrice:"2.500.000", discount:40, sold:8, total:10, views:"5.2k", preview:"preview-lmht",    color:"#60a5fa", icon:Crown },
-  { id:"FS002", game:"Genshin",  title:"Genshin AR55 — Hutao C2 + Zhongli C0",         rank:"AR55",      price:"2.290.000", oldPrice:"3.800.000", discount:39, sold:5, total:8,  views:"4.1k", preview:"preview-genshin", color:"#c4b5fd", icon:Trophy },
-  { id:"FS003", game:"PUBG",     title:"PUBG Conqueror — Glacier M416 + UMP45",       rank:"Conqueror", price:"890.000",   oldPrice:"1.500.000", discount:41, sold:12,total:15, views:"3.8k", preview:"preview-pubg",    color:"#fbbf24", icon:Crown },
-  { id:"FS004", game:"Valorant", title:"Valorant Immortal — Vandal Prime + Skin Set", rank:"Immortal",  price:"1.690.000", oldPrice:"2.900.000", discount:42, sold:3, total:6,  views:"6.4k", preview:"preview-valo",    color:"#22d3ee", icon:Trophy },
+  { id:"FS001", game:"LMHT",     title:"Acc LMHT Cao Thủ — 100 tướng + 50 skin",     rank:"Cao Thủ",   price:"1.490.000", oldPrice:"2.500.000", discount:40, sold:8, total:10, views:"5.2k", preview:"preview-lmht",    color:"#60a5fa" },
+  { id:"FS002", game:"Genshin",  title:"Genshin AR55 — Hutao C2 + Zhongli C0",         rank:"AR55",      price:"2.290.000", oldPrice:"3.800.000", discount:39, sold:5, total:8,  views:"4.1k", preview:"preview-genshin", color:"#c4b5fd" },
+  { id:"FS003", game:"PUBG",     title:"PUBG Conqueror — Glacier M416 + UMP45",       rank:"Conqueror", price:"890.000",   oldPrice:"1.500.000", discount:41, sold:12,total:15, views:"3.8k", preview:"preview-pubg",    color:"#fbbf24" },
+  { id:"FS004", game:"Valorant", title:"Valorant Immortal — Vandal Prime + Skin Set", rank:"Immortal",  price:"1.690.000", oldPrice:"2.900.000", discount:42, sold:3, total:6,  views:"6.4k", preview:"preview-valo",    color:"#22d3ee" },
 ];
 
 export default function FlashSale() {
@@ -75,7 +76,6 @@ export default function FlashSale() {
         {/* Cards grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {deals.map(d => {
-            const Icon = d.icon;
             const soldPct = Math.round((d.sold / d.total) * 100);
             const remaining = d.total - d.sold;
 
@@ -94,41 +94,31 @@ export default function FlashSale() {
                   </div>
                 )}
 
-                {/* Preview area */}
-                <div className={`relative h-44 ${d.preview} hex-grid overflow-hidden`}>
-                  {/* Rank shield centerpiece */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="relative">
-                      <div className="rank-shield w-16 h-16" style={{ background: d.color }}>
-                        <Icon className="w-6 h-6 text-white" />
-                      </div>
-                    </div>
-                  </div>
-
+                {/* Preview — real placeholder image */}
+                <ListingImage id={d.id} className="h-44" w={600} h={400}>
                   {/* Heart on hover */}
                   <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); const nowFav = toggle(d.id); push(nowFav ? "Đã thêm vào yêu thích" : "Đã bỏ yêu thích", "success"); }}
                     className={`absolute top-3 right-12 w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-md transition-all cursor-pointer z-20 ${isFav(d.id) ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
-                    style={{ background: isFav(d.id) ? "#f43f5e" : "rgba(0,0,0,.4)", color:"white" }} aria-label="Yêu thích">
+                    style={{ background: isFav(d.id) ? "#f43f5e" : "rgba(0,0,0,.45)", color:"white" }} aria-label="Yêu thích">
                     <Heart className={`w-4 h-4 ${isFav(d.id) ? "fill-current" : ""}`} />
                   </button>
 
                   {/* Bottom-left rank */}
-                  <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-2 py-1 rounded-lg backdrop-blur-md"
-                    style={{ background:"rgba(0,0,0,.4)" }}>
-                    <Trophy className="w-3 h-3 text-white" />
-                    <span className="text-2xs font-bold text-white uppercase tracking-wider">{d.rank}</span>
+                  <div className="absolute bottom-3 left-3 px-2 py-0.5 rounded text-2xs font-semibold text-white uppercase tracking-wide"
+                    style={{ background:"rgba(0,0,0,.5)" }}>
+                    {d.rank}
                   </div>
 
                   {/* Bottom-right views */}
-                  <div className="absolute bottom-3 right-3 flex items-center gap-1 text-2xs text-white/90 px-2 py-1 rounded-lg backdrop-blur-md"
-                    style={{ background:"rgba(0,0,0,.4)" }}>
+                  <div className="absolute bottom-3 right-3 flex items-center gap-1 text-2xs text-white/90 px-1.5 py-0.5 rounded"
+                    style={{ background:"rgba(0,0,0,.45)" }}>
                     <Eye className="w-3 h-3" />{d.views}
                   </div>
 
                   {/* Top-right ID */}
-                  <div className="absolute top-3 right-3 text-2xs font-mono font-bold px-2 py-0.5 rounded backdrop-blur-md text-white/80"
-                    style={{ background:"rgba(0,0,0,.3)" }}>#{d.id}</div>
-                </div>
+                  <div className="absolute top-3 right-3 text-2xs font-mono font-medium px-2 py-0.5 rounded text-white/85"
+                    style={{ background:"rgba(0,0,0,.4)" }}>#{d.id}</div>
+                </ListingImage>
 
                 {/* Content */}
                 <div className="p-4">

@@ -44,6 +44,16 @@ export const gameCategories = [
   { key:"valo",    label:"Valorant",    count:760,  color:"#06b6d4" },
 ];
 
+/**
+ * Deterministic placeholder image for a listing. Uses picsum.photos seeded by
+ * the listing id so each card has its own image but the same image survives
+ * across reloads. Swap this for a CDN URL or signed S3 path once real
+ * uploads are wired up.
+ */
+export function imgFor(id: string, w = 800, h = 500): string {
+  return `https://picsum.photos/seed/${encodeURIComponent(id)}/${w}/${h}`;
+}
+
 export function getListing(id: string): Listing | undefined {
   return listings.find(l => l.id === id);
 }

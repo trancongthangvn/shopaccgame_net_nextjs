@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, Heart, BadgeCheck, Trophy, Eye, Clock, Star, Shield, MessageCircle, Phone, Share2, Flag, ChevronRight } from "lucide-react";
+import { ArrowLeft, Heart, BadgeCheck, Eye, Clock, Star, Shield, MessageCircle, Phone, Share2, Flag, ChevronRight } from "lucide-react";
 import type { Listing } from "@/data/listings";
-import { listings } from "@/data/listings";
+import { listings, imgFor } from "@/data/listings";
 import Navbar from "@/components/Navbar";
 import TopBar from "@/components/TopBar";
 import Footer from "@/components/Footer";
@@ -56,27 +56,33 @@ export default function ListingDetail({ listing: l }: { listing: Listing }) {
           {/* LEFT — preview + description */}
           <div className="lg:col-span-2 space-y-6">
 
-            {/* Hero preview */}
-            <div className={`relative h-72 sm:h-96 rounded-2xl ${l.preview} hex-grid overflow-hidden`}>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="rank-shield w-28 h-28"
-                  style={{ background: `${l.accent}`, boxShadow: `0 16px 48px ${l.color}66` }}>
-                  <Trophy className="w-10 h-10 text-white" />
+            {/* Hero preview — main image + 3 thumbnails */}
+            <div className="space-y-3">
+              <div className="relative h-72 sm:h-96 rounded-2xl overflow-hidden" style={{ background: "var(--bg3)" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={imgFor(l.id, 1200, 700)} alt={l.title} className="absolute inset-0 w-full h-full object-cover" />
+                <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.45) 100%)" }} />
+                {l.badge && (
+                  <div className="absolute top-4 left-4">
+                    <span className={`badge ${l.badge === "hot" ? "badge-hot" : l.badge === "sale" ? "badge-sale" : l.badge === "new" ? "badge-new" : "badge-vip"}`}>
+                      {l.badge === "hot" ? "Hot" : l.badge === "sale" ? "Sale" : l.badge === "new" ? "Mới" : "VIP"}
+                    </span>
+                  </div>
+                )}
+                <div className="absolute bottom-4 left-4 px-3 py-1 rounded text-xs font-semibold text-white uppercase tracking-wider" style={{ background: "rgba(0,0,0,0.55)" }}>
+                  {l.rank}
+                </div>
+                <div className="absolute bottom-4 right-4 text-xs font-mono px-2 py-1 rounded text-white/85" style={{ background: "rgba(0,0,0,0.45)" }}>
+                  #{l.id}
                 </div>
               </div>
-              {l.badge && (
-                <div className="absolute top-4 left-4">
-                  <span className={`badge ${l.badge === "hot" ? "badge-hot" : l.badge === "sale" ? "badge-sale" : l.badge === "new" ? "badge-new" : "badge-vip"}`}>
-                    {l.badge === "hot" ? "🔥 Hot" : l.badge === "sale" ? "% Sale" : l.badge === "new" ? "✨ Mới" : "★ VIP"}
-                  </span>
-                </div>
-              )}
-              <div className="absolute bottom-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-lg backdrop-blur-md" style={{ background: "rgba(0,0,0,0.4)" }}>
-                <Trophy className="w-3.5 h-3.5 text-white" />
-                <span className="text-xs font-bold text-white uppercase tracking-wider">{l.rank}</span>
-              </div>
-              <div className="absolute bottom-4 right-4 text-xs font-mono px-2 py-1 rounded backdrop-blur-md text-white/80" style={{ background: "rgba(0,0,0,0.4)" }}>
-                #{l.id}
+              {/* Thumbnail strip (deterministic variants) */}
+              <div className="grid grid-cols-4 gap-2">
+                {[`${l.id}-a`, `${l.id}-b`, `${l.id}-c`, `${l.id}-d`].map((seed, i) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img key={seed} src={imgFor(seed, 300, 200)} alt="" loading="lazy"
+                    className={`h-20 w-full object-cover rounded-lg cursor-pointer transition-opacity ${i === 0 ? "ring-2 ring-orange-500" : "opacity-70 hover:opacity-100"}`} />
+                ))}
               </div>
             </div>
 
@@ -215,12 +221,10 @@ export default function ListingDetail({ listing: l }: { listing: Listing }) {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {related.map(r => (
                 <Link key={r.id} href={`/acc/${r.id}/`} className="card card-hover overflow-hidden">
-                  <div className={`relative h-28 ${r.preview} hex-grid`}>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="rank-shield w-10 h-10" style={{ background: `${r.accent}` }}>
-                        <Trophy className="w-4 h-4 text-white" />
-                      </div>
-                    </div>
+                  <div className="relative h-32 overflow-hidden" style={{ background: "var(--bg3)" }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={imgFor(r.id, 400, 250)} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+                    <div className="absolute bottom-2 left-2 px-2 py-0.5 rounded text-2xs font-semibold text-white uppercase" style={{ background: "rgba(0,0,0,0.55)" }}>{r.rank}</div>
                   </div>
                   <div className="p-3">
                     <div className="text-xs font-semibold leading-snug line-clamp-2 mb-2 min-h-[2.2rem]" style={{ color: "var(--fg)" }}>{r.title}</div>

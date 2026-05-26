@@ -1,19 +1,11 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Trophy, Eye, Heart, Clock, BadgeCheck, ArrowRight, Star, Sparkles, Shield, Filter, Crown, Swords, Wand2, Crosshair, Globe } from "lucide-react";
+import { Eye, Heart, Clock, BadgeCheck, ArrowRight, Star, Shield, Filter } from "lucide-react";
 import { listings as all, gameCategories as tabs } from "@/data/listings";
 import { useFavorites } from "@/lib/favorites";
 import { useToast } from "@/components/Toast";
-
-const gameIcons: Record<string, typeof Trophy> = {
-  lmht: Swords,
-  ff: Crosshair,
-  pubg: Crosshair,
-  genshin: Wand2,
-  lq: Crown,
-  valo: Globe,
-};
+import ListingImage from "@/components/ListingImage";
 
 const badgeMap: Record<string, string> = {
   hot: "badge-hot",
@@ -48,7 +40,6 @@ export default function GameListings() {
         <div className="flex items-end justify-between mb-6 flex-wrap gap-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <Sparkles className="w-4 h-4" style={{ color: "#f97316" }} />
               <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#f97316" }}>Tin Đăng</span>
             </div>
             <h2 className="text-display-3" style={{ fontFamily: "var(--font-gilroy),sans-serif" }}>
@@ -126,47 +117,33 @@ export default function GameListings() {
                 </div>
               )}
 
-              {/* Preview */}
-              <div className={`relative h-40 ${item.preview} hex-grid overflow-hidden`}>
-                {/* Rank shield centerpiece */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative">
-                    <div className="rank-shield w-14 h-14"
-                      style={{ background:`${item.accent}` }}>
-                      {(() => { const G = gameIcons[item.gameKey] || Trophy; return <G className="w-5 h-5 text-white drop-shadow" />; })()}
-                    </div>
-                    <div className="absolute -inset-2 -z-10 rounded-full opacity-40 blur-xl" style={{ background:item.color }} />
-                  </div>
-                </div>
-
+              {/* Preview — real placeholder image */}
+              <ListingImage id={item.id} className="h-44" w={600} h={400}>
                 {/* Heart button */}
                 <button
                   onClick={(e) => { e.preventDefault(); e.stopPropagation(); const nowFav = toggle(item.id); push(nowFav ? "Đã thêm vào yêu thích" : "Đã bỏ yêu thích", "success"); }}
                   className={`absolute top-3 right-3 z-20 w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-md transition-all cursor-pointer ${isFav(item.id) ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
-                  style={{ background: isFav(item.id) ? "#f43f5e" : "rgba(0,0,0,0.4)" }}
+                  style={{ background: isFav(item.id) ? "#f43f5e" : "rgba(0,0,0,0.45)" }}
                   aria-label="Yêu thích"
                 >
                   <Heart className={`w-4 h-4 text-white ${isFav(item.id) ? "fill-current" : ""}`} />
                 </button>
 
                 {/* Top-right ID */}
-                <div className="absolute top-3 right-3 group-hover:opacity-0 transition-opacity text-2xs font-mono font-bold px-2 py-0.5 rounded backdrop-blur-md text-white/80"
-                  style={{ background:"rgba(0,0,0,.3)" }}>#{item.id}</div>
+                <div className="absolute top-3 right-3 group-hover:opacity-0 transition-opacity text-2xs font-mono font-medium px-2 py-0.5 rounded text-white/85"
+                  style={{ background:"rgba(0,0,0,.4)" }}>#{item.id}</div>
 
                 {/* Bottom-left rank */}
-                <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-2 py-1 rounded-lg backdrop-blur-md"
-                  style={{ background:"rgba(0,0,0,.4)" }}>
-                  <Trophy className="w-3 h-3 text-white" />
-                  <span className="text-2xs font-bold text-white uppercase tracking-wider">{item.rank}</span>
+                <div className="absolute bottom-3 left-3 px-2 py-0.5 rounded text-2xs font-semibold text-white uppercase tracking-wide"
+                  style={{ background:"rgba(0,0,0,.5)" }}>
+                  {item.rank}
                 </div>
 
-                {/* Bottom-right meta */}
-                <div className="absolute bottom-3 right-3 flex items-center gap-1.5 text-2xs text-white/90">
-                  <span className="flex items-center gap-1 px-1.5 py-0.5 rounded-md backdrop-blur-md" style={{ background:"rgba(0,0,0,.4)" }}>
-                    <Eye className="w-3 h-3" />{item.views}
-                  </span>
+                {/* Bottom-right views */}
+                <div className="absolute bottom-3 right-3 flex items-center gap-1 text-2xs text-white/90 px-1.5 py-0.5 rounded" style={{ background:"rgba(0,0,0,.45)" }}>
+                  <Eye className="w-3 h-3" />{item.views}
                 </div>
-              </div>
+              </ListingImage>
 
               {/* Body */}
               <div className="p-4">

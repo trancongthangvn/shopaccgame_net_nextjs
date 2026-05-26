@@ -2,11 +2,11 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { User as UserIcon, Heart, FileText, LogOut, Plus, Trophy, Eye } from "lucide-react";
+import { User as UserIcon, Heart, FileText, LogOut, Plus, Eye } from "lucide-react";
 import { useAuth } from "@/lib/auth";
 import { useFavorites } from "@/lib/favorites";
 import { useToast } from "@/components/Toast";
-import { listings } from "@/data/listings";
+import { listings, imgFor } from "@/data/listings";
 
 type Tab = "listings" | "favorites" | "profile";
 
@@ -113,15 +113,12 @@ export default function Dashboard() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {myFavs.map(l => (
               <Link key={l.id} href={`/acc/${l.id}/`} className="card card-hover overflow-hidden">
-                <div className={`relative h-32 ${l.preview} hex-grid`}>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="rank-shield w-12 h-12" style={{ background: `${l.accent}` }}>
-                      <Trophy className="w-4 h-4 text-white" />
-                    </div>
-                  </div>
-                  <div className="absolute bottom-2 left-2 flex items-center gap-1 px-2 py-0.5 rounded backdrop-blur-md" style={{ background: "rgba(0,0,0,0.4)" }}>
-                    <Eye className="w-3 h-3 text-white" />
-                    <span className="text-2xs text-white">{l.views}</span>
+                <div className="relative h-32 overflow-hidden" style={{ background: "var(--bg3)" }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={imgFor(l.id, 400, 250)} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+                  <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.5))" }} />
+                  <div className="absolute bottom-2 left-2 flex items-center gap-1 px-2 py-0.5 rounded text-2xs text-white" style={{ background: "rgba(0,0,0,0.5)" }}>
+                    <Eye className="w-3 h-3" />{l.views}
                   </div>
                 </div>
                 <div className="p-3">
