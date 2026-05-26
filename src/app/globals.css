@@ -246,16 +246,17 @@ h1, h2, h3, h4, h5, h6 {
 
 /* News-style ticker — keeps moving even when OS reduces motion,
    since the scroll is the primary way information is read.
-   Pause on hover so users can read a specific item. */
-.marquee  { animation: marquee 45s linear infinite; will-change: transform; }
+   Pause on hover so users can read a specific item.
+   !important needed to defeat the umbrella reduced-motion rule
+   that some setups (incl. Tailwind preflight) ship by default. */
+.marquee  { animation: marquee 60s linear infinite !important; will-change: transform; }
 .marquee-track:hover .marquee,
-.marquee:hover { animation-play-state: paused; }
+.marquee:hover { animation-play-state: paused !important; }
 
 /* Soften (not kill) decorative motion when user prefers reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .float, .float2, .pulse-soft, .bounce-x, .wiggle,
   .shimmer-bg::after, .live-dot::after { animation: none !important; }
-  .marquee { animation-duration: 90s; }
 }
 
 .live-dot {
@@ -422,6 +423,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Selection */
 ::selection { background: rgba(124,58,237,.4); color: #fff; }
 
-@media (prefers-reduced-motion: reduce) {
-  *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; }
-}
+/* (Removed nuclear "* { animation-duration: .01ms }" reduced-motion rule —
+   it was clobbering even the news-ticker carve-out via !important. Per-
+   animation overrides above target only decorative motion, not the
+   information-carrying marquee.) */
